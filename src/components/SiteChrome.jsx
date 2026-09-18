@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,8 +32,9 @@ export function Calculator() {
   const generation = k * 1400;
   const lifetime = (annual * 25) / 100000;
   const co2 = k * 1.14;
+  const reportHref = `/contact?bill=${bill}&capacity=${k}&generation=${generation}&savings=${annual}&lifetime=${lifetime.toFixed(1)}&co2=${co2.toFixed(1)}`;
 
-  return <div className="calc-box"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><div className="field"><label>PROPERTY</label><div className="selects"><select className="select" defaultValue="Home"><option>Home</option><option>Villa</option><option>Apartment</option><option>Shop</option><option>Office</option><option>Factory</option></select><select className="select" defaultValue="Flat roof"><option>Flat roof</option><option>Sloped roof</option></select></div></div><div className="field"><label htmlFor="pin">PIN CODE (OPTIONAL)</label><input id="pin" className="select full-width" placeholder="Enter PIN code" /></div><Button href="/contact" variant="dark">Show My Solar Savings →</Button></div><div className="result"><h3>Your indicative solar picture</h3><div className="result-grid"><div className="result-item"><small>Recommended Capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Annual Generation</small><strong>{generation.toLocaleString("en-IN")}+ kWh</strong></div><div className="result-item"><small>Potential Annual Savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div><div className="result-item"><small>Estimated Payback</small><strong>4–6 yrs</strong></div><div className="result-item"><small>25-Year Potential</small><strong>₹{lifetime.toFixed(1)}L+</strong></div><div className="result-item"><small>CO₂ Avoided</small><strong>{co2.toFixed(1)} t</strong></div></div><p className="result-note">Indicative only. Actual results depend on location, usage, roof conditions, tariffs, system design and applicable policies.</p><Button href="/contact">Get My Personalised Solar Report</Button></div></div>;
+  return <div className="calc-box"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><div className="field"><label>PROPERTY</label><div className="selects"><select className="select" defaultValue="Home"><option>Home</option><option>Villa</option><option>Apartment</option><option>Shop</option><option>Office</option><option>Factory</option></select><select className="select" defaultValue="Flat roof"><option>Flat roof</option><option>Sloped roof</option></select></div></div><div className="field"><label htmlFor="pin">PIN CODE (OPTIONAL)</label><input id="pin" className="select full-width" placeholder="Enter PIN code" /></div><Button href={reportHref} variant="dark">Show My Solar Savings →</Button></div><div className="result"><h3>Your indicative solar picture</h3><div className="result-grid"><div className="result-item"><small>Recommended Capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Annual Generation</small><strong>{generation.toLocaleString("en-IN")}+ kWh</strong></div><div className="result-item"><small>Potential Annual Savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div><div className="result-item"><small>Estimated Payback</small><strong>4–6 yrs</strong></div><div className="result-item"><small>25-Year Potential</small><strong>₹{lifetime.toFixed(1)}L+</strong></div><div className="result-item"><small>CO₂ Avoided</small><strong>{co2.toFixed(1)} t</strong></div></div><p className="result-note">Indicative only. Actual results depend on location, usage, roof conditions, tariffs, system design and applicable policies.</p><Button href={reportHref}>Get My Personalised Solar Report</Button></div></div>;
 }
 
 export function usePageMotion() {
@@ -59,9 +61,85 @@ export function usePageMotion() {
   }, []);
 }
 
+export function Footer() {
+  return (
+    <>
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-grid">
+            <div>
+              <a className="brand-link footer-brand" href="/"><Brand /></a>
+              <p className="footer-tagline">
+                Clean energy, smarter savings and thoughtful solar systems for
+                Indian homes and businesses.
+              </p>
+              <a className="footer-cta" href="/contact">Start your solar journey →</a>
+            </div>
+            <div>
+              <h4>Company</h4>
+              <a href="/about">About Us</a>
+              <a href="/gallery">Gallery</a>
+              <a href="/contact">Contact</a>
+              <a href="tel:+910000000000">+91 00000 00000</a>
+            </div>
+            <div>
+              <h4>Resources</h4>
+              <a href="/calculator">Solar Calculator</a>
+              <a href="/#faq">Solar Guide</a>
+              <a href="/#faq">FAQs</a>
+              <a href="mailto:hello@evergreensolar.in">Email us</a>
+            </div>
+            <div className="footer-connect">
+              <h4>Connect</h4>
+              <span className="footer-section-label">Social media</span>
+              <div className="footer-social" aria-label="Social media links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+              </div>
+            </div>
+          </div>
+          <div className="bottom">
+            <span>© 2026 Ever Green Solar · Crafted by Zhaivon Digital</span>
+            <span>Made for a cleaner, more independent tomorrow.</span>
+          </div>
+        </div>
+      </footer>
+      <div className="mobile-bar">
+        <a href="https://wa.me/910000000000">WhatsApp</a>
+        <a href="tel:+910000000000">Call</a>
+        <a href="/contact">Get Quote</a>
+      </div>
+    </>
+  );
+}
+
 export function SiteChrome({ children }) {
   usePageMotion();
-  return <><header className="nav" id="nav"><div className="container nav-inner"><a className="brand-link" href="/"><Brand /></a><nav className="links"><a href="/products">Products</a><a href="/about">About Us</a><a href="/gallery">Gallery</a><a href="/calculator">Calculator</a><a href="/contact">Contact</a></nav><div className="nav-actions"><a className="mini" href="tel:+910000000000">☎ Call</a><Button href="/contact" variant="dark">Get Free Quote</Button><button className="menu" aria-label="Menu">☰</button></div></div></header><main>{children}</main><footer className="footer"><div className="container"><div className="footer-grid"><div><a className="brand-link footer-brand" href="/"><Brand /></a><p className="footer-tagline">Clean Energy. Smarter Savings. A Greener Tomorrow.</p></div><div><h4>Company</h4><a href="/about">About Us</a><a href="/gallery">Gallery</a><a href="/contact">Contact</a></div><div><h4>Solutions</h4><a href="/products">Residential</a><a href="/products">Commercial</a><a href="/products">Industrial</a></div><div><h4>Resources</h4><a href="/calculator">Solar Calculator</a><a href="/">Solar Guide</a><a href="/">FAQs</a></div></div><div className="bottom"><span>© 2026 Ever Green Solar</span><span>Privacy Policy · Terms & Conditions</span></div></div></footer><div className="mobile-bar"><a href="https://wa.me/910000000000">WhatsApp</a><a href="tel:+910000000000">Call</a><a href="/contact">Get Quote</a></div></>;
+  return (
+    <>
+      <header className="nav" id="nav">
+        <div className="container nav-inner">
+          <a className="brand-link" href="/"><Brand /></a>
+          <nav className="links">
+            <a href="/products">Products</a>
+            <a href="/about">About Us</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/contact">Contact</a>
+          </nav>
+          <div className="nav-actions">
+            <a className="mini" href="tel:+910000000000">☎ Call</a>
+            <Button href="/contact" variant="dark">Get Free Quote</Button>
+            <button className="menu" aria-label="Menu">☰</button>
+          </div>
+        </div>
+      </header>
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
 }
 
 export function PageHero({ eyebrow, title, copy, image = IMG.cta }) {

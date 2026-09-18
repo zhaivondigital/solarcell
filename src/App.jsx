@@ -7,6 +7,7 @@ import About from "./pages/About.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import CalculatorRoute from "./pages/Calculator.jsx";
 import Contact from "./pages/Contact.jsx";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -886,12 +887,12 @@ function HomePage() {
             <div className="comparison">
               <div className="compare before">
                 <span className="eyebrow">Before solar</span>
-                <div className="price">₹X,XXX</div>
+                <div className="price">₹7,850</div>
                 <p>Monthly electricity cost</p>
               </div>
               <div className="compare after">
                 <span className="eyebrow">After solar</span>
-                <div className="price">₹X,XXX</div>
+                <div className="price">₹1,650</div>
                 <p>Illustrative remaining grid bill</p>
               </div>
             </div>
@@ -977,14 +978,32 @@ function HomePage() {
           <div className="container">
             <div className="eyebrow">Customer stories</div>
             <h2>Real Homes. Real Solar. Real Experiences.</h2>
-            <div className="quote">
-              “The entire process was explained clearly, from the rooftop
-              assessment to installation.”
+            <div className="testimonial-grid">
+              {[
+                [
+                  "“The entire process was explained clearly, from the rooftop assessment to installation.”",
+                  "[Customer Name] · [Location] · [System Size]",
+                ],
+                [
+                  "“We finally understood how much of our everyday electricity use solar could support.”",
+                  "[Customer Name] · [Location] · [System Size]",
+                ],
+                [
+                  "“The team helped us make a practical decision without overcomplicating the process.”",
+                  "[Customer Name] · [Location] · [System Size]",
+                ],
+              ].map(([quote, details], index) => (
+                <article className="testimonial-card" data-card key={index}>
+                  <span className="testimonial-label">Sample testimonial</span>
+                  <div className="quote">{quote}</div>
+                  <p className="muted">{details}</p>
+                </article>
+              ))}
             </div>
-            <span className="placeholder">
-              Customer testimonial — replace with verified customer feedback.
-            </span>
-            <p className="muted">[Customer Name] · [Location] · [System Size]</p>
+            <p className="testimonial-note">
+              Sample copy shown for layout purposes. Replace with verified
+              customer feedback before publishing.
+            </p>
           </div>
         </section>
 
@@ -1112,8 +1131,10 @@ function HomePage() {
                 <Brand />
               </a>
               <p className="footer-tagline">
-                Clean Energy. Smarter Savings. A Greener Tomorrow.
+                Clean energy, smarter savings and thoughtful solar systems for
+                Indian homes and businesses.
               </p>
+              <a className="footer-cta" href="/contact">Start your solar journey →</a>
             </div>
 
             <div>
@@ -1121,28 +1142,32 @@ function HomePage() {
               <a href="/about">About Us</a>
               <a href="/gallery">Gallery</a>
               <a href="/contact">Contact</a>
-              <a href="#">Careers</a>
-            </div>
-
-            <div>
-              <h4>Solutions</h4>
-              <a href="/products">Residential</a>
-              <a href="/products">Commercial</a>
-              <a href="/products">Industrial</a>
+              <a href="tel:+910000000000">+91 00000 00000</a>
             </div>
 
             <div>
               <h4>Resources</h4>
               <a href="/calculator">Solar Calculator</a>
-              <a href="#faq">Solar Guide</a>
-              <a href="#faq">FAQs</a>
-              <a href="#">Blog</a>
+              <a href="/#faq">Solar Guide</a>
+              <a href="/#faq">FAQs</a>
+              <a href="mailto:hello@evergreensolar.in">Email us</a>
+            </div>
+
+            <div className="footer-connect">
+              <h4>Connect</h4>
+              <span className="footer-section-label">Social media</span>
+              <div className="footer-social" aria-label="Social media links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+              </div>
             </div>
           </div>
 
           <div className="bottom">
-            <span>© 2026 Ever Green Solar</span>
-            <span>Privacy Policy · Terms & Conditions</span>
+            <span>© 2026 Ever Green Solar · Crafted by Zhaivon Digital</span>
+            <span>Made for a cleaner, more independent tomorrow.</span>
           </div>
         </div>
       </footer>

@@ -2,6 +2,16 @@ import React from "react";
 import { IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 export default function Contact() {
+  const params = new URLSearchParams(window.location.search);
+  const hasEstimate = params.has("bill") && params.has("savings");
+  const estimate = {
+    bill: Number(params.get("bill") || 0).toLocaleString("en-IN"),
+    capacity: params.get("capacity"),
+    generation: Number(params.get("generation") || 0).toLocaleString("en-IN"),
+    savings: Number(params.get("savings") || 0).toLocaleString("en-IN"),
+    lifetime: params.get("lifetime"),
+  };
+
   return (
     <SiteChrome>
       <PageHero
@@ -16,6 +26,19 @@ export default function Contact() {
           <div>
             <div className="eyebrow">Get in touch</div>
             <h2>Bring us your questions. We will bring a clear plan.</h2>
+            {hasEstimate && (
+              <div className="solar-summary">
+                <div className="eyebrow">Your solar estimate</div>
+                <p>Based on an estimated monthly bill of ₹{estimate.bill}.</p>
+                <div className="summary-grid">
+                  <span><b>{estimate.capacity} kW</b>Recommended capacity</span>
+                  <span><b>₹{estimate.savings}</b>Potential annual savings</span>
+                  <span><b>{estimate.generation}+ kWh</b>Annual generation</span>
+                  <span><b>₹{estimate.lifetime}L+</b>25-year potential</span>
+                </div>
+                <small>Indicative only. We will confirm your personalised system after a site assessment.</small>
+              </div>
+            )}
             <div className="contact-details">
               <div className="contact-detail">
                 <b>Call us</b>
