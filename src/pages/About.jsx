@@ -1,0 +1,64 @@
+import React from "react";
+import { IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
+
+export default function About() {
+  const values = [
+    ["01", "Clarity", "Straight answers and recommendations you can understand."],
+    ["02", "Craft", "Careful installation, considered details and dependable components."],
+    ["03", "Continuity", "A solar partner who stays useful after the panels go live."],
+  ];
+
+  return (
+    <SiteChrome>
+      <PageHero
+        eyebrow="About Ever Green Solar"
+        title="Solar Should Feel Clear, Considered and Built to Last."
+        copy="We help Indian homes and businesses move toward cleaner, more independent energy with practical advice and careful execution."
+        image={IMG.hero}
+      />
+
+      <section data-page-reveal>
+        <div className="container two-col">
+          <div>
+            <div className="eyebrow">Our point of view</div>
+            <h2>Good solar starts with listening.</h2>
+          </div>
+          <div className="page-copy">
+            <p>
+              Every property has a different roof, rhythm and ambition. We take
+              the time to understand the electricity you use, the space you
+              have and the outcome you want before recommending a system.
+            </p>
+            <p>
+              That means transparent conversations, responsible design and
+              support that continues after installation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-band" data-page-reveal>
+        <div className="container">
+          <div className="eyebrow">What guides us</div>
+          <div className="values-grid">
+            {values.map(([number, title, copy]) => (
+              <div className="value" data-card key={number}>
+                <b>{number}</b>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section data-page-reveal>
+        <div className="container stats-strip">
+          <div><strong>500+</strong><span>Installations</span></div>
+          <div><strong>5+ MW</strong><span>Clean energy installed</span></div>
+          <div><strong>25 yrs</strong><span>Designed for the long term</span></div>
+        </div>
+      </section>
+    </SiteChrome>
+  );
+}

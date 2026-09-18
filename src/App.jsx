@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AOS from "aos";
+import Products from "./pages/Products.jsx";
+import About from "./pages/About.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import CalculatorRoute from "./pages/Calculator.jsx";
+import Contact from "./pages/Contact.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,7 +151,7 @@ function Calculator() {
   );
 }
 
-function App() {
+function HomePage() {
   useEffect(() => {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -526,24 +531,23 @@ function App() {
     <>
       <header className="nav" id="nav">
         <div className="container nav-inner">
-          <a className="brand-link" href="#">
+          <a className="brand-link" href="/">
             <Brand />
           </a>
 
           <nav className="links">
-            <a href="#solutions">Solutions</a>
-            <a href="#why">Why Us</a>
-            <a href="#journey">How It Works</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="#faq">Resources</a>
+            <a href="/products">Products</a>
+            <a href="/about">About Us</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/contact">Contact</a>
           </nav>
 
           <div className="nav-actions">
             <a className="mini" href="tel:+910000000000">
               ☎ Call
             </a>
-            <Button href="#contact" variant="dark">
+            <Button href="/contact" variant="dark">
               Get Free Quote
             </Button>
             <button className="menu" aria-label="Menu">
@@ -1104,7 +1108,7 @@ function App() {
         <div className="container">
           <div className="footer-grid">
             <div>
-              <a className="brand-link footer-brand" href="#">
+              <a className="brand-link footer-brand" href="/">
                 <Brand />
               </a>
               <p className="footer-tagline">
@@ -1114,22 +1118,22 @@ function App() {
 
             <div>
               <h4>Company</h4>
-              <a href="#about">About Us</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
+              <a href="/about">About Us</a>
+              <a href="/gallery">Gallery</a>
+              <a href="/contact">Contact</a>
               <a href="#">Careers</a>
             </div>
 
             <div>
               <h4>Solutions</h4>
-              <a href="#solutions">Residential</a>
-              <a href="#solutions">Commercial</a>
-              <a href="#solutions">Industrial</a>
+              <a href="/products">Residential</a>
+              <a href="/products">Commercial</a>
+              <a href="/products">Industrial</a>
             </div>
 
             <div>
               <h4>Resources</h4>
-              <a href="#calculator">Solar Calculator</a>
+              <a href="/calculator">Solar Calculator</a>
               <a href="#faq">Solar Guide</a>
               <a href="#faq">FAQs</a>
               <a href="#">Blog</a>
@@ -1146,10 +1150,20 @@ function App() {
       <div className="mobile-bar">
         <a href="https://wa.me/910000000000">WhatsApp</a>
         <a href="tel:+910000000000">Call</a>
-        <a href="#contact">Get Quote</a>
+              <a href="/contact">Get Quote</a>
       </div>
     </>
   );
+}
+
+function App() {
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  if (path === "/products") return <Products />;
+  if (path === "/about") return <About />;
+  if (path === "/gallery") return <Gallery />;
+  if (path === "/calculator") return <CalculatorRoute />;
+  if (path === "/contact") return <Contact />;
+  return <HomePage />;
 }
 
 export default App;
