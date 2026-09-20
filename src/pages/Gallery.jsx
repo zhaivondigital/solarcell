@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 export default function Gallery() {
+  const [selected, setSelected] = useState(null);
   const gallery = [
     [IMG.project1, "Residential rooftop", "A considered system for everyday home energy."],
     [IMG.project2, "Commercial generation", "Making productive use of a working rooftop."],
@@ -27,17 +28,13 @@ export default function Gallery() {
           <div className="gallery-grid">
             {gallery.map(([image, title, copy]) => (
               <article className="gallery-item" data-card key={title}>
-                <img src={image} alt={title} />
-                <div>
-                  <span className="eyebrow">Ever Green Solar</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </div>
+                <button className="gallery-image-button" onClick={() => setSelected([image, title])} aria-label={`Open ${title}`}><img src={image} alt={title} loading="lazy" /><span className="gallery-view">View project ↗</span></button>
               </article>
             ))}
           </div>
         </div>
       </section>
+      {selected && <div className="lightbox" role="dialog" aria-modal="true" onClick={() => setSelected(null)}><button className="lightbox-close" onClick={() => setSelected(null)} aria-label="Close gallery">×</button><img src={selected[0]} alt={selected[1]} /></div>}
 
       <section
         className="cta compact-cta"

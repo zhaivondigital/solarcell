@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +26,7 @@ export function Button({ href = "#", variant = "primary", children, ...props }) 
   return <a className={`btn ${variant}`} href={href} {...props}>{children}</a>;
 }
 
-export function Calculator() {
+export function Calculator({ compact = false }) {
   const [bill, setBill] = useState(7500);
   const k = Math.max(1, Math.min(30, Math.ceil(bill / 1500)));
   const annual = Math.round(bill * 12 * 0.78);
@@ -34,6 +35,7 @@ export function Calculator() {
   const co2 = k * 1.14;
   const reportHref = `/contact?bill=${bill}&capacity=${k}&generation=${generation}&savings=${annual}&lifetime=${lifetime.toFixed(1)}&co2=${co2.toFixed(1)}`;
 
+  if (compact) return <div className="calc-box compact-calc"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><p className="muted compact-calc-note">Adjust your bill for a quick starting estimate. Full savings, system sizing and report details are available on the calculator page.</p><Button href="/calculator" variant="dark">Open full solar calculator →</Button></div><div className="result compact-result"><h3>Quick estimate</h3><div className="result-grid"><div className="result-item"><small>Recommended capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Potential annual savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div></div></div></div>;
   return <div className="calc-box"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><div className="field"><label>PROPERTY</label><div className="selects"><select className="select" defaultValue="Home"><option>Home</option><option>Villa</option><option>Apartment</option><option>Shop</option><option>Office</option><option>Factory</option></select><select className="select" defaultValue="Flat roof"><option>Flat roof</option><option>Sloped roof</option></select></div></div><div className="field"><label htmlFor="pin">PIN CODE (OPTIONAL)</label><input id="pin" className="select full-width" placeholder="Enter PIN code" /></div><Button href={reportHref} variant="dark">Show My Solar Savings →</Button></div><div className="result"><h3>Your indicative solar picture</h3><div className="result-grid"><div className="result-item"><small>Recommended Capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Annual Generation</small><strong>{generation.toLocaleString("en-IN")}+ kWh</strong></div><div className="result-item"><small>Potential Annual Savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div><div className="result-item"><small>Estimated Payback</small><strong>4–6 yrs</strong></div><div className="result-item"><small>25-Year Potential</small><strong>₹{lifetime.toFixed(1)}L+</strong></div><div className="result-item"><small>CO₂ Avoided</small><strong>{co2.toFixed(1)} t</strong></div></div><p className="result-note">Indicative only. Actual results depend on location, usage, roof conditions, tariffs, system design and applicable policies.</p><Button href={reportHref}>Get My Personalised Solar Report</Button></div></div>;
 }
 
@@ -101,7 +103,7 @@ export function Footer() {
             </div>
           </div>
           <div className="bottom">
-            <span>© 2026 Ever Green Solar · Crafted by Zhaivon Digital</span>
+            <span>© 2026 Ever Green Solar · Crafted by <a href="https://www.zhaivondigital.com/" target="_blank" rel="noreferrer">Zhaivon Digital</a></span>
             <span>Made for a cleaner, more independent tomorrow.</span>
           </div>
         </div>
@@ -117,27 +119,42 @@ export function Footer() {
 
 export function SiteChrome({ children }) {
   usePageMotion();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showTop, setShowTop] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 500);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <>
       <header className="nav" id="nav">
         <div className="container nav-inner">
           <a className="brand-link" href="/"><Brand /></a>
-          <nav className="links">
-            <a href="/products">Products</a>
-            <a href="/about">About Us</a>
-            <a href="/gallery">Gallery</a>
-            <a href="/calculator">Calculator</a>
-            <a href="/contact">Contact</a>
+          <nav className={`links ${menuOpen ? "is-open" : ""}`}>
+            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
+            <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+            <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+            <a href="/calculator" onClick={() => setMenuOpen(false)}>Calculator</a>
+            <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </nav>
           <div className="nav-actions">
             <a className="mini" href="tel:+910000000000">☎ Call</a>
             <Button href="/contact" variant="dark">Get Free Quote</Button>
-            <button className="menu" aria-label="Menu">☰</button>
+            <button className="menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
+              {menuOpen ? <FaXmark /> : <FaBars />}
+            </button>
           </div>
         </div>
       </header>
       <main>{children}</main>
       <Footer />
+      <div className="floating-actions" aria-label="Quick contact actions">
+        <a className="fab whatsapp" href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
+        <a className="fab call" href="tel:+910000000000" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
+        <button className={`fab top ${showTop ? "visible" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Return to top" title="Return to top"><FaArrowUp /></button>
+      </div>
     </>
   );
 }

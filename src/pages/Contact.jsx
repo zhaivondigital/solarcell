@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 export default function Contact() {
+  const [sent, setSent] = useState(false);
   const params = new URLSearchParams(window.location.search);
   const hasEstimate = params.has("bill") && params.has("savings");
   const estimate = {
@@ -59,7 +60,7 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={(event) => { event.preventDefault(); setSent(true); }}
           >
             <label>
               Name
@@ -87,10 +88,18 @@ export default function Contact() {
               />
             </label>
             <button className="btn dark" type="submit">
-              Request a free consultation →
+              {sent ? "Request received ✓" : "Request a free consultation →"}
             </button>
             <small>We will only use your details to respond to this enquiry.</small>
           </form>
+        </div>
+      </section>
+      <section className="map-section" data-page-reveal>
+        <div className="container map-wrap">
+          <div className="eyebrow">Find us</div>
+          <h3>Let’s talk solar, in person or online.</h3>
+          <p className="muted">Visit us, call us, or share your property details and our team will guide you through the next step.</p>
+          <iframe title="Ever Green Solar location map" src="https://www.google.com/maps?q=New+Delhi+India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </section>
     </SiteChrome>

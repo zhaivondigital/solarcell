@@ -8,6 +8,7 @@ import Gallery from "./pages/Gallery.jsx";
 import CalculatorRoute from "./pages/Calculator.jsx";
 import Contact from "./pages/Contact.jsx";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,6 +154,7 @@ function Calculator() {
 }
 
 function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -536,12 +538,12 @@ function HomePage() {
             <Brand />
           </a>
 
-          <nav className="links">
-            <a href="/products">Products</a>
-            <a href="/about">About Us</a>
-            <a href="/gallery">Gallery</a>
-            <a href="/calculator">Calculator</a>
-            <a href="/contact">Contact</a>
+          <nav className={`links ${menuOpen ? "is-open" : ""}`}>
+            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
+            <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+            <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+            <a href="/calculator" onClick={() => setMenuOpen(false)}>Calculator</a>
+            <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </nav>
 
           <div className="nav-actions">
@@ -551,8 +553,8 @@ function HomePage() {
             <Button href="/contact" variant="dark">
               Get Free Quote
             </Button>
-            <button className="menu" aria-label="Menu">
-              ☰
+            <button className="menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
+              {menuOpen ? <FaXmark /> : <FaBars />}
             </button>
           </div>
         </div>
@@ -682,7 +684,7 @@ function HomePage() {
               estimate the solar system your property may need and potential
               savings.
             </p>
-            <Calculator />
+            <Calculator compact />
           </div>
         </section>
 
@@ -824,6 +826,10 @@ function HomePage() {
               </p>
             </div>
 
+            <div className="component-quality-visual">
+              <img src={IMG.project2} alt="Solar panels installed on a rooftop" loading="lazy" />
+              <span>Reliable components. Thoughtful installation.</span>
+            </div>
             <div className="component-list">
               {[
                 ["Solar Panels", "Convert sunlight into electricity."],
@@ -1058,23 +1064,7 @@ function HomePage() {
                 ],
                 [
                   "Can I get a government subsidy?",
-                  "Eligible residential customers may qualify under current schemes. Eligibility and amounts should be checked against current official policy.",
-                ],
-                [
-                  "How long do solar panels last?",
-                  "Quality solar panels are designed for long-term operation; exact performance and warranty terms depend on the selected product.",
-                ],
-                [
-                  "Do you provide maintenance?",
-                  "Ever Green Solar can provide post-installation assistance and monitoring; confirm the exact service package in your quotation.",
-                ],
-                [
-                  "Can solar power my AC and heavy appliances?",
-                  "Yes, with appropriate system sizing and electrical design. Usage patterns and backup requirements should be assessed.",
-                ],
-                [
-                  "What information do I need to get a quotation?",
-                  "Your recent electricity bill, property details, approximate roof information and location are useful starting points.",
+                  "Eligible residential customers may qualify under current schemes. We verify the latest official policy before advising.",
                 ],
               ].map(([question, answer]) => (
                 <details key={question}>
@@ -1107,11 +1097,11 @@ function HomePage() {
               like for your property.
             </p>
             <div className="hero-buttons">
-              <Button href="mailto:hello@evergreensolar.in">
+              <Button href="/contact">
                 Get My Free Solar Assessment →
               </Button>
-              <Button href="tel:+910000000000" variant="ghost">
-                Talk to a Solar Expert
+              <Button href="/contact" variant="ghost">
+                Talk to a Solar Expert →
               </Button>
             </div>
             <div className="checks">
@@ -1119,6 +1109,10 @@ function HomePage() {
               <span>Personalised recommendation</span>
               <span>Professional installation</span>
             </div>
+          </div>
+          <div className="contact-cta-visual">
+            <img src={IMG.roof} alt="Solar panels ready to power a home" loading="lazy" />
+            <div><strong>Ready to make your rooftop work harder?</strong><span>Start with a clear, no-obligation conversation.</span></div>
           </div>
         </section>
       </main>
@@ -1176,6 +1170,11 @@ function HomePage() {
         <a href="https://wa.me/910000000000">WhatsApp</a>
         <a href="tel:+910000000000">Call</a>
               <a href="/contact">Get Quote</a>
+      </div>
+      <div className="floating-actions" aria-label="Quick contact actions">
+        <a className="fab whatsapp" href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
+        <a className="fab call" href="tel:+910000000000" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
+        <button className="fab top visible" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Return to top" title="Return to top"><FaArrowUp /></button>
       </div>
     </>
   );
