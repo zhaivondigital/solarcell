@@ -3,13 +3,13 @@ import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx"
 
 export default function About() {
   const values = [
-    ["01", "Clarity", "Straight answers and recommendations you can understand."],
-    ["02", "Craft", "Careful installation, considered details and dependable components."],
-    ["03", "Continuity", "A solar partner who stays useful after the panels go live."],
+    ["01", "Clarity", "Simple advice, transparent communication and solutions you can understand."],
+    ["02", "Craft", "Quality products, careful design and professional installation."],
+    ["03", "Continuity", "We stay connected beyond installation, with dependable support for the long run."],
   ];
   const team = [
-    ["Founder", "Aarav Mehta", "Building a cleaner, more independent energy future.", "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=85"],
-    ["Co-founder", "Meera Nair", "Making every solar decision feel simple and human.", "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=85"],
+    ["Founder", "Evelin","Every big journey begins with a small step. In 2011, I took that first step and started Ever Green Solar System from a small 300 sq.ft. space. I was entering a field that was still growing, with a lot to learn and many challenges ahead.The journey was not easy. There were financial struggles, uncertainties and moments when I had to find the courage to keep moving forward. But I believed in the business, believed in solar and most importantly, believed that with hard work and integrity, we could build something meaningful.Over the years, every customer, every project and every challenge taught me something new. From our early installations to working on projects that I once only dreamed of, the journey has been incredibly rewarding.Receiving recognition and awards along the way was special, but the greatest achievement has been earning the trust of our customers and building a team that shares the same vision.Today, EGS is more than the business I started. It is a journey of perseverance, learning and growth.I started with a dream. Today, I am building that dream into a legacy.", "/founder.jpeg"],
+    ["Co-founder", "Edwin Inbaraj ", "Behind every growing journey is the strength to keep moving forward.”My journey with Ever Green Solar System has been about being part of something we believe in and building it together.As Co-Founder, I have been involved in the company's growth, supporting its operations, projects and the many decisions that shape our future.The solar industry is constantly evolving, and so is EGS. Every project brings a new challenge, every customer brings a new responsibility, and every experience helps us become better.Together, Evelin and I have shared the challenges, celebrated the milestones and continued to move forward with one common vision — to build a solar company that customers can trust for the long term.For us, EGS is not just a business.It is something we are building together, one project, one customer and one step at a time.", "co-founder.jpeg"],
     ["People & Projects", "Our solar crew", "Designers, engineers and installers who care about the detail.", "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85"],
   ];
 
@@ -30,13 +30,11 @@ export default function About() {
           </div>
           <div className="page-copy">
             <p>
-              Every property has a different roof, rhythm and ambition. We take
-              the time to understand the electricity you use, the space you
-              have and the outcome you want before recommending a system.
+              Every customer has different energy needs. We listen,
+              understand your requirements and design the rig tcht solar solution for your home or business.
             </p>
             <p>
-              That means transparent conversations, responsible design and
-              support that continues after installation.
+              We listen. We understand. We design. We deliver.
             </p>
           </div>
         </div>

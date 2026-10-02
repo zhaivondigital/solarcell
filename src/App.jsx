@@ -539,8 +539,8 @@ function HomePage() {
           </a>
 
           <nav className={`links ${menuOpen ? "is-open" : ""}`}>
-            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
             <a href="/calculator" onClick={() => setMenuOpen(false)}>Calculator</a>
             <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
@@ -1151,10 +1151,9 @@ function HomePage() {
               <h4>Connect</h4>
               <span className="footer-section-label">Social media</span>
               <div className="footer-social" aria-label="Social media links">
-                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
-                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+                <a href="https://www.instagram.com/evergreen_solar_system/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+                <a href="https://www.facebook.com/profile.php?id=100072452646473" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+                <a href="https://www.youtube.com/@evergreensolaregs712" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
               </div>
             </div>
           </div>
