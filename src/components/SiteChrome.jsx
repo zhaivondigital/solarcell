@@ -133,8 +133,8 @@ export function SiteChrome({ children }) {
         <div className="container nav-inner">
           <a className="brand-link" href="/"><Brand /></a>
           <nav className={`links ${menuOpen ? "is-open" : ""}`}>
-            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+            <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
             <a href="/calculator" onClick={() => setMenuOpen(false)}>Calculator</a>
             <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
