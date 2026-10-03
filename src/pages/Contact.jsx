@@ -16,17 +16,21 @@ export default function Contact() {
   return (
     <SiteChrome>
       <PageHero
-        eyebrow="Start your solar journey"
-        title="Let's Make Your Rooftop Work Harder."
-        copy="Tell us a little about your property and we'll help you understand the next sensible step."
-        image={IMG.cta}
+        eyebrow="Solar enquiries in Chennai"
+        title="Let's Plan a Better Energy Future."
+        copy="Tell us about your property and our team will help you understand the right next step for your solar journey."
+        image={IMG.roof}
       />
 
-      <section data-page-reveal>
+      <section className="contact-section" data-page-reveal>
         <div className="container contact-layout">
-          <div>
+          <div className="contact-intro">
             <div className="eyebrow">Get in touch</div>
-            <h2>Bring us your questions. We will bring a clear plan.</h2>
+            <h2>Clear answers. A solar plan made for your property.</h2>
+            <p className="muted contact-lead">
+              Share a few details and we will help you explore a practical
+              rooftop solar solution for your home or business in Chennai.
+            </p>
             {hasEstimate && (
               <div className="solar-summary">
                 <div className="eyebrow">Your solar estimate</div>
@@ -40,20 +44,24 @@ export default function Contact() {
                 <small>Indicative only. We will confirm your personalised system after a site assessment.</small>
               </div>
             )}
-            <div className="contact-details">
-              <div className="contact-detail">
+            <div className="contact-details" aria-label="Contact information">
+              <div className="contact-detail contact-card">
                 <b>Call us</b>
                 <a href="tel:+910000000000">+91 00000 00000</a>
               </div>
-              <div className="contact-detail">
+              <div className="contact-detail contact-card">
                 <b>Email</b>
                 <a href="mailto:hello@evergreensolar.in">
                   hello@evergreensolar.in
                 </a>
               </div>
-              <div className="contact-detail">
+              <div className="contact-detail contact-card">
                 <b>Hours</b>
                 <span>Mon-Sat · 9:00 AM-6:00 PM</span>
+              </div>
+              <div className="contact-detail contact-card">
+                <b>Service area</b>
+                <span>Chennai, Tamil Nadu</span>
               </div>
             </div>
           </div>
@@ -62,32 +70,40 @@ export default function Contact() {
             className="contact-form"
             onSubmit={(event) => { event.preventDefault(); setSent(true); }}
           >
-            <label>
-              Name
-              <input required placeholder="Your name" />
-            </label>
-            <label>
-              Phone number
-              <input required type="tel" placeholder="Your phone number" />
-            </label>
-            <label>
-              Property type
-              <select defaultValue="Home">
-                <option>Home</option>
-                <option>Villa</option>
-                <option>Apartment</option>
-                <option>Commercial property</option>
-                <option>Industrial facility</option>
-              </select>
-            </label>
-            <label>
-              How can we help?
-              <textarea
-                rows="4"
-                placeholder="Tell us about your property or electricity bill"
-              />
-            </label>
-            <button className="btn dark" type="submit">
+            <div className="contact-form-heading">
+              <span className="eyebrow">Start a conversation</span>
+              <h3>Request a free consultation</h3>
+              <p className="muted">We’ll get back to you to discuss your solar needs.</p>
+            </div>
+            <div className="contact-form-fields">
+              <label>
+                Name
+                <input name="name" required placeholder="Your name" />
+              </label>
+              <label>
+                Phone number
+                <input name="phone" required type="tel" placeholder="Your phone number" />
+              </label>
+              <label className="contact-form-wide">
+                Property type
+                <select name="propertyType" defaultValue="Home">
+                  <option>Home</option>
+                  <option>Villa</option>
+                  <option>Apartment</option>
+                  <option>Commercial property</option>
+                  <option>Industrial facility</option>
+                </select>
+              </label>
+              <label className="contact-form-wide">
+                How can we help?
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Tell us about your property or electricity bill"
+                />
+              </label>
+            </div>
+            <button className="btn dark" type="submit" aria-live="polite">
               {sent ? "Request received ✓" : "Request a free consultation →"}
             </button>
             <small>We will only use your details to respond to this enquiry.</small>
@@ -97,9 +113,9 @@ export default function Contact() {
       <section className="map-section" data-page-reveal>
         <div className="container map-wrap">
           <div className="eyebrow">Find us</div>
-          <h3>Let’s talk solar, in person or online.</h3>
-          <p className="muted">Visit us, call us, or share your property details and our team will guide you through the next step.</p>
-          <iframe title="Ever Green Solar location map" src="https://www.google.com/maps?q=New+Delhi+India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <h3>Serving Chennai homes and businesses.</h3>
+          <p className="muted">Get in touch to discuss your rooftop and arrange a solar assessment in Chennai.</p>
+          <iframe title="Map of Chennai, India" src="https://www.google.com/maps?q=Chennai%2C+Tamil+Nadu%2C+India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </section>
     </SiteChrome>

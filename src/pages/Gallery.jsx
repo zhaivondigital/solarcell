@@ -4,31 +4,40 @@ import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx"
 export default function Gallery() {
   const [selected, setSelected] = useState(null);
   const gallery = [
-    [IMG.project1, "Residential rooftop", "A considered system for everyday home energy."],
-    [IMG.project2, "Commercial generation", "Making productive use of a working rooftop."],
-    [IMG.project3, "Industrial scale", "A larger footprint for a larger energy demand."],
-    [IMG.roof, "The rooftop assessment", "Every installation starts with the site itself."],
+    [IMG.project1, "Residential rooftop solar", "A considered solar system for Chennai homes and villas."],
+    [IMG.project2, "Commercial rooftop solar", "Making productive use of commercial rooftop space."],
+    [IMG.project3, "Solar energy systems", "Solar solutions designed around larger energy needs."],
+    [IMG.roof, "Rooftop assessment", "Every system starts with the roof, its sunlight and available space."],
   ];
 
   return (
     <SiteChrome>
       <PageHero
-        eyebrow="Project gallery"
-        title="Real Rooftops. Thoughtful Solar."
-        copy="A visual look at the kinds of properties and possibilities we design for. Verified project details are shared with permission."
+        eyebrow="Solar gallery"
+        title="Thoughtful Solar for Chennai Rooftops."
+        copy="Explore the kinds of residential, commercial and industrial solar solutions we design for Chennai properties."
         image={IMG.project1}
       />
 
       <section data-page-reveal>
         <div className="container">
           <div className="page-intro">
-            <div className="eyebrow">Selected work</div>
-            <h2>Solar that belongs to the place it powers.</h2>
+            <div className="eyebrow">Solar solutions in focus</div>
+            <h2>From home rooftops to larger energy needs.</h2>
+            <p className="muted gallery-intro">
+              These images illustrate the property types and solar systems we
+              work with. Project-specific details are shared only when verified
+              and approved.
+            </p>
           </div>
           <div className="gallery-grid">
             {gallery.map(([image, title, copy]) => (
               <article className="gallery-item" data-card key={title}>
-                <button className="gallery-image-button" onClick={() => setSelected([image, title])} aria-label={`Open ${title}`}><img src={image} alt={title} loading="lazy" /><span className="gallery-view">View project ↗</span></button>
+                <button className="gallery-image-button" onClick={() => setSelected([image, title])} aria-label={`Open ${title}`}><img src={image} alt={title} loading="lazy" /><span className="gallery-view">View image ↗</span></button>
+                <div className="gallery-item-copy">
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
               </article>
             ))}
           </div>

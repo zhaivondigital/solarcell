@@ -14,15 +14,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const IMG = {
   hero:
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2200&q=85",
+    "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=2200&q=85",
   roof:
     "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1800&q=85",
   residential:
-    "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1300&q=85",
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1300&q=85",
   commercial:
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85",
+    "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1100&q=85",
   industrial:
-    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1100&q=85",
+    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1100&q=85",
   project1:
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=85",
   project2:
@@ -35,13 +35,8 @@ const IMG = {
 
 function Brand() {
   return (
-    <span className="brand">
-      <span className="sunleaf" />
-      <span>
-        EVER GREEN
-        <br />
-        <small>SOLAR</small>
-      </span>
+    <span className="brand brand-logo-wrap">
+      <img className="brand-logo" src="/egs-house-of-solar-logo.png" alt="EGS House of Solar" />
     </span>
   );
 }
@@ -51,105 +46,6 @@ function Button({ href = "#", variant = "primary", children, ...props }) {
     <a className={`btn ${variant}`} href={href} {...props}>
       {children}
     </a>
-  );
-}
-
-function Calculator() {
-  const [bill, setBill] = useState(7500);
-
-  const k = Math.max(1, Math.min(30, Math.ceil(bill / 1500)));
-  const annual = Math.round(bill * 12 * 0.78);
-  const generation = k * 1400;
-  const lifetime = (annual * 25) / 100000;
-  const co2 = k * 1.14;
-
-  return (
-    <div className="calc-box">
-      <div>
-        <div className="field">
-          <label htmlFor="bill">MONTHLY ELECTRICITY BILL</label>
-          <div className="money">
-            ₹{bill.toLocaleString("en-IN")}
-          </div>
-          <input
-            id="bill"
-            className="range"
-            type="range"
-            min="1000"
-            max="50000"
-            step="500"
-            value={bill}
-            onChange={(e) => setBill(Number(e.target.value))}
-          />
-        </div>
-
-        <div className="field">
-          <label>PROPERTY</label>
-          <div className="selects">
-            <select className="select" defaultValue="Home">
-              <option>Home</option>
-              <option>Villa</option>
-              <option>Apartment</option>
-              <option>Shop</option>
-              <option>Office</option>
-              <option>Factory</option>
-            </select>
-            <select className="select" defaultValue="Flat roof">
-              <option>Flat roof</option>
-              <option>Sloped roof</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="field">
-          <label htmlFor="pin">PIN CODE (OPTIONAL)</label>
-          <input
-            id="pin"
-            className="select full-width"
-            placeholder="Enter PIN code"
-          />
-        </div>
-
-        <Button href="#contact" variant="dark">
-          Show My Solar Savings →
-        </Button>
-      </div>
-
-      <div className="result">
-        <h3>Your indicative solar picture</h3>
-        <div className="result-grid">
-          <div className="result-item">
-            <small>Recommended Capacity</small>
-            <strong>{k} kW</strong>
-          </div>
-          <div className="result-item">
-            <small>Annual Generation</small>
-            <strong>{generation.toLocaleString("en-IN")}+ kWh</strong>
-          </div>
-          <div className="result-item">
-            <small>Potential Annual Savings</small>
-            <strong>₹{annual.toLocaleString("en-IN")}</strong>
-          </div>
-          <div className="result-item">
-            <small>Estimated Payback</small>
-            <strong>4–6 yrs</strong>
-          </div>
-          <div className="result-item">
-            <small>25-Year Potential</small>
-            <strong>₹{lifetime.toFixed(1)}L+</strong>
-          </div>
-          <div className="result-item">
-            <small>CO₂ Avoided</small>
-            <strong>{co2.toFixed(1)} t</strong>
-          </div>
-        </div>
-        <p className="result-note">
-          Indicative only. Actual results depend on location, usage, roof
-          conditions, tariffs, system design and applicable policies.
-        </p>
-        <Button href="#contact">Get My Personalised Solar Report</Button>
-      </div>
-    </div>
   );
 }
 
@@ -564,21 +460,21 @@ function HomePage() {
         <section className="hero">
           <div className="container hero-inner">
             <div>
-              <div className="eyebrow">Smart rooftop solar for India</div>
+              <div className="eyebrow">Rooftop solar for Chennai</div>
               <h1>
-                Your Roof Can Do More Than Protect Your Home.
+                Your Roof Can Do More.
                 <br />
-                <span>It can power it.</span>
+                <span>Let It Power Your Home.</span>
               </h1>
               <p className="hero-copy">
-                Generate clean electricity, reduce your dependence on rising
-                power costs and make your rooftop work harder for you.
+                Solar solutions designed for Chennai homes and businesses.
+                Generate clean electricity and make your rooftop work harder.
               </p>
               <div className="hero-buttons">
                 <Button href="#calculator">
                   Calculate My Solar Savings →
                 </Button>
-                <Button href="#contact" variant="ghost">
+                <Button href="/contact" variant="ghost">
                   Book a Free Home Visit
                 </Button>
               </div>
@@ -684,7 +580,15 @@ function HomePage() {
               estimate the solar system your property may need and potential
               savings.
             </p>
-            <Calculator compact />
+            <a className="calculator-teaser" href="/calculator" aria-label="Open the full solar savings calculator">
+              <p>
+                Get a complete estimate for your electricity bill, property
+                type and location with our dedicated solar calculator.
+              </p>
+              <span className="calculator-teaser-action">
+                Open the full solar calculator <span aria-hidden="true">→</span>
+              </span>
+            </a>
           </div>
         </section>
 
@@ -700,7 +604,7 @@ function HomePage() {
                 <h2>One Sun. Different Energy Needs.</h2>
               </div>
               <p className="muted">
-                Engineered around the way your property consumes energy.
+              Solar options for Chennai homes and businesses, from residential rooftops to larger commercial installations.
               </p>
             </div>
 
@@ -734,7 +638,7 @@ function HomePage() {
                     <span className="eyebrow">{eyebrow}</span>
                     <h3>{title}</h3>
                     <p>{copy}</p>
-                    <Button href="#contact">{cta}</Button>
+                    <Button href="/contact">{cta}</Button>
                   </div>
                 </article>
               ))}
@@ -808,13 +712,15 @@ function HomePage() {
                 PANEL PLACEMENT
               </div>
             </div>
-            <Button href="#contact" variant="dark" className="assessment-btn">
-              Request a Rooftop Assessment
-            </Button>
+            <div className="assessment-action">
+              <Button href="/contact" variant="dark" className="assessment-btn">
+                Request a Rooftop Assessment <span aria-hidden="true">→</span>
+              </Button>
+            </div>
           </div>
         </section>
 
-        <section data-reveal-section>
+        <section className="component-quality-section" data-reveal-section>
           <div className="container components">
             <div>
               <div className="eyebrow">Component quality</div>
@@ -849,38 +755,6 @@ function HomePage() {
                   <span>{text}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="projects" id="projects" data-reveal-section>
-          <div className="container">
-            <div className="eyebrow">Project showcase</div>
-            <h2>From Rooftops to Real Results.</h2>
-            <p className="muted section-copy">
-              A portfolio structure ready for verified Ever Green Solar
-              projects.
-            </p>
-
-            <div className="project-grid">
-              <div className="project" data-card>
-                <img src={IMG.project1} alt="Rooftop solar installation" />
-                <span>01 — Residential · [Verified Size] · [City]</span>
-              </div>
-              <div className="project" data-card>
-                <img src={IMG.project2} alt="Solar panels" />
-                <span>02 — Commercial · [Verified Size]</span>
-              </div>
-              <div className="project" data-card>
-                <img src={IMG.project3} alt="Solar energy" />
-                <span>03 — Industrial · [Verified Size]</span>
-              </div>
-              <div className="project project-note">
-                <div>
-                  <div className="eyebrow">REAL PROJECTS</div>
-                  <h3>Only verified project information belongs here.</h3>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -929,7 +803,7 @@ function HomePage() {
                 <div>✓ Subsidy process</div>
               </div>
 
-              <Button href="#contact" variant="dark">
+              <Button href="/contact" variant="dark">
                 Check My Solar Eligibility →
               </Button>
             </div>
@@ -1159,7 +1033,7 @@ function HomePage() {
           </div>
 
           <div className="bottom">
-            <span>© 2026 Ever Green Solar · Crafted by Zhaivon Digital</span>
+            <span>© 2026 Ever Green Solar · Crafted by <a href="http://zhaivondigital.com/" target="_blank" rel="noreferrer">Zhaivon Digital</a></span>
             <span>Made for a cleaner, more independent tomorrow.</span>
           </div>
         </div>

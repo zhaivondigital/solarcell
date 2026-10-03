@@ -7,11 +7,11 @@ import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6
 gsap.registerPlugin(ScrollTrigger);
 
 export const IMG = {
-  hero: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2200&q=85",
+  hero: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=2200&q=85",
   roof: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1800&q=85",
-  residential: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1300&q=85",
-  commercial: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85",
-  industrial: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1100&q=85",
+  residential: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1300&q=85",
+  commercial: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1100&q=85",
+  industrial: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1100&q=85",
   project1: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=85",
   project2: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1000&q=85",
   project3: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85",
@@ -19,14 +19,14 @@ export const IMG = {
 };
 
 export function Brand() {
-  return <span className="brand"><span className="sunleaf" /><span>EVER GREEN<br /><small>SOLAR</small></span></span>;
+  return <span className="brand brand-logo-wrap"><img className="brand-logo" src="/egs-house-of-solar-logo.png" alt="EGS House of Solar" /></span>;
 }
 
 export function Button({ href = "#", variant = "primary", children, ...props }) {
   return <a className={`btn ${variant}`} href={href} {...props}>{children}</a>;
 }
 
-export function Calculator({ compact = false }) {
+export function Calculator() {
   const [bill, setBill] = useState(7500);
   const k = Math.max(1, Math.min(30, Math.ceil(bill / 1500)));
   const annual = Math.round(bill * 12 * 0.78);
@@ -35,8 +35,89 @@ export function Calculator({ compact = false }) {
   const co2 = k * 1.14;
   const reportHref = `/contact?bill=${bill}&capacity=${k}&generation=${generation}&savings=${annual}&lifetime=${lifetime.toFixed(1)}&co2=${co2.toFixed(1)}`;
 
-  if (compact) return <div className="calc-box compact-calc"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><p className="muted compact-calc-note">Adjust your bill for a quick starting estimate. Full savings, system sizing and report details are available on the calculator page.</p><Button href="/calculator" variant="dark">Open full solar calculator →</Button></div><div className="result compact-result"><h3>Quick estimate</h3><div className="result-grid"><div className="result-item"><small>Recommended capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Potential annual savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div></div></div></div>;
-  return <div className="calc-box"><div><div className="field"><label htmlFor="bill">MONTHLY ELECTRICITY BILL</label><div className="money">₹{bill.toLocaleString("en-IN")}</div><input id="bill" className="range" type="range" min="1000" max="50000" step="500" value={bill} onChange={(e) => setBill(Number(e.target.value))} /></div><div className="field"><label>PROPERTY</label><div className="selects"><select className="select" defaultValue="Home"><option>Home</option><option>Villa</option><option>Apartment</option><option>Shop</option><option>Office</option><option>Factory</option></select><select className="select" defaultValue="Flat roof"><option>Flat roof</option><option>Sloped roof</option></select></div></div><div className="field"><label htmlFor="pin">PIN CODE (OPTIONAL)</label><input id="pin" className="select full-width" placeholder="Enter PIN code" /></div><Button href={reportHref} variant="dark">Show My Solar Savings →</Button></div><div className="result"><h3>Your indicative solar picture</h3><div className="result-grid"><div className="result-item"><small>Recommended Capacity</small><strong>{k} kW</strong></div><div className="result-item"><small>Annual Generation</small><strong>{generation.toLocaleString("en-IN")}+ kWh</strong></div><div className="result-item"><small>Potential Annual Savings</small><strong>₹{annual.toLocaleString("en-IN")}</strong></div><div className="result-item"><small>Estimated Payback</small><strong>4–6 yrs</strong></div><div className="result-item"><small>25-Year Potential</small><strong>₹{lifetime.toFixed(1)}L+</strong></div><div className="result-item"><small>CO₂ Avoided</small><strong>{co2.toFixed(1)} t</strong></div></div><p className="result-note">Indicative only. Actual results depend on location, usage, roof conditions, tariffs, system design and applicable policies.</p><Button href={reportHref}>Get My Personalised Solar Report</Button></div></div>;
+  return (
+    <div className="calc-box">
+      <div>
+        <div className="field">
+          <label htmlFor="bill">MONTHLY ELECTRICITY BILL</label>
+          <div className="money">₹{bill.toLocaleString("en-IN")}</div>
+          <input
+            id="bill"
+            className="range"
+            type="range"
+            min="1000"
+            max="50000"
+            step="500"
+            value={bill}
+            onChange={(event) => setBill(Number(event.target.value))}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="property">PROPERTY</label>
+          <div className="selects">
+            <select id="property" className="select" defaultValue="Home">
+              <option>Home</option>
+              <option>Villa</option>
+              <option>Apartment</option>
+              <option>Shop</option>
+              <option>Office</option>
+              <option>Factory</option>
+            </select>
+            <select className="select" aria-label="Roof type" defaultValue="Flat roof">
+              <option>Flat roof</option>
+              <option>Sloped roof</option>
+            </select>
+          </div>
+        </div>
+        <div className="field">
+          <label htmlFor="pin">PIN CODE (OPTIONAL)</label>
+          <input
+            id="pin"
+            className="select full-width"
+            inputMode="numeric"
+            placeholder="Enter PIN code"
+          />
+        </div>
+        <Button href={reportHref} variant="dark">
+          Show My Solar Savings →
+        </Button>
+      </div>
+      <div className="result">
+        <h3>Your indicative solar picture</h3>
+        <div className="result-grid">
+          <div className="result-item">
+            <small>Recommended Capacity</small>
+            <strong>{k} kW</strong>
+          </div>
+          <div className="result-item">
+            <small>Annual Generation</small>
+            <strong>{generation.toLocaleString("en-IN")}+ kWh</strong>
+          </div>
+          <div className="result-item">
+            <small>Potential Annual Savings</small>
+            <strong>₹{annual.toLocaleString("en-IN")}</strong>
+          </div>
+          <div className="result-item">
+            <small>Estimated Payback</small>
+            <strong>4–6 yrs</strong>
+          </div>
+          <div className="result-item">
+            <small>25-Year Potential</small>
+            <strong>₹{lifetime.toFixed(1)}L+</strong>
+          </div>
+          <div className="result-item">
+            <small>CO₂ Avoided</small>
+            <strong>{co2.toFixed(1)} t</strong>
+          </div>
+        </div>
+        <p className="result-note">
+          Indicative only. Actual results depend on location, usage, roof
+          conditions, tariffs, system design and applicable policies.
+        </p>
+        <Button href={reportHref}>Get My Personalised Solar Report</Button>
+      </div>
+    </div>
+  );
 }
 
 export function usePageMotion() {
@@ -103,7 +184,7 @@ export function Footer() {
             </div>
           </div>
           <div className="bottom">
-            <span>© 2026 Ever Green Solar · Crafted by <a href="https://www.zhaivondigital.com/" target="_blank" rel="noreferrer">Zhaivon Digital</a></span>
+            <span>© 2026 Ever Green Solar · Crafted by <a href="http://zhaivondigital.com/" target="_blank" rel="noreferrer">Zhaivon Digital</a></span>
             <span>Made for a cleaner, more independent tomorrow.</span>
           </div>
         </div>
