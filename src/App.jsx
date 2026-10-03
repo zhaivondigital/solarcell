@@ -736,26 +736,7 @@ function HomePage() {
               <img src={IMG.project2} alt="Solar panels installed on a rooftop" loading="lazy" />
               <span>Reliable components. Thoughtful installation.</span>
             </div>
-            <div className="component-list">
-              {[
-                ["Solar Panels", "Convert sunlight into electricity."],
-                ["Inverter", "Converts and manages generated power."],
-                [
-                  "Mounting Structure",
-                  "Keeps the system secure on your rooftop.",
-                ],
-                [
-                  "Protection System",
-                  "Helps protect your installation and electrical network.",
-                ],
-                ["Monitoring", "Track system performance and generation."],
-              ].map(([name, text]) => (
-                <div className="component" data-reveal key={name}>
-                  <b>{name}</b>
-                  <span>{text}</span>
-                </div>
-              ))}
-            </div>
+
           </div>
         </section>
 
@@ -983,10 +964,10 @@ function HomePage() {
               <span>Personalised recommendation</span>
               <span>Professional installation</span>
             </div>
-          </div>
-          <div className="contact-cta-visual">
-            <img src={IMG.roof} alt="Solar panels ready to power a home" loading="lazy" />
-            <div><strong>Ready to make your rooftop work harder?</strong><span>Start with a clear, no-obligation conversation.</span></div>
+            <div className="contact-cta-visual">
+              <img src={IMG.roof} alt="Solar panels ready to power a home" loading="lazy" />
+              <div><strong>Ready to make your rooftop work harder?</strong><span>Start with a clear, no-obligation conversation.</span></div>
+            </div>
           </div>
         </section>
       </main>

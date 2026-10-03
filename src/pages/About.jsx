@@ -8,9 +8,40 @@ export default function About() {
     ["03", "Continuity", "We stay connected beyond installation, with dependable support for the long run."],
   ];
   const team = [
-    ["Founder", "Evelin","Every big journey begins with a small step. In 2011, I took that first step and started Ever Green Solar System from a small 300 sq.ft. space. I was entering a field that was still growing, with a lot to learn and many challenges ahead.The journey was not easy. There were financial struggles, uncertainties and moments when I had to find the courage to keep moving forward. But I believed in the business, believed in solar and most importantly, believed that with hard work and integrity, we could build something meaningful.Over the years, every customer, every project and every challenge taught me something new. From our early installations to working on projects that I once only dreamed of, the journey has been incredibly rewarding.Receiving recognition and awards along the way was special, but the greatest achievement has been earning the trust of our customers and building a team that shares the same vision.Today, EGS is more than the business I started. It is a journey of perseverance, learning and growth.I started with a dream. Today, I am building that dream into a legacy.", "/founder.jpeg"],
-    ["Co-founder", "Edwin Inbaraj ", "Behind every growing journey is the strength to keep moving forward.”My journey with Ever Green Solar System has been about being part of something we believe in and building it together.As Co-Founder, I have been involved in the company's growth, supporting its operations, projects and the many decisions that shape our future.The solar industry is constantly evolving, and so is EGS. Every project brings a new challenge, every customer brings a new responsibility, and every experience helps us become better.Together, Evelin and I have shared the challenges, celebrated the milestones and continued to move forward with one common vision — to build a solar company that customers can trust for the long term.For us, EGS is not just a business.It is something we are building together, one project, one customer and one step at a time.", "co-founder.jpeg"],
-    ["People & Projects", "Our solar crew", "Designers, engineers and installers who care about the detail.", "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85"],
+    {
+      role: "Founder",
+      name: "Evelin",
+      image: "/founder.jpeg",
+      paragraphs: [
+        "Every big journey begins with a small step. In 2011, I started Ever Green Solar System from a small 300 sq. ft. space, entering a growing field with much to learn and many challenges ahead.",
+        "The journey was not easy. There were financial struggles, uncertainties and moments when I had to find the courage to keep moving forward. I believed in the business, in solar and in the idea that hard work and integrity could build something meaningful.",
+        "Over the years, every customer, project and challenge has taught me something new. From our early installations to taking on projects I once only dreamed of, the journey has been incredibly rewarding.",
+        "Recognition and awards have been special, but the greatest achievement has been earning our customers' trust and building a team that shares the same vision.",
+        "Today, EGS is more than the business I started. It is a journey of perseverance, learning and growth. I started with a dream, and today I am building that dream into a legacy.",
+      ],
+    },
+    {
+      role: "Co-founder",
+      name: "Edwin Inbaraj",
+      image: "/co-founder.jpeg",
+      paragraphs: [
+        "Behind every growing journey is the strength to keep moving forward. My journey with Ever Green Solar System has been about building something we believe in, together.",
+        "As Co-founder, I have supported the company's growth across its operations, projects and the many decisions that shape our future.",
+        "The solar industry is constantly evolving, and so is EGS. Every project brings a new challenge, every customer a new responsibility, and every experience an opportunity to improve.",
+        "Together, Evelin and I have shared challenges, celebrated milestones and continued to move forward with one vision: to build a solar company customers can trust for the long term.",
+        "For us, EGS is not just a business. It is something we are building together, one project, one customer and one step at a time.",
+      ],
+    },
+    {
+      role: "People & Projects",
+      name: "Our solar crew",
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85",
+      paragraphs: [
+        "Thoughtful solar work takes a team. Our designers, engineers and installers bring their skills together to help each project move from an initial conversation to a considered rooftop solution.",
+        "From understanding a property's needs to planning and carrying out the installation, the team pays attention to the practical details that help a system fit its site.",
+        "We value clear communication, careful workmanship and dependable support throughout the customer journey.",
+      ],
+    },
   ];
 
   return (
@@ -41,8 +72,29 @@ export default function About() {
       </section>
 
       <section className="team-section" data-page-reveal>
-        <div className="container team-intro"><div className="eyebrow">The people behind the panels</div><h2>A small team with a long-term view.</h2></div>
-        {team.map(([role, name, copy, image], index) => <section className={`person-feature ${index % 2 ? "reverse" : ""}`} key={role}><div className="container person-feature-inner"><img src={image} alt={name} loading="lazy" /><div><span className="eyebrow">{role}</span><h3>{name}</h3><p className="muted">{copy}</p><Button href="/contact" variant="dark">Connect with our team →</Button></div></div></section>)}
+        <div className="container team-intro">
+          <div className="eyebrow">The people behind the panels</div>
+          <h2>A small team with a long-term view.</h2>
+        </div>
+        {team.map(({ role, name, paragraphs, image }, index) => (
+          <section className={`person-feature ${index % 2 ? "reverse" : ""}`} key={role}>
+            <div className="container person-feature-inner">
+              <div className="person-feature-image">
+                <img src={image} alt={name} loading="lazy" />
+              </div>
+              <div className="person-feature-copy">
+                <span className="eyebrow">{role}</span>
+                <h3>{name}</h3>
+                <div className="person-feature-paragraphs">
+                  {paragraphs.map((paragraph) => (
+                    <p className="muted" key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <Button href="/contact" variant="dark">Connect with our team →</Button>
+              </div>
+            </div>
+          </section>
+        ))}
       </section>
 
       <section className="dark-band" data-page-reveal>
