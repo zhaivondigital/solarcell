@@ -161,15 +161,16 @@ const categories = [
 ];
 
 const onsiteImages = [
-  [IMG.hero, "Solar panels across a rooftop"],
-  [IMG.roof, "Rooftop solar array"],
-  [IMG.project1, "Solar modules installed on site"],
-  [IMG.project2, "Solar panels in sunlight"],
-  [IMG.project3, "Solar installation landscape"],
-  ["https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=85", "Rooftop solar project"],
-  ["https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85", "Solar energy equipment"],
-  ["https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=85", "Solar panels under a clear sky"],
-  ["https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85", "Solar installation at golden hour"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.47%20PM.jpeg", "Onsite solar installation photo 1"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.49%20PM.jpeg", "Onsite solar installation photo 2"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.50%20PM.jpeg", "Onsite solar installation photo 3"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.52%20PM.jpeg", "Onsite solar installation photo 4"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.56%20PM.jpeg", "Onsite solar installation photo 5"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.23.10%20PM.jpeg", "Onsite solar installation photo 6"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.25.14%20PM.jpeg", "Onsite solar installation photo 7"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.01%20PM%20(1).jpeg", "Onsite solar installation photo 8"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.01%20PM.jpeg", "Onsite solar installation photo 9"],
+  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.05%20PM.jpeg", "Onsite solar installation photo 10"],
 ];
 
 export default function Gallery() {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, Fa, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -176,10 +176,9 @@ export function Footer() {
               <h4>Connect</h4>
               <span className="footer-section-label">Social media</span>
               <div className="footer-social" aria-label="Social media links">
-                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
-                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+                <a href="https://www.instagram.com/evergreen_solar_system/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+                <a href="https://www.facebook.com/profile.php?id=100072452646473" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+                <a href="https://www.youtube.com/@evergreensolaregs712" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
               </div>
             </div>
           </div>
