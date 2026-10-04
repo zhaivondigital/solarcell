@@ -1,64 +1,351 @@
 import React, { useMemo, useState } from "react";
 import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
-const categoryDefinitions = [
-  { name: "Solar Water Heater", count: 10, badges: { 1: ["Trending"], 2: ["Bestseller"], 3: ["Bestseller"] } },
-  { name: "Solar Heating Element", count: 2 },
-  { name: "Heat Pump", count: 6, badges: { 1: ["Bestseller"], 2: ["New"], 3: ["Trending"] } },
-  { name: "Heating Element", count: 1 },
-  { name: "ETC TUBE", count: 1 },
-  { name: "Solar valve", count: 4 },
-  { name: "Solar On Grid", count: 4, badges: { 1: ["Bestseller"], 2: ["Recommended"], 3: ["New"] } },
-  { name: "Service", count: 1 },
-  { name: "More Items", count: 7 },
-];
-
 const badgeLabels = ["Trending", "Bestseller", "New", "Recommended"];
 const productsPerPage = 9;
 
-const categoryImages = {
-  "Solar Water Heater": [
-    "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
-    IMG.roof,
-    IMG.commercial,
-  ],
-  "Solar Heating Element": [
-    "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
-    IMG.project2,
-  ],
-  "Heat Pump": [
-    "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1000&q=85",
-    "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1000&q=85",
-    "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
-  ],
-  "Heating Element": [
-    "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
-  ],
-  "ETC TUBE": [
-    "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
-  ],
-  "Solar valve": [IMG.project2, IMG.industrial, IMG.commercial],
-  "Solar On Grid": [IMG.roof, IMG.residential, IMG.project2, IMG.industrial],
-  Service: [IMG.industrial],
-  "More Items": [IMG.project2, IMG.roof, IMG.commercial, IMG.residential],
-};
+// Edit products here. Copy a record to add a product; add image URLs to images
+// to make its card gallery interactive.
+const products = [
+  {
+    category: "Solar Water Heater",
+    tags: ["Trending"],
+    title: "Solar Water Heater 01",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.roof,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: ["Bestseller"],
+    title: "Solar Water Heater 02",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: ["Bestseller"],
+    title: "Solar Water Heater 03",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 04",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.commercial,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 05",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
 
-const products = categoryDefinitions.flatMap(({ name, count, badges = {} }) =>
-  Array.from({ length: count }, (_, index) => {
-    const number = index + 1;
-    return {
-      id: `${name}-${number}`,
-      category: name,
-      name: `${name} ${String(number).padStart(2, "0")}`,
-      image: categoryImages[name][index % categoryImages[name].length],
-      badges: badges[number] || [],
-    };
-  })
-);
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 06",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 07",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.roof,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 08",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 09",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Water Heater",
+    tags: [],
+    title: "Solar Water Heater 10",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.commercial,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Heating Element",
+    tags: [],
+    title: "Solar Heating Element 01",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.project2,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar Heating Element",
+    tags: [],
+    title: "Solar Heating Element 02",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: ["Bestseller"],
+    title: "Heat Pump 01",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: ["New"],
+    title: "Heat Pump 02",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: ["Trending"],
+    title: "Heat Pump 03",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: [],
+    title: "Heat Pump 04",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: [],
+    title: "Heat Pump 05",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heat Pump",
+    tags: [],
+    title: "Heat Pump 06",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1000&q=85",
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Heating Element",
+    tags: [],
+    title: "Heating Element 01",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.project2,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "ETC TUBE",
+    tags: [],
+    title: "ETC TUBE 01",
+    description: "Add a product description here.",
+    images: [
+      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
+      IMG.roof,
+    ],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar valve",
+    tags: [],
+    title: "Solar valve 01",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.industrial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar valve",
+    tags: [],
+    title: "Solar valve 02",
+    description: "Add a product description here.",
+    images: [IMG.industrial, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar valve",
+    tags: [],
+    title: "Solar valve 03",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.project2],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar valve",
+    tags: [],
+    title: "Solar valve 04",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar On Grid",
+    tags: ["Bestseller"],
+    title: "Solar On Grid 01",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.residential],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar On Grid",
+    tags: ["Recommended"],
+    title: "Solar On Grid 02",
+    description: "Add a product description here.",
+    images: [IMG.residential, IMG.project2],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar On Grid",
+    tags: ["New"],
+    title: "Solar On Grid 03",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.industrial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Solar On Grid",
+    tags: [],
+    title: "Solar On Grid 04",
+    description: "Add a product description here.",
+    images: [IMG.industrial, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "Service",
+    tags: [],
+    title: "Service 01",
+    description: "Add a product description here.",
+    images: [IMG.industrial, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 01",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 02",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 03",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.residential],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 04",
+    description: "Add a product description here.",
+    images: [IMG.residential, IMG.project2],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 05",
+    description: "Add a product description here.",
+    images: [IMG.project2, IMG.roof],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 06",
+    description: "Add a product description here.",
+    images: [IMG.roof, IMG.commercial],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+  {
+    category: "More Items",
+    tags: [],
+    title: "More Items 07",
+    description: "Add a product description here.",
+    images: [IMG.commercial, IMG.residential],
+    buyNow: { label: "Buy now", href: "/contact" },
+  },
+];
+
+const categoryDefinitions = [...new Set(products.map((product) => product.category))].map((name) => ({
+  name,
+  count: products.filter((product) => product.category === name).length,
+}));
 
 export default function Products() {
   const [category, setCategory] = useState("All products");
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeProductImages, setActiveProductImages] = useState({});
   const filteredProducts = useMemo(
     () =>
       category === "All products"
@@ -79,10 +366,16 @@ export default function Products() {
     setCurrentPage(page);
     document.querySelector(".catalog-section")?.scrollIntoView({ behavior: "smooth" });
   };
+  const changeProductImage = (product, imageIndex) => {
+    setActiveProductImages((current) => ({
+      ...current,
+      [product.title]: imageIndex,
+    }));
+  };
   const categories = categoryDefinitions.map(({ name, count }) => ({ name, count }));
   const badgeCounts = products.reduce((counts, product) => {
-    product.badges.forEach((badge) => {
-      counts[badge] += 1;
+    product.tags.forEach((tag) => {
+      if (tag in counts) counts[tag] += 1;
     });
     return counts;
   }, Object.fromEntries(badgeLabels.map((badge) => [badge, 0])));
@@ -159,40 +452,87 @@ export default function Products() {
               </div>
 
               <div className="catalog-product-grid">
-                {pageProducts.map((product) => (
-                  <a
-                    className="catalog-product-card"
-                    href="/contact"
-                    aria-label={`Enquire about ${product.name}`}
-                    key={product.id}
-                  >
-                    <div className="catalog-product-image">
-                      <img
-                        src={product.image}
-                        alt={`Representative ${product.category.toLowerCase()} product`}
-                        loading="lazy"
-                      />
-                      {product.badges.length > 0 && (
-                        <div className="catalog-product-badges" aria-label="Product labels">
-                          {product.badges.map((badge) => (
-                            <span className={`catalog-badge badge-${badge.toLowerCase()}`} key={badge}>
-                              {badge}
-                            </span>
-                          ))}
+                {pageProducts.map((product) => {
+                  const imageIndex = activeProductImages[product.title] || 0;
+                  return (
+                    <article className="catalog-product-card" key={product.title}>
+                      <a
+                        className="catalog-product-card-link"
+                        href={product.buyNow.href}
+                        aria-label={`${product.buyNow.label}: ${product.title}`}
+                      >
+                        <div className="catalog-product-image">
+                          <img
+                            src={product.images[imageIndex]}
+                            alt={`${product.title} image ${imageIndex + 1}`}
+                            loading="lazy"
+                          />
+                          {product.tags.length > 0 && (
+                            <div className="catalog-product-badges" aria-label="Product labels">
+                              {product.tags.map((tag) => (
+                                <span className={`catalog-badge badge-${tag.toLowerCase()}`} key={tag}>
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        <div className="catalog-product-content">
+                          <div className="catalog-product-name">
+                            <span className="eyebrow">{product.category}</span>
+                            <h4>{product.title}</h4>
+                          </div>
+                          <p className="catalog-product-description">{product.description}</p>
+                          <span className="catalog-buy-button">
+                            {product.buyNow.label} <span aria-hidden="true">→</span>
+                          </span>
+                        </div>
+                      </a>
+                      {product.images.length > 1 && (
+                        <div className="catalog-image-controls" aria-label={`${product.title} images`}>
+                          <button
+                            className="catalog-image-arrow"
+                            type="button"
+                            aria-label={`Previous ${product.title} image`}
+                            onClick={() =>
+                              changeProductImage(
+                                product,
+                                (imageIndex - 1 + product.images.length) % product.images.length
+                              )
+                            }
+                          >
+                            ‹
+                          </button>
+                          <div className="catalog-image-dots">
+                            {product.images.map((image, index) => (
+                              <button
+                                className={`catalog-image-dot${index === imageIndex ? " active" : ""}`}
+                                type="button"
+                                key={`${product.title}-image-${index}`}
+                                aria-label={`Show ${product.title} image ${index + 1}`}
+                                aria-pressed={index === imageIndex}
+                                onClick={() => changeProductImage(product, index)}
+                              />
+                            ))}
+                          </div>
+                          <button
+                            className="catalog-image-arrow"
+                            type="button"
+                            aria-label={`Next ${product.title} image`}
+                            onClick={() =>
+                              changeProductImage(
+                                product,
+                                (imageIndex + 1) % product.images.length
+                              )
+                            }
+                          >
+                            ›
+                          </button>
                         </div>
                       )}
-                    </div>
-                    <div className="catalog-product-content">
-                      <div className="catalog-product-name">
-                        <span className="eyebrow">{product.category}</span>
-                        <h4>{product.name}</h4>
-                      </div>
-                      <span className="catalog-buy-button">
-                        Buy now <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                  </a>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
               {totalPages > 1 && (
                 <nav className="catalog-pagination" aria-label="Product pages">

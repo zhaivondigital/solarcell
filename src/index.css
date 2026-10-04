@@ -322,19 +322,29 @@
 .catalog-results-heading h3{font-size:22px}
 .catalog-results-heading span{color:#68736c;font-size:12px;font-weight:800}
 .catalog-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.catalog-product-card{min-width:0;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(23,32,27,.1);border-radius:17px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 12px 30px rgba(18,59,42,.07);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.catalog-product-card{position:relative;min-width:0;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(23,32,27,.1);border-radius:17px;background:#fff;box-shadow:0 12px 30px rgba(18,59,42,.07);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
 .catalog-product-card:hover{transform:translateY(-4px);border-color:rgba(18,59,42,.25);box-shadow:var(--shadow)}
-.catalog-product-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.catalog-product-card-link{min-height:100%;display:flex;flex:1;flex-direction:column;color:inherit;text-decoration:none}
+.catalog-product-card-link:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .catalog-product-image{position:relative;overflow:hidden;aspect-ratio:1.55;background:var(--sage)}
 .catalog-product-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
 .catalog-product-card:hover .catalog-product-image img{transform:scale(1.045)}
 .catalog-product-badges{position:absolute;top:12px;left:12px;display:flex;flex-wrap:wrap;gap:6px}
 .catalog-product-badges .catalog-badge{padding:6px 10px;border:0;font-size:10px;box-shadow:0 4px 14px rgba(0,0,0,.14)}
 .catalog-product-badges .catalog-badge b,.catalog-product-badges .catalog-badge small{display:none}
+.catalog-image-controls{position:absolute;z-index:2;top:calc((100% - 105px) / 2);left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.catalog-image-arrow,.catalog-image-dot{pointer-events:auto;cursor:pointer}
+.catalog-image-arrow{width:32px;height:32px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.7);border-radius:50%;background:rgba(18,59,42,.82);color:#fff;font-size:25px;line-height:1;box-shadow:0 3px 10px rgba(0,0,0,.18);transition:background .2s ease,transform .2s ease}
+.catalog-image-arrow:hover{background:var(--forest);transform:scale(1.08)}
+.catalog-image-dots{display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 9px;border-radius:999px;background:rgba(18,32,27,.65);backdrop-filter:blur(5px)}
+.catalog-image-dot{width:8px;height:8px;padding:0;border:1px solid #fff;border-radius:50%;background:transparent;transition:background .2s ease,transform .2s ease}
+.catalog-image-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2)}
+.catalog-image-arrow:focus-visible,.catalog-image-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .catalog-product-content{display:flex;flex:1;flex-direction:column;align-items:stretch;padding:17px}
 .catalog-product-name{margin:0 0 20px}
 .catalog-product-name .eyebrow{font-size:9px;letter-spacing:.1em}
 .catalog-product-name h4{margin:7px 0 0;color:var(--ever);font-size:20px;font-weight:900;line-height:1.2}
+.catalog-product-description{flex:1;margin:0 0 18px;color:#68736c;font-size:13px;line-height:1.55}
 .catalog-buy-button{width:min(76%,220px);min-height:48px;align-self:center;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:auto;padding:8px 18px;border:1px solid var(--gold);border-radius:999px;background:linear-gradient(110deg,var(--ever),var(--forest));color:#fff;text-align:center;font-size:15px;font-weight:900;line-height:1.2;box-shadow:0 7px 16px rgba(18,59,42,.17);transition:background .22s ease,color .22s ease,box-shadow .22s ease,transform .22s ease}
 .catalog-section .catalog-buy-button span{display:inline-grid;flex:0 0 27px;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--gold);color:var(--ever);transition:transform .22s ease}
 .catalog-section .catalog-buy-button:hover{background:linear-gradient(110deg,#f8c653,var(--gold));color:var(--ever);box-shadow:0 10px 22px rgba(190,132,24,.28);transform:translateY(-2px)}

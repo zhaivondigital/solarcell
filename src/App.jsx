@@ -86,9 +86,16 @@ function HomePage() {
         .from(".hero .eyebrow", { y: 30, opacity: 0, duration: 0.65 }, "-=.35")
         .from(".hero h1", { y: 55, opacity: 0, duration: 1 }, "-=.45")
         .from(".hero-copy", { y: 30, opacity: 0, duration: 0.65 }, "-=.55")
-        .from(
-          ".hero-buttons .btn",
-          { y: 25, opacity: 0, stagger: 0.12, duration: 0.55 },
+        .fromTo(
+          ".hero .hero-buttons .btn",
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.12,
+            duration: 0.55,
+            clearProps: "opacity,transform",
+          },
           "-=.35"
         )
         .from(
@@ -471,7 +478,7 @@ function HomePage() {
                 Generate clean electricity and make your rooftop work harder.
               </p>
               <div className="hero-buttons">
-                <Button href="#calculator">
+                <Button href="/calculator">
                   Calculate My Solar Savings →
                 </Button>
                 <Button href="/contact" variant="ghost">
