@@ -4,8 +4,7 @@ import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx"
 const badgeLabels = ["Trending", "Bestseller", "New", "Recommended"];
 const productsPerPage = 9;
 
-// Edit products here. Copy a record to add a product; add image URLs to images
-// to make its card gallery interactive.
+// Edit products here. The first image URL is shown on each product card.
 const products = [
   {
     category: "Solar Water Heater",
@@ -345,7 +344,6 @@ const categoryDefinitions = [...new Set(products.map((product) => product.catego
 export default function Products() {
   const [category, setCategory] = useState("All products");
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeProductImages, setActiveProductImages] = useState({});
   const filteredProducts = useMemo(
     () =>
       category === "All products"
@@ -365,12 +363,6 @@ export default function Products() {
   const changePage = (page) => {
     setCurrentPage(page);
     document.querySelector(".catalog-section")?.scrollIntoView({ behavior: "smooth" });
-  };
-  const changeProductImage = (product, imageIndex) => {
-    setActiveProductImages((current) => ({
-      ...current,
-      [product.title]: imageIndex,
-    }));
   };
   const categories = categoryDefinitions.map(({ name, count }) => ({ name, count }));
   const badgeCounts = products.reduce((counts, product) => {
@@ -452,87 +444,42 @@ export default function Products() {
               </div>
 
               <div className="catalog-product-grid">
-                {pageProducts.map((product) => {
-                  const imageIndex = activeProductImages[product.title] || 0;
-                  return (
-                    <article className="catalog-product-card" key={product.title}>
-                      <a
-                        className="catalog-product-card-link"
-                        href={product.buyNow.href}
-                        aria-label={`${product.buyNow.label}: ${product.title}`}
-                      >
-                        <div className="catalog-product-image">
-                          <img
-                            src={product.images[imageIndex]}
-                            alt={`${product.title} image ${imageIndex + 1}`}
-                            loading="lazy"
-                          />
-                          {product.tags.length > 0 && (
-                            <div className="catalog-product-badges" aria-label="Product labels">
-                              {product.tags.map((tag) => (
-                                <span className={`catalog-badge badge-${tag.toLowerCase()}`} key={tag}>
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                        <div className="catalog-product-content">
-                          <div className="catalog-product-name">
-                            <span className="eyebrow">{product.category}</span>
-                            <h4>{product.title}</h4>
-                          </div>
-                          <p className="catalog-product-description">{product.description}</p>
-                          <span className="catalog-buy-button">
-                            {product.buyNow.label} <span aria-hidden="true">→</span>
-                          </span>
-                        </div>
-                      </a>
-                      {product.images.length > 1 && (
-                        <div className="catalog-image-controls" aria-label={`${product.title} images`}>
-                          <button
-                            className="catalog-image-arrow"
-                            type="button"
-                            aria-label={`Previous ${product.title} image`}
-                            onClick={() =>
-                              changeProductImage(
-                                product,
-                                (imageIndex - 1 + product.images.length) % product.images.length
-                              )
-                            }
-                          >
-                            ‹
-                          </button>
-                          <div className="catalog-image-dots">
-                            {product.images.map((image, index) => (
-                              <button
-                                className={`catalog-image-dot${index === imageIndex ? " active" : ""}`}
-                                type="button"
-                                key={`${product.title}-image-${index}`}
-                                aria-label={`Show ${product.title} image ${index + 1}`}
-                                aria-pressed={index === imageIndex}
-                                onClick={() => changeProductImage(product, index)}
-                              />
+                {pageProducts.map((product) => (
+                  <article className="catalog-product-card" key={product.title}>
+                    <a
+                      className="catalog-product-card-link"
+                      href={product.buyNow.href}
+                      aria-label={`${product.buyNow.label}: ${product.title}`}
+                    >
+                      <div className="catalog-product-image">
+                        <img
+                          src={product.images[0]}
+                          alt={product.title}
+                          loading="lazy"
+                        />
+                        {product.tags.length > 0 && (
+                          <div className="catalog-product-badges" aria-label="Product labels">
+                            {product.tags.map((tag) => (
+                              <span className={`catalog-badge badge-${tag.toLowerCase()}`} key={tag}>
+                                {tag}
+                              </span>
                             ))}
                           </div>
-                          <button
-                            className="catalog-image-arrow"
-                            type="button"
-                            aria-label={`Next ${product.title} image`}
-                            onClick={() =>
-                              changeProductImage(
-                                product,
-                                (imageIndex + 1) % product.images.length
-                              )
-                            }
-                          >
-                            ›
-                          </button>
+                        )}
+                      </div>
+                      <div className="catalog-product-content">
+                        <div className="catalog-product-name">
+                          <span className="eyebrow">{product.category}</span>
+                          <h4>{product.title}</h4>
                         </div>
-                      )}
-                    </article>
-                  );
-                })}
+                        <p className="catalog-product-description">{product.description}</p>
+                        <span className="catalog-buy-button">
+                          {product.buyNow.label} <span aria-hidden="true">→</span>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+                ))}
               </div>
               {totalPages > 1 && (
                 <nav className="catalog-pagination" aria-label="Product pages">

@@ -7,30 +7,18 @@ import About from "./pages/About.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import CalculatorRoute from "./pages/Calculator.jsx";
 import Contact from "./pages/Contact.jsx";
+import { IMG } from "./components/SiteChrome.jsx";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const IMG = {
-  hero:
-    "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=2200&q=85",
-  roof:
-    "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1800&q=85",
-  residential:
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1300&q=85",
-  commercial:
-    "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1100&q=85",
-  industrial:
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1100&q=85",
-  project1:
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=85",
-  project2:
-    "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1000&q=85",
-  project3:
-    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85",
-  cta:
-    "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=2200&q=85",
+const HOME_IMG = {
+  roof: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+  residential: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1300&q=85",
+  commercial: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85",
+  industrial: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85",
+  cta: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85",
 };
 
 function Brand() {
@@ -621,21 +609,21 @@ function HomePage() {
                   "01 — RESIDENTIAL",
                   "Residential Solar",
                   "For homes that want lower electricity bills and greater energy independence.",
-                  IMG.residential,
+                  HOME_IMG.residential,
                   "Power My Home →",
                 ],
                 [
                   "02 — COMMERCIAL",
                   "Commercial Solar",
                   "Turn unused rooftop space into a long-term energy asset.",
-                  IMG.commercial,
+                  HOME_IMG.commercial,
                   "Explore →",
                 ],
                 [
                   "03 — INDUSTRIAL",
                   "Industrial Solar",
                   "High-capacity systems engineered around your facility's energy demand.",
-                  IMG.industrial,
+                  HOME_IMG.industrial,
                   "Talk to Us →",
                 ],
               ].map(([eyebrow, title, copy, src, cta]) => (
@@ -707,7 +695,7 @@ function HomePage() {
             </p>
             <div
               className="roof-visual"
-              style={{ backgroundImage: `url(${IMG.roof})` }}
+              style={{ backgroundImage: `url(${HOME_IMG.roof})` }}
             >
               <div className="roof-label label1" data-float>
                 ROOF AREA
@@ -944,7 +932,7 @@ function HomePage() {
         <section
           className="cta"
           id="contact"
-          style={{ backgroundImage: `linear-gradient(90deg,rgba(10,35,24,.9),rgba(10,35,24,.2)),url("${IMG.cta}")` }}
+          style={{ backgroundImage: `linear-gradient(90deg,rgba(10,35,24,.9),rgba(10,35,24,.2)),url("${HOME_IMG.cta}")` }}
           data-reveal-section
         >
           <div className="container">
@@ -972,7 +960,7 @@ function HomePage() {
               <span>Professional installation</span>
             </div>
             <div className="contact-cta-visual">
-              <img src={IMG.roof} alt="Solar panels ready to power a home" loading="lazy" />
+              <img src={HOME_IMG.roof} alt="A family home ready for rooftop solar" loading="lazy" />
               <div><strong>Ready to make your rooftop work harder?</strong><span>Start with a clear, no-obligation conversation.</span></div>
             </div>
           </div>

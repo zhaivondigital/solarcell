@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
   const params = new URLSearchParams(window.location.search);
   const hasEstimate = params.has("bill") && params.has("savings");
   const estimate = {
@@ -11,6 +10,33 @@ export default function Contact() {
     generation: Number(params.get("generation") || 0).toLocaleString("en-IN"),
     savings: Number(params.get("savings") || 0).toLocaleString("en-IN"),
     lifetime: params.get("lifetime"),
+  };
+  const sendWhatsAppEnquiry = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const message = [
+      "Hello, I would like to request a free solar consultation.",
+      "",
+      `Name: ${formData.get("name")}`,
+      `Phone: ${formData.get("phone")}`,
+      `Property type: ${formData.get("propertyType")}`,
+      `Enquiry: ${formData.get("message") || "Not provided"}`,
+      ...(hasEstimate
+        ? [
+            "",
+            "Solar estimate from the website:",
+            `Monthly bill: ₹${estimate.bill}`,
+            `Recommended capacity: ${estimate.capacity} kW`,
+            `Potential annual savings: ₹${estimate.savings}`,
+          ]
+        : []),
+    ].join("\n");
+
+    window.open(
+      `https://wa.me/9884044588?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -68,7 +94,7 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            onSubmit={(event) => { event.preventDefault(); setSent(true); }}
+            onSubmit={sendWhatsAppEnquiry}
           >
             <div className="contact-form-heading">
               <span className="eyebrow">Start a conversation</span>
@@ -103,19 +129,37 @@ export default function Contact() {
                 />
               </label>
             </div>
-            <button className="btn dark" type="submit" aria-live="polite">
-              {sent ? "Request received ✓" : "Request a free consultation →"}
+            <button className="btn dark" type="submit">
+              Continue on WhatsApp →
             </button>
-            <small>We will only use your details to respond to this enquiry.</small>
+            <small>
+              WhatsApp will open with your enquiry ready to send. Please review
+              the message and tap Send to submit it.
+            </small>
           </form>
         </div>
       </section>
       <section className="map-section" data-page-reveal>
         <div className="container map-wrap">
           <div className="eyebrow">Find us</div>
-          <h3>Serving Chennai homes and businesses.</h3>
-          <p className="muted">Get in touch to discuss your rooftop and arrange a solar assessment in Chennai.</p>
-          <iframe title="Map of Chennai, India" src="https://maps.app.goo.gl/SAXEMStKPV1bVz179" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <h3>Visit our Chennai locations.</h3>
+          <p className="muted">Find our office or warehouse in Chennai, Tamil Nadu.</p>
+          <div className="contact-map-grid">
+            <article className="contact-map">
+              <h5>Office</h5>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4113.971075786233!2d80.22598427527211!3d13.082662712433224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526571e9d1f483%3A0x548500a21a35bbf9!2sEver%20Green%20Solar%20System!5e1!3m2!1sen!2sin!4v1792246086374!5m2!1sen!2sin"
+               loading="lazy" 
+               referrerpolicy="strict-origin-when-cross-origin"
+              />
+            </article>
+            <article className="contact-map">
+              <h5>Warehouse</h5>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26528.464548972315!2d80.18396235166762!3d13.112647828290845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52657b16eb1813%3A0x3f4fbf2197b5b92d!2sEver%20Green%20Solar%20System!5e1!3m2!1sen!2sin!4v1792246589444!5m2!1sen!2sin"
+               loading="lazy" 
+               referrerpolicy="strict-origin-when-cross-origin"
+               />
+            </article>
+          </div>
         </div>
       </section>
     </SiteChrome>
