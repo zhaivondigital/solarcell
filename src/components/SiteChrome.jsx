@@ -163,14 +163,14 @@ export function Footer() {
               <a href="/about">About Us</a>
               <a href="/gallery">Gallery</a>
               <a href="/contact">Contact</a>
-              <a href="tel:+910000000000">+91 00000 00000</a>
+              <a href="tel:+919884044588 ">+91 98840 44588</a>
             </div>
             <div>
               <h4>Resources</h4>
               <a href="/calculator">Solar Calculator</a>
               <a href="/#faq">Solar Guide</a>
               <a href="/#faq">FAQs</a>
-              <a href="mailto:hello@evergreensolar.in">Email us</a>
+              <a href="mailto:sales@evergreensolars.com">Email us</a>
             </div>
             <div className="footer-connect">
               <h4>Connect</h4>
@@ -189,8 +189,8 @@ export function Footer() {
         </div>
       </footer>
       <div className="mobile-bar">
-        <a href="https://wa.me/910000000000">WhatsApp</a>
-        <a href="tel:+910000000000">Call</a>
+        <a href="https://wa.me/9884044588" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="tel:+919884044588 " target="_blank" rel="noreferrer">Call</a>
         <a href="/contact">Get Quote</a>
       </div>
     </>
@@ -220,7 +220,7 @@ export function SiteChrome({ children }) {
             <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </nav>
           <div className="nav-actions">
-            <a className="mini" href="tel:+910000000000">☎ Call</a>
+            <a className="mini" href="tel:+919884044588 ">☎ Call</a>
             <Button href="/contact" variant="dark">Get Free Quote</Button>
             <button className="menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
               {menuOpen ? <FaXmark /> : <FaBars />}
@@ -231,8 +231,8 @@ export function SiteChrome({ children }) {
       <main>{children}</main>
       <Footer />
       <div className="floating-actions" aria-label="Quick contact actions">
-        <a className="fab whatsapp" href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
-        <a className="fab call" href="tel:+910000000000" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
+        <a className="fab whatsapp" href="https://wa.me/9884044588" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
+        <a className="fab call" href="tel:+919884044588 " target="_blank" rel="noreferrer" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
         <button className={`fab top ${showTop ? "visible" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Return to top" title="Return to top"><FaArrowUp /></button>
       </div>
     </>

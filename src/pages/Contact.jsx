@@ -47,12 +47,12 @@ export default function Contact() {
             <div className="contact-details" aria-label="Contact information">
               <div className="contact-detail contact-card">
                 <b>Call us</b>
-                <a href="tel:+910000000000">+91 00000 00000</a>
+                <a href="tel:+919884044588 ">+91 98840 44588</a>
               </div>
               <div className="contact-detail contact-card">
                 <b>Email</b>
-                <a href="mailto:hello@evergreensolar.in">
-                  hello@evergreensolar.in
+                <a href="mailto:sales@evergreensolars.com">
+                  sales@evergreensolars.com
                 </a>
               </div>
               <div className="contact-detail contact-card">
@@ -115,7 +115,7 @@ export default function Contact() {
           <div className="eyebrow">Find us</div>
           <h3>Serving Chennai homes and businesses.</h3>
           <p className="muted">Get in touch to discuss your rooftop and arrange a solar assessment in Chennai.</p>
-          <iframe title="Map of Chennai, India" src="https://www.google.com/maps?q=Chennai%2C+Tamil+Nadu%2C+India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <iframe title="Map of Chennai, India" src="https://maps.app.goo.gl/SAXEMStKPV1bVz179" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </section>
     </SiteChrome>

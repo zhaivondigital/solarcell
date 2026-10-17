@@ -450,7 +450,7 @@ function HomePage() {
           </nav>
 
           <div className="nav-actions">
-            <a className="mini" href="tel:+910000000000">
+            <a className="mini" href="tel:+919884044588" aria-label="Call us">
               ☎ Call
             </a>
             <Button href="/contact" variant="dark">
@@ -998,7 +998,7 @@ function HomePage() {
               <a href="/about">About Us</a>
               <a href="/gallery">Gallery</a>
               <a href="/contact">Contact</a>
-              <a href="tel:+910000000000">+91 00000 00000</a>
+              <a href="tel:+919884044588 ">+91 98840 44588</a>
             </div>
 
             <div>
@@ -1028,13 +1028,13 @@ function HomePage() {
       </footer>
 
       <div className="mobile-bar">
-        <a href="https://wa.me/910000000000">WhatsApp</a>
-        <a href="tel:+910000000000">Call</a>
+        <a href="https://wa.me/9884044588" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="tel:+919884044588 " target="_blank" rel="noreferrer">Call</a>
               <a href="/contact">Get Quote</a>
       </div>
       <div className="floating-actions" aria-label="Quick contact actions">
-        <a className="fab whatsapp" href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
-        <a className="fab call" href="tel:+910000000000" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
+        <a className="fab whatsapp" href="https://wa.me/9884044588" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><FaWhatsapp /></a>
+        <a className="fab call" href="tel:+919884044588 " target="_blank" rel="noreferrer" aria-label="Call Ever Green Solar" title="Call us"><FaPhone /></a>
         <button className="fab top visible" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Return to top" title="Return to top"><FaArrowUp /></button>
       </div>
     </>
