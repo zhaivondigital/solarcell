@@ -15,23 +15,23 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/qViE05aQ.webp",
       IMG.roof,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/28959249/Racold-Solar-Water-Heater-500-Lpd-ETC-System" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28959249/Racold-Solar-Water-Heater-500-Lpd-ETC-System"  },
   },
   {
     category: "Solar Water Heater",
     tags: ["Bestseller"],
     title: "Racold Solar Water Heater Omega 500 Pressure System",
     description: "500 LPD Racold FPC Omega Max8 Solar Water Heater.",
-    images: [IMG.roof, IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/EYmIvJOH.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/EYmIvJOH.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28959284/Racold-Solar-Water-Heater-Omega-500-Pressure-System" },
   },
   {
     category: "Solar Water Heater",
     tags: ["Bestseller"],
     title: "Racold Solar Water Heater 300Lpd Etc System",
     description: "300 LPD Racold ETC Alpha Plus Solar Water Heater",
-    images: [IMG.commercial, IMG.roof],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/T8PfIJGj.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/T8PfIJGj.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28960015/Racold-Solar-Water-Heater-300Lpd-Etc-System" },
   },
   {
     category: "Solar Water Heater",
@@ -42,15 +42,15 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/QYqVMlm5.webp",
       IMG.commercial,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/28975222/Racold-Solar-Omega-FPC-100-Pressure" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28975222/Racold-Solar-Omega-FPC-100-Pressure" },
   },
   {
     category: "Solar Water Heater",
     tags: [],
     title: "Racold Solar Omega 300 Lpd Pressure FPC",
     description: "300 LPD Racold FPC Omega Solar Water Heater Specifications: For family 7-10person .",
-    images: [IMG.roof, IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/NuKQtj3v.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/NuKQtj3v.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28960015/Racold-Solar-Water-Heater-300Lpd-Etc-System" },
   },
 
   {
@@ -58,8 +58,8 @@ const products = [
     tags: [],
     title: "Racold Solar Geyser 200 Ltr Pressure. Model FPC",
     description: "Specifications:For family 4-5 person Warranty : 5 Years (on-Tank),Tank Volume- 200 LPD",
-    images: [IMG.commercial, IMG.roof],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/o3oMvZFy.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/o3oMvZFy.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29003941/Racold-Solar-Geyser-200-Ltr-Pressure--Model-FPC" },
   },
   {
     category: "Solar Water Heater",
@@ -70,35 +70,33 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/nJT7ZIcN.webp",
       IMG.roof,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005504/Racold-200-LPD-ETC-Solar-Water-Heater-Alpha-System" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005504/Racold-200-LPD-ETC-Solar-Water-Heater-Alpha-System" },
   },
   {
     category: "Solar Water Heater",
     tags: [],
     title: "Supreme Solar Water Heater 200 ETC System",
     description: "SPECIFICATION For family of 4-5 person 5 Years Warranty (on-Tank)Tank Volume- 200 LPD",
-    images: [IMG.roof, IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/2ddECQ12.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/2ddECQ12.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29021629/Supreme-Solar-Water-Heater-200-ETC-System" },
   },
   {
     category: "Solar Water Heater",
     tags: [],
     title: "V Guard Solar Water Heater 300 Ltr Pressure Model",
     description: "Generates hot water without electricity ",
-    images: [IMG.commercial, IMG.roof],
-    buyNow: { label: "Buy now", href: "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/5AcEIpjp.webp" },
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/5AcEIpjp.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30570051/V-Guard-Solar-Water-Heater-300-Ltr-Pressure-Model" },
   },
   {
     category: "Solar Water Heater",
     tags: [],
-    title: "Solar Water Heater 10",
-    description: "Add a product description here.",
-    images: [
-      "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1000&q=85",
-      IMG.commercial,
-    ],
-    buyNow: { label: "Buy now", href: "/contact" },
+    title: "V Guard Solar Water Heater 200 Ltr Pressure Model",
+    description: "Generates hot water without electricity ",
+    images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/TaeRP6Px.webp"],
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30570054/VGUARD-Solar-Water-Heater-200-Ltr-Pressure-Model" },
   },
+  
   {
     category: "Solar Heating Element",
     tags: [],
@@ -108,7 +106,7 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/gdbB6K8B.webp",
       IMG.project2,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/28975183/Racold-solar--Omega-Heating-Element-3kw-With-Thermostat" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28975183/Racold-solar--Omega-Heating-Element-3kw-With-Thermostat" },
   },
   {
     category: "Solar Heating Element",
@@ -116,7 +114,7 @@ const products = [
     title: "Racold Solar Alpha ETC Model Heating Element With Thermostat",
     description: "2kw Heating Element with Thermoset 55 60 degree",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/eWT5Z7j4.webp", IMG.roof],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/28975187/Racold-Solar-Alpha-ETC-Model-Heating-Element-With-Thermostat" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/28975187/Racold-Solar-Alpha-ETC-Model-Heating-Element-With-Thermostat" },
   },
   {
     category: "Heat Pump",
@@ -125,9 +123,8 @@ const products = [
     description: "Heat Pumps automatically switches to electrical mode when it is not able to meet your requirement naturally.",
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/RvKtasF3.webp",
-      "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/RvKtasF3.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005636/Racold-300L-Air-to-Heat-Pump" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005636/Racold-300L-Air-to-Heat-Pump" },
   },
   {
     category: "Heat Pump",
@@ -137,7 +134,7 @@ const products = [
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/DsaHrzM3.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005646/Racold-Heat-Pump-150L-Save-70--EB-FREE" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005646/Racold-Heat-Pump-150L-Save-70--EB-FREE" },
   },
   {
     category: "Heat Pump",
@@ -147,7 +144,7 @@ const products = [
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/sWtrj6kU.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005687/Racold-Heat-Pump-200-L-70---SAVE-EB" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005687/Racold-Heat-Pump-200-L-70---SAVE-EB" },
   },
   {
     category: "Heat Pump",
@@ -157,7 +154,7 @@ const products = [
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/pKIjuZ5R.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005727/Geyser-500-L-Tank-with-6kw-kw-Heat-Pump-Water-Heater-Racold--70--EB-FREE" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005727/Geyser-500-L-Tank-with-6kw-kw-Heat-Pump-Water-Heater-Racold--70--EB-FREE" },
   },
   {
     category: "Heat Pump",
@@ -167,7 +164,7 @@ const products = [
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/HzBynIRt.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005748/1000-Ltr-Racold-Tank-with-12HPW-Heat-Pump-Water-Heater" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005748/1000-Ltr-Racold-Tank-with-12HPW-Heat-Pump-Water-Heater" },
   },
   {
     category: "Heat Pump",
@@ -177,7 +174,7 @@ const products = [
     images: [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/CMNanOrA-263-263.webp",
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/30830959/Jaquar-Electric-Floor-Mounting-Vertical-200-Ltr-Heat-Pump-Integra-X-Monobloc-Heat-Pump-HPM-WHT-P200-in-White" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30830959/Jaquar-Electric-Floor-Mounting-Vertical-200-Ltr-Heat-Pump-Integra-X-Monobloc-Heat-Pump-HPM-WHT-P200-in-White" },
   },
   {
     category: "Heating Element",
@@ -188,7 +185,7 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/WcHy2pRR.webp",
       IMG.project2,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005820/Supreme-solar-Heating-Element-2kw-with-thermostat" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005820/Supreme-solar-Heating-Element-2kw-with-thermostat" },
   },
   {
     category: "ETC TUBE",
@@ -199,7 +196,7 @@ const products = [
       "https://cdn.dotpe.in/longtail/item_thumbnails/7887284/y9NswELO.webp",
       IMG.roof,
     ],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29005834/ETC-tube-58mm-DIA--Length-1800mm" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29005834/ETC-tube-58mm-DIA--Length-1800mm" },
   },
   {
     category: "Solar valve",
@@ -207,7 +204,7 @@ const products = [
     title: "Solar Safety Valve 5Bar,3,Bar",
     description: "Pressure fixing bar 3 bar / 5bar",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/2Idtj2Qt.webp", IMG.industrial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29017732/Solar-Safety-Valve-5Bar-3-Bar" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29017732/Solar-Safety-Valve-5Bar-3-Bar" },
   },
   {
     category: "Solar valve",
@@ -215,7 +212,7 @@ const products = [
     title: "Solar Air Released Valve",
     description: "Ensuring maximum efficiency and performance..",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/679pilqz.webp", IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29017748/Solar-Air-Released-Valve" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29017748/Solar-Air-Released-Valve" },
   },
   {
     category: "Solar valve",
@@ -223,7 +220,7 @@ const products = [
     title: "Solar Safety Valve And Air Release Valve",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/OHiVccMt.webp", IMG.project2],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29017753/Solar-Safety-Valve-And-Air-Release-Valve" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29017753/Solar-Safety-Valve-And-Air-Release-Valve" },
   },
   {
     category: "Solar valve",
@@ -231,7 +228,7 @@ const products = [
     title: "Racold Solar Omega Safety Valve 8 Bar",
     description: "IT help the system run good, Racold Solar Omega Model & NEO",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/DwINHJal.webp", IMG.roof],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29034646/Racold-Solar-Omega-Safety-Valve-8-Bar" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29034646/Racold-Solar-Omega-Safety-Valve-8-Bar" },
   },
   {
     category: "Solar On Grid",
@@ -239,7 +236,7 @@ const products = [
     title: "Solar Roof Top On Grid 5kw Power System Installation & Testing",
     description: "Solar DCR 585 Wp PV Panel TOPCON Wp",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/ad0b8aqL.webp", IMG.residential],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29361740/Solar-Roof-Top-On-Grid-5kw-Power-System-Installation---Testing" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29361740/Solar-Roof-Top-On-Grid-5kw-Power-System-Installation---Testing" },
   },
   {
     category: "Solar On Grid",
@@ -247,7 +244,7 @@ const products = [
     title: "EGS SOLAR Supply, Installation,Testing And Commissioning Of 10 Kw 3 Phase On-Grid",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/jp2t8RlJ.webp", IMG.project2],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/29363168/EGS-SOLAR-Supply--Installation-Testing-And-Commissioning-Of-10-Kw-3-Phase-On-Gri" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/29363168/EGS-SOLAR-Supply--Installation-Testing-And-Commissioning-Of-10-Kw-3-Phase-On-Gri" },
   },
   {
     category: "Solar On Grid",
@@ -255,7 +252,7 @@ const products = [
     title: "5kw on Grid solar Panels set",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/5jpNhYDs-400-400.webp", IMG.industrial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/31652178/5kw-on-Grid-solar-Panels-set" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/31652178/5kw-on-Grid-solar-Panels-set" },
   },
   {
     category: "Solar On Grid",
@@ -263,7 +260,7 @@ const products = [
     title: "solar On Grid with subsidies availability",
     description: "Add a product description here.",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/lsmjPhhy-400-400.webp", IMG.roof],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/32288813/solar-On-Grid-with-subsidies-availability" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/32288813/solar-On-Grid-with-subsidies-availability" },
   },
   {
     category: "Service",
@@ -271,7 +268,7 @@ const products = [
     title: "Solar service charges",
     description: "",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOJPw2_hJxBQ6dTYhjftw7wVU0tQ8hxrKynTznp8acWdoTQP99CgZRYA&s=10", IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/32804482/Solar-service-charges" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/32804482/Solar-service-charges" },
   },
   {
     category: "More Items",
@@ -279,7 +276,7 @@ const products = [
     title: "Racold Solar Heating Element 2Kw with thermostat",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/a9W7cy7t-711-400.webp", IMG.roof],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/33228240/Racold-Solar-Heating-Element-2Kw-with-thermostat" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/33228240/Racold-Solar-Heating-Element-2Kw-with-thermostat" },
   },
   {
     category: "More Items",
@@ -287,7 +284,7 @@ const products = [
     title: "Involties Solar Grid Inverter 5kw",
     description: "",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy1sjd9Sf5fGkaP1QEvLU1z60ISFPT3egTEfpDURdYd-XBE1eRyCEOGhcB&s=10", IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/33110054/Involties-Solar-Grid-Inverter-5kw" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/33110054/Involties-Solar-Grid-Inverter-5kw" },
   },
   {
     category: "More Items",
@@ -295,7 +292,7 @@ const products = [
     title: "SAATVIK UDHY SERIES SOLAR ON GRID INVERTER 3.3KW",
     description: "SAATVIK ON GRID INVERTER",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/qjVDDEAS-400-400.webp", IMG.residential],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/33040203/SAATVIK-UDHY-SERIES-SOLAR-ON-GRID-INVERTER-3-3KW" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/33040203/SAATVIK-UDHY-SERIES-SOLAR-ON-GRID-INVERTER-3-3KW" },
   },
   {
     category: "More Items",
@@ -303,7 +300,7 @@ const products = [
     title: "Service charge",
     description: "",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOJPw2_hJxBQ6dTYhjftw7wVU0tQ8hxrKynTznp8acWdoTQP99CgZRYA&s=10", IMG.project2],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/32617100/Service-charge" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/32617100/Service-charge" },
   },
   {
     category: "More Items",
@@ -311,7 +308,7 @@ const products = [
     title: "100 LPD ETC V-Guard Win hot Plus H Solar Water Heater",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/9MKxZjyL.webp", IMG.roof],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/30571976/100-LPD-ETC-V-Guard-Win-hot--Plus-H--Solar-Water-Heater" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30571976/100-LPD-ETC-V-Guard-Win-hot--Plus-H--Solar-Water-Heater" },
   },
   {
     category: "More Items",
@@ -319,7 +316,7 @@ const products = [
     title: "200 LPD Vguard Solar Water Heater Hot Plus Pressure 8 Bar",
     description: "",
     images: ["https://cdn.dotpe.in/longtail/item_thumbnails/7887284/9MKxZjyL.webp", IMG.commercial],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/30572002/200-LPD-Vguard-Solar-Water-Heater-Hot-Plus-Pressure-8-Bar-" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30572002/200-LPD-Vguard-Solar-Water-Heater-Hot-Plus-Pressure-8-Bar-" },
   },
   {
     category: "More Items",
@@ -327,7 +324,7 @@ const products = [
     title: "Heating elements fixing and testing charges",
     description: "",
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOJPw2_hJxBQ6dTYhjftw7wVU0tQ8hxrKynTznp8acWdoTQP99CgZRYA&s=10", IMG.residential],
-    buyNow: { label: "Buy now", href: "https://www.egssolar.co.in/product/30578093/Heating-elements-fixing-and-testing-charges" },
+    buyNow: { label: "Buy now", target: "_blank", href: "https://www.egssolar.co.in/product/30578093/Heating-elements-fixing-and-testing-charges" },
   },
 ];
 
@@ -443,6 +440,8 @@ export default function Products() {
                   <article className="catalog-product-card" key={product.title}>
                     <a
                       className="catalog-product-card-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href={product.buyNow.href}
                       aria-label={`${product.buyNow.label}: ${product.title}`}
                     >
