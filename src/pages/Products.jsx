@@ -517,8 +517,7 @@ export default function Products() {
                 </nav>
               )}
               <p className="catalog-note">
-                Product names are temporary catalogue labels. Product details
-                and links will be added later.
+                Products will redirect to the primary vendor's website for purchase.
               </p>
             </div>
           </div>

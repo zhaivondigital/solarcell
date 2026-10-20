@@ -418,3 +418,13 @@
 @media(max-width:900px){.brand-showcase-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:700px){.brand-showcase-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.brand-showcase-card{padding:14px 10px}}
 @media(max-width:600px){.brand-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-logo-display{height:76px}}
+
+.comparison .compare>.eyebrow{display:inline-flex;align-items:center;padding:12px 20px;border-radius:9px;background:var(--white);color:var(--ever);font-size:16px;font-weight:900;letter-spacing:.08em;line-height:1.2}
+.comparison .compare.before>.eyebrow{background:var(--ever);color:var(--white)}
+
+.trust2 .trust-card{min-width:0;overflow:hidden}
+.trust2 .trust-card-image{display:grid;place-items:center;aspect-ratio:16/9;margin-bottom:18px;overflow:hidden;border-radius:14px;background:var(--sage)}
+.trust2 .trust-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.trust2 .trust-card:hover .trust-card-image img{transform:scale(1.04)}
+.trust2 .trust-card-image-fallback{color:var(--forest);font-weight:800;text-align:center}
+.trust2 .trust-card>b{margin-bottom:8px}

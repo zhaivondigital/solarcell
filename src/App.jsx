@@ -35,6 +35,45 @@ const brandLogos = [
   { name: "Larsen & Toubro", image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/L%26T.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", website: "https://www.larsentoubro.com/" },
 ];
 
+const trustSectionImages = [
+  {
+    title: "Quality Installation",
+    description: "Professional workmanship.",
+    image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=900&q=80",
+    alt: "Solar technicians securing a rooftop solar panel installation",
+  },
+  {
+    title: "Transparent Communication",
+    description: "Clear recommendations and quotations.",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    alt: "Consultants discussing a proposal together at a desk",
+  },
+  {
+    title: "End-to-End Assistance",
+    description: "From assessment to commissioning.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80",
+    alt: "Engineer inspecting technical equipment during an assessment",
+  },
+  {
+    title: "After-Sales Support",
+    description: "Support after your system goes live.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+    alt: "Customer receiving technical assistance using a tablet",
+  },
+  {
+    title: "Performance Monitoring",
+    description: "Understand how your system is performing.",
+    image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=900&q=80",
+    alt: "Smartphone used to check system performance",
+  },
+  {
+    title: "Long-Term Thinking",
+    description: "Systems designed around durability and value.",
+    image: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=900&q=80",
+    alt: "Rooftop solar panels installed for reliable long-term energy",
+  },
+];
+
 function Brand() {
   return (
     <span className="brand brand-logo-wrap">
@@ -792,29 +831,24 @@ function HomePage() {
             <h2>Good Solar Doesn't End at Installation.</h2>
 
             <div className="trust-cards">
-              {[
-                ["Quality Installation", "Professional workmanship."],
-                [
-                  "Transparent Communication",
-                  "Clear recommendations and quotations.",
-                ],
-                [
-                  "End-to-End Assistance",
-                  "From assessment to commissioning.",
-                ],
-                ["After-Sales Support", "Support after your system goes live."],
-                [
-                  "Performance Monitoring",
-                  "Understand how your system is performing.",
-                ],
-                [
-                  "Long-Term Thinking",
-                  "Systems designed around durability and value.",
-                ],
-              ].map(([title, text]) => (
+              {trustSectionImages.map(({ title, description, image, alt }) => (
                 <div className="trust-card" data-card key={title}>
+                  <div className="trust-card-image">
+                    <img
+                      src={image}
+                      alt={alt}
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.hidden = true;
+                        event.currentTarget.nextElementSibling.hidden = false;
+                      }}
+                    />
+                    <span className="trust-card-image-fallback" hidden>
+                      {title}
+                    </span>
+                  </div>
                   <b>{title}</b>
-                  <span className="muted">{text}</span>
+                  <span className="muted">{description}</span>
                 </div>
               ))}
             </div>
