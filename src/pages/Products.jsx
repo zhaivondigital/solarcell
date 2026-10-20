@@ -368,7 +368,7 @@ export default function Products() {
     <SiteChrome>
       <PageHero
         eyebrow="Solar solutions"
-        title="Products for warmer water and smarter energy."
+        title="Smarter Solar Products Sustainable Living."
         copy="Browse our product catalogue by category. Product specifications and product links will be added as they become available."
         image={IMG.roof}
       />

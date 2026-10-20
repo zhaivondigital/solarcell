@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 
 export default function Contact() {
   const params = new URLSearchParams(window.location.search);
@@ -11,34 +12,6 @@ export default function Contact() {
     savings: Number(params.get("savings") || 0).toLocaleString("en-IN"),
     lifetime: params.get("lifetime"),
   };
-  const sendWhatsAppEnquiry = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const message = [
-      "Hello, I would like to request a free solar consultation.",
-      "",
-      `Name: ${formData.get("name")}`,
-      `Phone: ${formData.get("phone")}`,
-      `Property type: ${formData.get("propertyType")}`,
-      `Enquiry: ${formData.get("message") || "Not provided"}`,
-      ...(hasEstimate
-        ? [
-            "",
-            "Solar estimate from the website:",
-            `Monthly bill: ₹${estimate.bill}`,
-            `Recommended capacity: ${estimate.capacity} kW`,
-            `Potential annual savings: ₹${estimate.savings}`,
-          ]
-        : []),
-    ].join("\n");
-
-    window.open(
-      `https://wa.me/9884044588?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
-
   return (
     <SiteChrome>
       <PageHero
@@ -92,51 +65,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <form
-            className="contact-form"
-            onSubmit={sendWhatsAppEnquiry}
-          >
-            <div className="contact-form-heading">
-              <span className="eyebrow">Start a conversation</span>
-              <h3>Request a free consultation</h3>
-              <p className="muted">We’ll get back to you to discuss your solar needs.</p>
-            </div>
-            <div className="contact-form-fields">
-              <label>
-                Name
-                <input name="name" required placeholder="Your name" />
-              </label>
-              <label>
-                Phone number
-                <input name="phone" required type="tel" placeholder="Your phone number" />
-              </label>
-              <label className="contact-form-wide">
-                Property type
-                <select name="propertyType" defaultValue="Home">
-                  <option>Home</option>
-                  <option>Villa</option>
-                  <option>Apartment</option>
-                  <option>Commercial property</option>
-                  <option>Industrial facility</option>
-                </select>
-              </label>
-              <label className="contact-form-wide">
-                How can we help?
-                <textarea
-                  name="message"
-                  rows="4"
-                  placeholder="Tell us about your property or electricity bill"
-                />
-              </label>
-            </div>
-            <button className="btn dark" type="submit">
-              Continue on WhatsApp →
-            </button>
-            <small>
-              WhatsApp will open with your enquiry ready to send. Please review
-              the message and tap Send to submit it.
-            </small>
-          </form>
+          <ContactForm estimate={hasEstimate ? estimate : null} />
         </div>
       </section>
       <section className="map-section" data-page-reveal>
@@ -149,14 +78,14 @@ export default function Contact() {
               <h5>Office</h5>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4113.971075786233!2d80.22598427527211!3d13.082662712433224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526571e9d1f483%3A0x548500a21a35bbf9!2sEver%20Green%20Solar%20System!5e1!3m2!1sen!2sin!4v1792246086374!5m2!1sen!2sin"
                loading="lazy" 
-               referrerpolicy="strict-origin-when-cross-origin"
+               referrerPolicy="strict-origin-when-cross-origin"
               />
             </article>
             <article className="contact-map">
               <h5>Warehouse</h5>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26528.464548972315!2d80.18396235166762!3d13.112647828290845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52657b16eb1813%3A0x3f4fbf2197b5b92d!2sEver%20Green%20Solar%20System!5e1!3m2!1sen!2sin!4v1792246589444!5m2!1sen!2sin"
                loading="lazy" 
-               referrerpolicy="strict-origin-when-cross-origin"
+               referrerPolicy="strict-origin-when-cross-origin"
                />
             </article>
           </div>

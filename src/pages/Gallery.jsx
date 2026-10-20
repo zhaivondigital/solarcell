@@ -270,7 +270,7 @@ export default function Gallery() {
         <div className="container">
           <div className="onsite-heading">
             <div className="eyebrow">On the ground</div>
-            <h2>Our Onsite Duties</h2>
+            <h2>Our Installation Process</h2>
           </div>
           <div className="onsite-image-grid">
             {onsiteImages.map(([image, alt], index) => (

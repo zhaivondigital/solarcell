@@ -222,6 +222,8 @@
 .person-feature-inner,.person-feature.reverse .person-feature-inner{width:min(1180px,calc(100% - 48px));grid-template-columns:minmax(0,.95fr) minmax(0,1.35fr);gap:clamp(32px,5vw,72px);align-items:stretch}
 .person-feature-image{grid-column:1;grid-row:1;position:relative;min-width:0;min-height:0;height:100%;align-self:stretch;overflow:hidden;border-radius:24px}
 .person-feature-image img{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:cover;border-radius:inherit;filter:saturate(.8)}
+.person-feature-image img.founder-image{object-position:center top}
+.person-feature-image img.co-founder-image{object-position:center 14%}
 .person-feature-copy{grid-column:2;grid-row:1;min-width:0;align-self:center;max-width:760px}
 .person-feature.reverse .person-feature-inner{grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr)}
 .person-feature.reverse .person-feature-image{grid-column:2;grid-row:1}
@@ -230,16 +232,23 @@
 .person-feature-paragraphs{display:grid;gap:16px;margin-bottom:26px}
 .person-feature-paragraphs p{max-width:none;margin:0;font-size:15px;line-height:1.8}
 .person-feature-copy>.btn{margin-top:2px}
+.person-feature.leadership{padding:clamp(32px,4vw,48px) 0}
+.person-feature.leadership .person-feature-image{height:auto;aspect-ratio:1.19;align-self:center}
+.person-feature.leadership h3{margin:8px 0 14px}
+.person-feature.leadership .person-feature-paragraphs{gap:10px;margin-bottom:18px}
+.person-feature.leadership .person-feature-paragraphs p{line-height:1.65}
 
 @media(max-width:1000px){
   .person-feature-inner,.person-feature.reverse .person-feature-inner{grid-template-columns:minmax(0,1fr);gap:26px}
   .person-feature-image,.person-feature.reverse .person-feature-image{grid-column:1;grid-row:1;height:clamp(280px,48vw,420px);min-height:0}
+  .person-feature.leadership .person-feature-image{height:clamp(280px,48vw,420px);aspect-ratio:auto;align-self:stretch}
   .person-feature-copy,.person-feature.reverse .person-feature-copy{grid-column:1;grid-row:2;max-width:760px}
 }
 @media(max-width:700px){
   .person-feature{padding:32px 0}
   .person-feature-inner,.person-feature.reverse .person-feature-inner{width:calc(100% - 40px)}
   .person-feature-image,.person-feature.reverse .person-feature-image{height:300px}
+  .person-feature.leadership .person-feature-image{height:300px;aspect-ratio:auto}
   .person-feature-paragraphs{gap:14px}
   .person-feature-paragraphs p{font-size:14px;line-height:1.75}
 }
@@ -380,3 +389,32 @@
   .catalog-pagination-summary{text-align:center}
   .catalog-page-button{min-width:38px;height:38px;padding:0 9px}
 }
+
+.hero{height:auto;min-height:760px}
+.hero-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.hero-content{min-width:0}
+.hero-content .hero-copy{max-width:600px}
+@media(max-width:900px){
+  .hero{height:auto;min-height:0}
+  .hero-layout{width:min(1180px,calc(100% - 48px));grid-template-columns:minmax(0,1fr);gap:32px;align-items:start;padding-top:140px;padding-bottom:48px}
+  .hero-content{max-width:700px}
+}
+@media(max-width:600px){
+  .hero-layout{padding-top:130px;padding-bottom:36px;gap:26px}
+}
+
+.brand-showcase{background:#fff}
+.brand-showcase h2{margin-top:12px}
+.brand-showcase-copy{max-width:620px;margin:16px 0 34px}
+.brand-showcase-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.brand-showcase-card{min-width:0;padding:18px 14px;border:1px solid rgba(23,32,27,.08);border-radius:16px;background:var(--ivory);text-align:center;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.brand-showcase-card:hover{transform:translateY(-4px);border-color:rgba(29,96,67,.24);box-shadow:0 14px 30px rgba(18,59,42,.09)}
+.brand-showcase-card>a{display:block}
+.brand-logo-display{height:82px;display:grid;place-items:center}
+.brand-logo-display img{width:auto;max-width:min(100%,160px);height:auto;max-height:56px;object-fit:contain;transition:transform .25s ease,opacity .25s ease}
+.brand-showcase-card:hover .brand-logo-display img{transform:scale(1.05);opacity:.88}
+.brand-logo-fallback{max-width:160px;color:var(--ever);font-size:17px;font-weight:900;line-height:1.2}
+.brand-showcase-name{display:block;min-height:20px;margin-top:8px;color:#5f6963;font-size:12px;font-weight:800}
+@media(max-width:900px){.brand-showcase-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.brand-showcase-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.brand-showcase-card{padding:14px 10px}}
+@media(max-width:600px){.brand-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-logo-display{height:76px}}

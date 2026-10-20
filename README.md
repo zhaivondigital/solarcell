@@ -25,7 +25,6 @@ A modern, responsive rooftop solar website converted from the original `Solarcel
 - Government subsidy section
 - Customer trust section
 - Customer testimonial section
-- Solar journey visualization
 - FAQ accordion
 - Contact / quotation CTA
 - Mobile bottom navigation bar

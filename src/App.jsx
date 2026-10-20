@@ -8,6 +8,7 @@ import Gallery from "./pages/Gallery.jsx";
 import CalculatorRoute from "./pages/Calculator.jsx";
 import Contact from "./pages/Contact.jsx";
 import { IMG } from "./components/SiteChrome.jsx";
+import ContactForm from "./components/ContactForm.jsx";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
 
@@ -20,6 +21,19 @@ const HOME_IMG = {
   industrial: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85",
   cta: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85",
 };
+
+const brandLogos = [
+  { name: "Tata Power Solar", image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tata_Power_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", website: "https://www.tatapowersolar.com/" },
+  { name: "Saatwik Solar", image: "https://pub-11fc126ddbd04b8d8cc2825534e3c479.r2.dev/saatvik/images/logo-full-hires.png", website: "https://www.saatvikgroup.com/" },
+  { name: "Adani Solar", image: "https://static.wixstatic.com/media/03163e_774ec5f7dcae4ca387d7a04cb0b83b9d~mv2.png", website: "https://www.adanisolar.com/" },
+  { name: "Vikram Solar", image: "https://thumb.wikimedia.org/wikipedia/en/thumb/7/76/Vikram_Solar_logo.svg/1280px-Vikram_Solar_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail", website: "https://www.vikramsolar.com/" },
+  { name: "Waaree", image: "https://i.pinimg.com/736x/c1/45/fb/c145fb77e37a599d2eb2c67a37fa9dc6.jpg", website: "https://www.waaree.com/" },
+  { name: "Power One", image: "https://media.licdn.com/dms/image/v2/C510BAQF9cYCQ1UE7oQ/company-logo_200_200/company-logo_200_200/0/1630566498993/power_one_micro_systems_private_limited_logo?e=2147483647&v=beta&t=pLuvLc42fctpIFJeauDlBAV-wa7m-rUQX3wHCiEyJec", website: "https://poweroneups.com/" },
+  { name: "Deye", image: "https://www.deyeinverter.com/template/en/images/logo.svg", website: "https://www.deyeinverter.com/" },
+  { name: "VSOLE", image: "https://www.vsolesolar.com/img/vsole_loging_logo.png", website: "https://www.vsolesolar.com/" },
+  { name: "Polycab", image: "https://www.wirecable.in/wp-content/uploads/2023/09/polycab-logo.jpg", website: "https://www.polycab.com/" },
+  { name: "Larsen & Toubro", image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/L%26T.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", website: "https://www.larsentoubro.com/" },
+];
 
 function Brand() {
   return (
@@ -92,7 +106,7 @@ function HomePage() {
           "-=.25"
         )
         .from(
-          ".potential",
+          ".hero-contact-form",
           { x: 70, opacity: 0, scale: 0.94, duration: 0.8 },
           "-=.7"
         );
@@ -110,9 +124,8 @@ function HomePage() {
           },
         });
 
-        gsap.to(".potential", {
-          y: 70,
-          rotate: 1.5,
+        gsap.to(".hero-contact-form", {
+          y: 35,
           ease: "none",
           scrollTrigger: {
             trigger: hero,
@@ -453,16 +466,16 @@ function HomePage() {
 
       <main>
         <section className="hero">
-          <div className="container hero-inner">
-            <div>
-              <div className="eyebrow">Rooftop solar for Chennai</div>
+          <div className="container hero-inner hero-layout">
+            <div className="hero-content">
+              <div className="eyebrow">Rooftop solar for Every Space</div>
               <h1>
-                Your Roof Can Do More.
+                Evergreen Solar System
                 <br />
-                <span>Let It Power Your Home.</span>
+                <span>Energy Without Limits.</span>
               </h1>
               <p className="hero-copy">
-                Solar solutions designed for Chennai homes and businesses.
+                Solar solutions designed for Residential,Commercial and Industrial Customers..
                 Generate clean electricity and make your rooftop work harder.
               </p>
               <div className="hero-buttons">
@@ -480,15 +493,7 @@ function HomePage() {
                 <span>Long-term support</span>
               </div>
             </div>
-
-            <div className="potential">
-              <span className="potential-label">YOUR POTENTIAL</span>
-              <strong>25+ YEARS</strong>
-              <p>
-                Designed for long-term energy generation and smarter rooftop
-                use.
-              </p>
-            </div>
+            <ContactForm className="hero-contact-form" />
           </div>
         </section>
 
@@ -527,63 +532,39 @@ function HomePage() {
           </div>
         </div>
 
-        <section id="why" data-reveal-section>
-          <div className="container editorial">
+        <section className="subsidy" data-reveal-section>
+          <div className="container subsidy-grid">
             <div>
-              <div className="eyebrow">Why solar now?</div>
-              <h2>
-                Electricity Bills Don't Have to Keep Growing With Your Family.
-              </h2>
-              <p className="muted">
-                The sun sends you energy every day. Why keep paying for all of
-                it?
+              <div className="eyebrow">Government subsidy</div>
+              <h2>Going Solar Can Come With Government Support.</h2>
+              <p className="muted section-copy">
+                Eligible residential customers may be able to access applicable
+                government rooftop-solar incentives or subsidies depending on
+                current policy and eligibility.
               </p>
-            </div>
 
-            <div className="bill">
-              <h3>THE OLD WAY</h3>
-              <div className="bill-num">₹7,850</div>
-              <p className="muted">Illustrative monthly electricity bill</p>
-              <div className="flow">
-                <div className="flow-row">
-                  <b>01</b>
-                  <span>Electricity consumption</span>
-                </div>
-                <div className="flow-row">
-                  <b>02</b>
-                  <span>Monthly bill</span>
-                </div>
-                <div className="flow-row">
-                  <b>03</b>
-                  <span>Tariff increases</span>
-                </div>
-                <div className="flow-row">
-                  <b>04</b>
-                  <span>More expense</span>
-                </div>
+              <div className="subsidy-list">
+                <div>✓ Eligibility</div>
+                <div>✓ Documentation</div>
+                <div>✓ Application</div>
+                <div>✓ Installation requirements</div>
+                <div>✓ Grid coordination</div>
+                <div>✓ Subsidy process</div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="calculator" id="calculator" data-reveal-section>
-          <div className="container">
-            <div className="eyebrow">Solar savings calculator</div>
-            <h2>Let's Put a Number on Your Solar Future.</h2>
-            <p className="muted calculator-intro">
-              Tell us what you're currently paying for electricity. We'll
-              estimate the solar system your property may need and potential
-              savings.
-            </p>
-            <a className="calculator-teaser" href="/calculator" aria-label="Open the full solar savings calculator">
-              <p>
-                Get a complete estimate for your electricity bill, property
-                type and location with our dedicated solar calculator.
+              <Button href="/contact" variant="dark">
+                Check My Solar Eligibility →
+              </Button>
+            </div>
+
+            <div className="important-card">
+              <div className="eyebrow">Important</div>
+              <h3>Policy changes. We verify before advising.</h3>
+              <p className="muted">
+                Actual subsidy figures should be confirmed against current
+                official government information before publication or quotation.
               </p>
-              <span className="calculator-teaser-action">
-                Open the full solar calculator <span aria-hidden="true">→</span>
-              </span>
-            </a>
+            </div>
           </div>
         </section>
 
@@ -735,6 +716,52 @@ function HomePage() {
           </div>
         </section>
 
+        <section className="brand-showcase" data-reveal-section>
+          <div className="container">
+            <div className="eyebrow">Trusted technology</div>
+            <h2>World Best Brands</h2>
+            <p className="muted brand-showcase-copy">
+              Powered by trusted brands for quality, performance, and reliability.
+            </p>
+            <div className="brand-showcase-grid">
+              {brandLogos.map((brand) => {
+                const logo = (
+                  <>
+                    <div className="brand-logo-display">
+                      <img
+                        src={brand.image}
+                        alt={`${brand.name} logo`}
+                        loading="lazy"
+                        decoding="async"
+                        onError={(event) => {
+                          event.currentTarget.hidden = true;
+                          event.currentTarget.nextElementSibling.hidden = false;
+                        }}
+                      />
+                      <span className="brand-logo-fallback" hidden>
+                        {brand.name}
+                      </span>
+                    </div>
+                    <span className="brand-showcase-name">{brand.name}</span>
+                  </>
+                );
+
+                return (
+                  <article className="brand-showcase-card" key={brand.name}>
+                    {brand.website ? (
+                      <a href={brand.website} target="_blank" rel="noopener noreferrer">
+                        {logo}
+                      </a>
+                    ) : (
+                      logo
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section>
           <div className="container">
             <div className="eyebrow">Illustrative comparison</div>
@@ -748,7 +775,7 @@ function HomePage() {
               </div>
               <div className="compare after">
                 <span className="eyebrow">After solar</span>
-                <div className="price">₹1,650</div>
+                <div className="price">₹350</div>
                 <p>Illustrative remaining grid bill</p>
               </div>
             </div>
@@ -756,42 +783,6 @@ function HomePage() {
             <p className="muted comparison-note">
               Illustrative example — actual savings vary.
             </p>
-          </div>
-        </section>
-
-        <section className="subsidy" data-reveal-section>
-          <div className="container subsidy-grid">
-            <div>
-              <div className="eyebrow">Government subsidy</div>
-              <h2>Going Solar Can Come With Government Support.</h2>
-              <p className="muted section-copy">
-                Eligible residential customers may be able to access applicable
-                government rooftop-solar incentives or subsidies depending on
-                current policy and eligibility.
-              </p>
-
-              <div className="subsidy-list">
-                <div>✓ Eligibility</div>
-                <div>✓ Documentation</div>
-                <div>✓ Application</div>
-                <div>✓ Installation requirements</div>
-                <div>✓ Grid coordination</div>
-                <div>✓ Subsidy process</div>
-              </div>
-
-              <Button href="/contact" variant="dark">
-                Check My Solar Eligibility →
-              </Button>
-            </div>
-
-            <div className="important-card">
-              <div className="eyebrow">Important</div>
-              <h3>Policy changes. We verify before advising.</h3>
-              <p className="muted">
-                Actual subsidy figures should be confirmed against current
-                official government information before publication or quotation.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -838,19 +829,19 @@ function HomePage() {
               {[
                 [
                   "“The entire process was explained clearly, from the rooftop assessment to installation.”",
-                  "[Customer Name] · [Location] · [System Size]",
+                  "JAYAKUMAR .A.S",
                 ],
                 [
                   "“We finally understood how much of our everyday electricity use solar could support.”",
-                  "[Customer Name] · [Location] · [System Size]",
+                  "GOPAL RAMACHNANDRAN",
                 ],
                 [
                   "“The team helped us make a practical decision without overcomplicating the process.”",
-                  "[Customer Name] · [Location] · [System Size]",
+                  "JULIAN GILBERT E",
                 ],
               ].map(([quote, details], index) => (
                 <article className="testimonial-card" data-card key={index}>
-                  <span className="testimonial-label">Sample testimonial</span>
+                  <span className="testimonial-label"> Testimonials</span>
                   <div className="quote">{quote}</div>
                   <p className="muted">{details}</p>
                 </article>
@@ -860,24 +851,6 @@ function HomePage() {
               Sample copy shown for layout purposes. Replace with verified
               customer feedback before publishing.
             </p>
-          </div>
-        </section>
-
-        <section className="solar-flow" data-reveal-section>
-          <div className="container">
-            <div className="eyebrow">Solar journey</div>
-            <h2>From Sunlight to Savings</h2>
-
-            <div className="solar-chain">
-              {["SUN", "SOLAR PANELS", "INVERTER", "YOUR HOME", "ELECTRICITY", "SAVINGS"].map(
-                (node, index, arr) => (
-                  <React.Fragment key={node}>
-                    <span className="node">{node}</span>
-                    {index < arr.length - 1 && <span className="arrow">→</span>}
-                  </React.Fragment>
-                )
-              )}
-            </div>
           </div>
         </section>
 

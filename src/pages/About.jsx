@@ -77,10 +77,21 @@ export default function About() {
           <h2>A small team with a long-term view.</h2>
         </div>
         {team.map(({ role, name, paragraphs, image }, index) => (
-          <section className={`person-feature ${index % 2 ? "reverse" : ""}`} key={role}>
+          <section className={`person-feature ${index < 2 ? "leadership" : ""} ${index % 2 ? "reverse" : ""}`} key={role}>
             <div className="container person-feature-inner">
               <div className="person-feature-image">
-                <img src={image} alt={name} loading="lazy" />
+                <img
+                  className={
+                    index === 0
+                      ? "founder-image"
+                      : index === 1
+                        ? "co-founder-image"
+                        : undefined
+                  }
+                  src={image}
+                  alt={name}
+                  loading="lazy"
+                />
               </div>
               <div className="person-feature-copy">
                 <span className="eyebrow">{role}</span>
@@ -109,14 +120,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section data-page-reveal>
-        <div className="container stats-strip">
-          <div><strong>500+</strong><span>Installations</span></div>
-          <div><strong>5+ MW</strong><span>Clean energy installed</span></div>
-          <div><strong>25 yrs</strong><span>Designed for the long term</span></div>
         </div>
       </section>
     </SiteChrome>

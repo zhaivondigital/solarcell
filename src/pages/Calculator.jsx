@@ -6,7 +6,7 @@ export default function Calculator() {
     <SiteChrome>
       <PageHero
         eyebrow="Solar savings calculator"
-        title="See What Your Roof Could Return."
+        title="Let Solar Make Your Roof Pay."
         copy="Start with your current electricity bill. This quick estimate gives you a useful first picture before a personalised site assessment."
         image={IMG.roof}
       />

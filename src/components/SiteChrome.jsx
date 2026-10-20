@@ -27,10 +27,22 @@ export function Button({ href = "#", variant = "primary", children, ...props }) 
 }
 
 export function Calculator() {
-  const [bill, setBill] = useState(7500);
-  const k = Math.max(1, Math.min(30, Math.ceil(bill / 1500)));
-  const annual = Math.round(bill * 12 * 0.78);
+  const [bill, setBill] = useState(5500);
+  const existingCapacity = Math.max(1, Math.min(30, Math.ceil(bill / 1500)));
+  const k =
+    bill >= 1000 && bill <= 1500
+      ? 1
+      : bill >= 2000 && bill <= 2500
+        ? 2
+        : bill >= 3000 && bill <= 7500
+          ? 3
+          : bill >= 8000 && bill <= 10500
+            ? 5
+            : existingCapacity;
   const generation = k * 1400;
+  const annual = Math.round(
+    bill * 12 * 0.78 * (generation / (existingCapacity * 1400))
+  );
   const lifetime = (annual * 25) / 100000;
   const co2 = k * 1.14;
   const reportHref = `/contact?bill=${bill}&capacity=${k}&generation=${generation}&savings=${annual}&lifetime=${lifetime.toFixed(1)}&co2=${co2.toFixed(1)}`;
@@ -99,7 +111,7 @@ export function Calculator() {
           </div>
           <div className="result-item">
             <small>Estimated Payback</small>
-            <strong>4–6 yrs</strong>
+            <strong>3–4 yrs</strong>
           </div>
           <div className="result-item">
             <small>25-Year Potential</small>
