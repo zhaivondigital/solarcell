@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
+import { Button, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 export default function About() {
   const values = [
@@ -35,7 +35,7 @@ export default function About() {
     {
       role: "People & Projects",
       name: "Our solar crew",
-      image: "/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.52%20PM.jpeg",
+      image: "/about-people-projects.png",
       paragraphs: [
         "Thoughtful solar work takes a team. Our designers, engineers and installers bring their skills together to help each project move from an initial conversation to a considered rooftop solution.",
         "From understanding a property's needs to planning and carrying out the installation, the team pays attention to the practical details that help a system fit its site.",
@@ -50,7 +50,7 @@ export default function About() {
         eyebrow="About Ever Green Solar"
         title="Solar Should Feel Clear, Considered and Built to Last."
         copy="We help Indian homes and businesses move toward cleaner, more independent energy with practical advice and careful execution."
-        image={IMG.hero}
+        image="https://aisensolarsolutions.com/residential-solar.webp"
       />
 
       <section data-page-reveal>

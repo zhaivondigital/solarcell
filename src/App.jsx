@@ -53,7 +53,7 @@ const HOME_IMG = {
   residential: "https://cdn.mos.cms.futurecdn.net/R7nuCF8AAgqBmMMdbyUkj7.jpg",
   commercial: "https://www.jakson.com/wp-content/uploads/2025/03/Choosing-the-Right-Solar-Solutions-for-Your-Commercial-Needs.jpg",
   industrial: "https://chandradaya-investasi.com/_next/image?url=https%3A%2F%2Fchandradaya-investasi.com%2Ffile-storage%2FQ3YzYzFZb3k0WmJpbWZEd21abkFpUUlkbnZxRDhkR2pndEI0MjUrMG11Z1Z4ZXM5VXA0U0plcHhlU1JKKzUrRS9MdUU4cEUrTy8rR1cxL0JnK1dqSEE9PQ&w=3840&q=75",
-  cta: projectImages.rooftopView,
+  cta: "/consultation-cta.png",
 };
 
 function GovernmentSubsidyCard() {
@@ -192,44 +192,43 @@ const brandLogos = [
   { name: "Deye", image: "https://www.deyeinverter.com/template/en/images/logo.svg", website: "https://www.deyeinverter.com/" },
   { name: "VSOLE", image: "https://www.vsolesolar.com/img/vsole_loging_logo.png", website: "https://www.vsolesolar.com/" },
   { name: "Polycab", image: "https://www.wirecable.in/wp-content/uploads/2023/09/polycab-logo.jpg", website: "https://www.polycab.com/" },
-  { name: "Larsen & Toubro", image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/L%26T.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", website: "https://www.larsentoubro.com/" },
 ];
 
 const trustSectionImages = [
   {
     title: "Quality Installation",
     description: "Professional workmanship.",
-    image: projectImages.crew,
-    alt: "Residential rooftop solar panels on an Indian home",
+    image: "/quality-installation.png",
+    alt: "Ever Green Solar team installing a rooftop solar panel",
   },
   {
     title: "Transparent Communication",
     description: "Clear plans for your rooftop and energy needs.",
-    image: projectImages.teamRoof,
+    image: "https://bealpha.in/wp-content/uploads/2024/10/blog.jpeg",
     alt: "Rooftop solar array on a home in India",
   },
   {
     title: "End-to-End Assistance",
     description: "From assessment to commissioning.",
-    image: projectImages.cityRoof,
+    image: "https://cdn.corporatefinanceinstitute.com/assets/end-to-end1-1024x768.jpeg",
     alt: "Solar panels on a modern Indian home rooftop",
   },
   {
     title: "After-Sales Support",
     description: "Support after your system goes live.",
-    image: projectImages.roofWide,
+    image: "https://xtenav.com/wp-content/uploads/2023/10/After-Sales-Service.jpg",
     alt: "Solar panels installed across a flat-roof home",
   },
   {
     title: "Performance Monitoring",
     description: "Understand how your system is performing.",
-    image: projectImages.panels,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQitD1MBgg5U7QSSmaRBE__sYaRqYUnz3nepsFbuNaVNGkBOdS6VQLjmof-&s=10",
     alt: "Residential solar modules on a flat rooftop in India",
   },
   {
     title: "Long-Term Thinking",
     description: "Systems designed around durability and value.",
-    image: projectImages.rooftopView,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyr90Ecey9WWEFdnk3b7r6Jogl_6098VF4pR-OYYy95A&s=10",
     alt: "Flat-roof household solar installation in India",
   },
 ];
@@ -1027,7 +1026,9 @@ function HomePage() {
             <div className="trust-cards">
               {trustSectionImages.map(({ title, description, image, alt }) => (
                 <div className="trust-card" data-card key={title}>
-                  <div className="trust-card-image">
+                  <div
+                    className={`trust-card-image${title === "Long-Term Thinking" ? " trust-card-image-long-term" : ""}`}
+                  >
                     <img
                       src={image}
                       alt={alt}

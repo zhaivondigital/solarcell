@@ -428,6 +428,7 @@
 .trust2 .trust-card{min-width:0;overflow:hidden}
 .trust2 .trust-card-image{display:grid;place-items:center;aspect-ratio:16/9;margin-bottom:18px;overflow:hidden;border-radius:14px;background:var(--sage)}
 .trust2 .trust-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.trust2 .trust-card-image-long-term img{object-position:center 60%}
 .trust2 .trust-card:hover .trust-card-image img{transform:scale(1.04)}
 .trust2 .trust-card-image-fallback{color:var(--forest);font-weight:800;text-align:center}
 .trust2 .trust-card>b{margin-bottom:8px}
@@ -487,7 +488,7 @@
 .step-copy p{margin:7px 0 0;color:#d2e0d7;font-size:13px;line-height:1.55}
 .component-quality-section{padding:78px 0}
 .component-quality-visual{min-height:340px}
-.component-quality-visual img{object-position:center 58%}
+.component-quality-visual img{object-position:center 78%}
 .brand-marquee-section{margin-top:56px}
 .brand-marquee-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px}
 .brand-marquee-heading h3{margin-top:10px;font-size:clamp(22px,3vw,32px)}
@@ -495,9 +496,9 @@
 .brand-marquee{overflow:hidden;padding:4px 0 12px}
 .brand-marquee-track{animation-duration:38s}
 .brand-marquee-group{display:flex;align-items:center;gap:14px;padding-right:14px}
-.brand-marquee-card{width:160px;height:94px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:12px;border:1px solid rgba(23,32,27,.08);border-radius:15px;background:var(--ivory);transition:transform .2s ease,border-color .2s ease}
+.brand-marquee-card{width:190px;height:118px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:12px;border:1px solid rgba(23,32,27,.08);border-radius:15px;background:#fff;transition:transform .2s ease,border-color .2s ease}
 .brand-marquee-card:hover,.brand-marquee-card:focus-visible{transform:translateY(-3px);border-color:rgba(29,96,67,.35);outline:none}
-.brand-marquee-card img{width:auto;max-width:125px;height:auto;max-height:42px;object-fit:contain}
+.brand-marquee-card img{width:auto;max-width:155px;height:auto;max-height:60px;object-fit:contain}
 .brand-marquee-card .brand-showcase-name{min-height:0;margin:0;font-size:10px}
 .brand-marquee-card .brand-logo-fallback{font-size:14px}
 .hero:before{background-image:linear-gradient(90deg,rgba(9,34,24,.84) 0%,rgba(9,34,24,.55) 50%,rgba(9,34,24,.18) 100%),url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=85");background-position:center 45%;background-size:cover}
@@ -573,7 +574,7 @@
   .component-quality-section{padding:60px 0}
   .component-quality-visual{min-height:240px}
   .brand-marquee-section{margin-top:38px}
-  .brand-marquee-card{width:145px;height:88px}
+  .brand-marquee-card{width:170px;height:108px}
   .why-egs-layout{gap:28px}
   .why-egs-heading h2{font-size:30px}
   .why-egs-heading p{font-size:15px}

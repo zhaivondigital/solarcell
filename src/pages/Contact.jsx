@@ -26,7 +26,7 @@ export default function Contact() {
         eyebrow="Solar Enquiries"
         title="Let’s Plan a Smarter Solar Future."
         copy="Tell us about your property and our team will help you understand the right next step for your solar journey."
-        image={IMG.roof}
+        image="https://aisensolarsolutions.com/residential-solar.webp"
       />
 
       <section className="contact-section" data-page-reveal>
