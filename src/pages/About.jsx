@@ -35,7 +35,7 @@ export default function About() {
     {
       role: "People & Projects",
       name: "Our solar crew",
-      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85",
+      image: "/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.52%20PM.jpeg",
       paragraphs: [
         "Thoughtful solar work takes a team. Our designers, engineers and installers bring their skills together to help each project move from an initial conversation to a considered rooftop solution.",
         "From understanding a property's needs to planning and carrying out the installation, the team pays attention to the practical details that help a system fit its site.",

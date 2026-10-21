@@ -7,19 +7,56 @@ import About from "./pages/About.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import CalculatorRoute from "./pages/Calculator.jsx";
 import Contact from "./pages/Contact.jsx";
-import { IMG } from "./components/SiteChrome.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6";
+import {
+  FaBuilding,
+  FaCircleCheck,
+  FaHelmetSafety,
+  FaHouse,
+  FaIndianRupeeSign,
+  FaIndustry,
+  FaLandmark,
+  FaMagnifyingGlass,
+  FaPlug,
+  FaRulerCombined,
+  FaShieldHalved,
+  FaSoap,
+  FaScrewdriverWrench,
+  FaWind,
+} from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const projectImages = {
+  rooftop: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=85",
+  crew: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=900&q=85",
+  roofWide: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1400&q=85",
+  cityRoof: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1300&q=85",
+  panels: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=85",
+  rooftopView: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=85",
+  maintenance: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1200&q=85",
+  teamRoof: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85",
+};
+
+const employeeImages = [
+  {
+    src: "/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.52%20PM.jpeg",
+    alt: "Ever Green Solar technicians wearing branded shirts at a rooftop installation",
+  },
+  {
+    src: "/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.05%20PM.jpeg",
+    alt: "Ever Green Solar team member at a completed rooftop installation",
+  },
+];
+
 const HOME_IMG = {
-  roof: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
-  residential: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1300&q=85",
-  commercial: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85",
-  industrial: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85",
-  cta: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85",
+  roof: projectImages.rooftop,
+  residential: projectImages.roofWide,
+  commercial: projectImages.cityRoof,
+  industrial: projectImages.panels,
+  cta: projectImages.rooftopView,
 };
 
 const brandLogos = [
@@ -39,38 +76,38 @@ const trustSectionImages = [
   {
     title: "Quality Installation",
     description: "Professional workmanship.",
-    image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=900&q=80",
-    alt: "Solar technicians securing a rooftop solar panel installation",
+    image: projectImages.crew,
+    alt: "Residential rooftop solar panels on an Indian home",
   },
   {
     title: "Transparent Communication",
-    description: "Clear recommendations and quotations.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
-    alt: "Consultants discussing a proposal together at a desk",
+    description: "Clear plans for your rooftop and energy needs.",
+    image: projectImages.teamRoof,
+    alt: "Rooftop solar array on a home in India",
   },
   {
     title: "End-to-End Assistance",
     description: "From assessment to commissioning.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80",
-    alt: "Engineer inspecting technical equipment during an assessment",
+    image: projectImages.cityRoof,
+    alt: "Solar panels on a modern Indian home rooftop",
   },
   {
     title: "After-Sales Support",
     description: "Support after your system goes live.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-    alt: "Customer receiving technical assistance using a tablet",
+    image: projectImages.roofWide,
+    alt: "Solar panels installed across a flat-roof home",
   },
   {
     title: "Performance Monitoring",
     description: "Understand how your system is performing.",
-    image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=900&q=80",
-    alt: "Smartphone used to check system performance",
+    image: projectImages.panels,
+    alt: "Residential solar modules on a flat rooftop in India",
   },
   {
     title: "Long-Term Thinking",
     description: "Systems designed around durability and value.",
-    image: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=900&q=80",
-    alt: "Rooftop solar panels installed for reliable long-term energy",
+    image: projectImages.rooftopView,
+    alt: "Flat-roof household solar installation in India",
   },
 ];
 
@@ -214,27 +251,6 @@ function HomePage() {
             );
           }
         });
-
-      document.querySelectorAll("[data-count]").forEach((el) => {
-        const target = Number(el.dataset.count);
-        const suffix = el.dataset.suffix || "";
-        const decimals = Number(el.dataset.decimals || 0);
-        const obj = { value: 0 };
-
-        gsap.to(obj, {
-          value: target,
-          duration: 1.7,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 88%",
-            once: true,
-          },
-          onUpdate: () => {
-            el.textContent = obj.value.toFixed(decimals) + suffix;
-          },
-        });
-      });
 
       document.querySelectorAll("[data-card]").forEach((card) => {
         const move = (e) => {
@@ -507,14 +523,14 @@ function HomePage() {
         <section className="hero">
           <div className="container hero-inner hero-layout">
             <div className="hero-content">
-              <div className="eyebrow">Rooftop solar for Every Space</div>
+              <div className="eyebrow">Ever Green Solar · India</div>
               <h1>
-                Evergreen Solar System
+                Evergreen Solar Solutions .
                 <br />
-                <span>Energy Without Limits.</span>
+                <span>Built Around Your Home.</span>
               </h1>
               <p className="hero-copy">
-                Solar solutions designed for Residential,Commercial and Industrial Customers..
+                Solar solutions for Indian homes, businesses and industries.
                 Generate clean electricity and make your rooftop work harder.
               </p>
               <div className="hero-buttons">
@@ -537,36 +553,23 @@ function HomePage() {
         </section>
 
         <div className="trust" data-reveal-section>
-          <div className="container trust-grid">
-            <h3>
-              Powering a smarter tomorrow,
-              <br />
-              one rooftop at a time.
-            </h3>
-
-            <div className="metric">
-              <strong data-count="500" data-suffix="+">
-                0
-              </strong>
-              <small>Solar Installations*</small>
-            </div>
-            <div className="metric">
-              <strong data-count="5" data-suffix="+ MW">
-                0
-              </strong>
-              <small>Clean Energy Installed*</small>
-            </div>
-            <div className="metric">
-              <strong data-count="25" data-suffix="+ Years">
-                0
-              </strong>
-              <small>Panel Performance</small>
-            </div>
-            <div className="metric">
-              <strong data-count="100" data-suffix="%">
-                0
-              </strong>
-              <small>End-to-End Assistance</small>
+          <div className="trust-marquee" role="region" aria-label="Solar service highlights">
+            <div className="trust-marquee-track">
+              {[0, 1].map((copy) => (
+                <div className="trust-marquee-group" aria-hidden={copy === 1} key={copy}>
+                  {[
+                    ["500+", "Solar installations"],
+                    ["5+ MW", "Clean energy installed"],
+                    ["25+ years", "Panel performance"],
+                    ["100%", "End-to-end assistance"],
+                  ].map(([value, label]) => (
+                    <div className="trust-marquee-item" key={label}>
+                      <strong>{value}</strong>
+                      <span>{label}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -575,20 +578,18 @@ function HomePage() {
           <div className="container subsidy-grid">
             <div>
               <div className="eyebrow">Government subsidy</div>
-              <h2>Going Solar Can Come With Government Support.</h2>
+              <h2>Solar Subsidy Support for Eligible Indian Homes.</h2>
               <p className="muted section-copy">
-                Eligible residential customers may be able to access applicable
-                government rooftop-solar incentives or subsidies depending on
-                current policy and eligibility.
+                Get help understanding central and state rooftop solar subsidy
+                portions, documents and application steps for your home.
               </p>
 
               <div className="subsidy-list">
-                <div><span>✓</span><span>Eligibility</span><span className="emoji" aria-hidden="true">🧑‍💼</span></div>
-                <div><span>✓</span><span>Documentation</span><span className="emoji" aria-hidden="true">📄</span></div>
-                <div><span>✓</span><span>Application</span><span className="emoji" aria-hidden="true">📝</span></div>
-                <div><span>✓</span><span>Installation requirements</span><span className="emoji" aria-hidden="true">🔧</span></div>
-                <div><span>✓</span><span>Grid coordination</span><span className="emoji" aria-hidden="true">⚡</span></div>
-                <div><span>✓</span><span>Subsidy process</span><span className="emoji" aria-hidden="true">💰</span></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>Home eligibility check</span><FaLandmark aria-hidden="true" /></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>Document preparation</span><FaRulerCombined aria-hidden="true" /></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>Application guidance</span><FaCircleCheck aria-hidden="true" /></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>MNRE-approved components</span><FaPlug aria-hidden="true" /></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>Installation &amp; grid coordination</span><FaScrewdriverWrench aria-hidden="true" /></div>
               </div>
 
               <Button href="/contact" variant="dark">
@@ -596,13 +597,40 @@ function HomePage() {
               </Button>
             </div>
 
-            <div className="important-card">
-              <div className="eyebrow">Important</div>
-              <h3>Policy changes. We verify before advising.</h3>
-              <p className="muted">
-                Actual subsidy figures should be confirmed against current
-                official government information before publication or quotation.
-              </p>
+            <div
+              className="subsidy-amount-card"
+              style={{ backgroundImage: `url("${HOME_IMG.roof}")` }}
+            >
+              <div className="subsidy-card-content">
+                <div className="subsidy-authorities">
+                  <div className="subsidy-authority">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="State Emblem of India" loading="lazy" />
+                    <span><b>Government of India</b><small>MNRE · Central subsidy</small></span>
+                  </div>
+                  <div className="subsidy-authority">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Emblem_of_Tamil_Nadu.svg" alt="Emblem of Tamil Nadu" loading="lazy" />
+                    <span><b>Government of Tamil Nadu</b><small>State subsidy</small></span>
+                  </div>
+                </div>
+                <div className="subsidy-amount-row">
+                  <div><small>Central support</small><strong>₹78,000</strong></div>
+                  <span aria-hidden="true">+</span>
+                  <div><small>State support</small><strong>₹22,000</strong></div>
+                </div>
+                <div className="subsidy-total">
+                  <span>Potential combined subsidy</span>
+                  <strong>₹1,00,000</strong>
+                </div>
+                <div className="subsidy-approved">
+                  <FaCircleCheck aria-hidden="true" />
+                  <span>MNRE-approved components for eligible systems</span>
+                </div>
+                <p className="subsidy-disclaimer">
+                  Indicative amounts for eligible residential systems. Final
+                  support depends on current scheme rules, system capacity and
+                  official approval.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -619,7 +647,7 @@ function HomePage() {
                 <h2>One Sun. Different Energy Needs.</h2>
               </div>
               <p className="muted">
-              Solar options for Chennai homes and businesses, from residential rooftops to larger commercial installations.
+              Rooftop solar for Indian homes, businesses and industries, designed around each property's energy needs.
               </p>
             </div>
 
@@ -628,9 +656,10 @@ function HomePage() {
                 [
                   "01 — RESIDENTIAL",
                   "Residential Solar",
-                  "For homes that want lower electricity bills and greater energy independence.",
+                  "Flat-roof solar for Indian homes looking for lower electricity bills and energy independence.",
                   HOME_IMG.residential,
                   "Power My Home →",
+                  <FaHouse />,
                 ],
                 [
                   "02 — COMMERCIAL",
@@ -638,6 +667,7 @@ function HomePage() {
                   "Turn unused rooftop space into a long-term energy asset.",
                   HOME_IMG.commercial,
                   "Explore →",
+                  <FaBuilding />,
                 ],
                 [
                   "03 — INDUSTRIAL",
@@ -645,11 +675,13 @@ function HomePage() {
                   "High-capacity systems engineered around your facility's energy demand.",
                   HOME_IMG.industrial,
                   "Talk to Us →",
+                  <FaIndustry />,
                 ],
-              ].map(([eyebrow, title, copy, src, cta]) => (
+              ].map(([eyebrow, title, copy, src, cta, icon]) => (
                 <article className="solution" data-card key={title}>
                   <img src={src} alt={title} />
                   <div className="solution-content">
+                    <span className="solution-icon" aria-hidden="true">{icon}</span>
                     <span className="eyebrow">{eyebrow}</span>
                     <h3>{title}</h3>
                     <p>{copy}</p>
@@ -665,43 +697,112 @@ function HomePage() {
           <div className="container">
             <div className="eyebrow">The Ever Green difference</div>
             <h2>
-              We Don't Just Install Panels. We Build Your Solar System Around
-              You.
+              We Don't Just Install Solar Panels. We Build Your Solar System
+              Around You.
             </h2>
 
             <div className="journey">
               {[
-                ["01", "Understand", "We study your electricity consumption."],
+                ["01", "Understand", "We study your electricity consumption.", projectImages.cityRoof, <FaMagnifyingGlass />],
                 [
                   "02",
                   "Assess",
                   "We inspect your rooftop, orientation, shade and available space.",
+                  projectImages.rooftop,
+                  <FaHouse />,
                 ],
-                ["03", "Design", "We create the right system for your property."],
+                ["03", "Design", "We create the right system for your property.", projectImages.roofWide, <FaRulerCombined />],
                 [
                   "04",
                   "Install",
                   "Professional installation with attention to safety and workmanship.",
+                  employeeImages[0].src,
+                  <FaScrewdriverWrench />,
                 ],
                 [
                   "05",
                   "Connect",
                   "Support through grid connection and applicable documentation.",
+                  projectImages.roofWide,
+                  <FaPlug />,
                 ],
                 [
                   "06",
                   "Support",
                   "Post-installation assistance and system monitoring.",
+                  projectImages.maintenance,
+                  <FaCircleCheck />,
                 ],
-              ].map(([num, title, text]) => (
-                <div className="step" data-step key={num}>
-                  <b>{num}</b>
-                  <div>
-                    <h3>{title}</h3>
+              ].map(([num, title, text, image, icon]) => (
+                <article className="step" data-step data-card key={num}>
+                  <div className="step-copy">
+                    <h3><span>{num}</span>{title}</h3>
                     <p>{text}</p>
                   </div>
-                </div>
+                  <div className="step-image">
+                    <img src={image} alt={`${title} stage of a rooftop solar project in India`} loading="lazy" />
+                    <span className="step-icon" aria-hidden="true">{icon}</span>
+                  </div>
+                </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="why-egs" data-reveal-section>
+          <div className="container why-egs-layout">
+            <div className="why-egs-content">
+              <div className="eyebrow">Why choose Ever Green Solar</div>
+              <h2>Solar made simple, from install to upkeep.</h2>
+              <p className="muted why-egs-intro">
+                Expert installation, flexible finance and dependable care for
+                your home solar system.
+              </p>
+              <div className="why-egs-grid">
+                {[
+                  {
+                    title: "Installation by Experts",
+                    text: "Get your solar system installed in just 24 hours with a smooth, seamless installation process.",
+                    icon: <FaHelmetSafety />,
+                    accent: "expert",
+                  },
+                  {
+                    title: "0% EMI Financing Plan",
+                    text: "Your solar journey made easy and affordable with our EMI plans.",
+                    icon: <FaIndianRupeeSign />,
+                    accent: "finance",
+                  },
+                  {
+                    title: "5-Year Professional Maintenance",
+                    text: "Monthly deep cleaning, health checks and repairs included.",
+                    icon: <FaSoap />,
+                    accent: "maintenance",
+                  },
+                  {
+                    title: "Windproof & Corrosion-Free Structure",
+                    text: "Engineered to withstand winds up to 175 km/h and resist corrosion for long-term safety and performance.",
+                    icon: <><FaWind /><FaShieldHalved /></>,
+                    accent: "structure",
+                  },
+                ].map(({ title, text, icon, accent }) => (
+                  <article className={`why-egs-card ${accent}`} data-card key={title}>
+                    <span className="why-egs-icon" aria-hidden="true">{icon}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="why-egs-team">
+              <div className="why-egs-team-images">
+                {employeeImages.map(({ src, alt }, index) => (
+                  <figure className={`why-egs-employee employee-${index + 1}`} key={src}>
+                    <img src={src} alt={alt} loading="lazy" />
+                  </figure>
+                ))}
+                <img className="why-egs-brand" src="/egs-house-of-solar-logo.png" alt="Ever Green Solar" loading="lazy" />
+              </div>
+              <p>Installed with care by the Ever Green Solar team.</p>
             </div>
           </div>
         </section>
@@ -715,7 +816,7 @@ function HomePage() {
             </p>
             <div
               className="roof-visual"
-              style={{ backgroundImage: `url(${HOME_IMG.roof})` }}
+              style={{ backgroundImage: `url("${HOME_IMG.roof}")` }}
             >
               <div className="roof-label label1" data-float>
                 ROOF AREA
@@ -748,55 +849,50 @@ function HomePage() {
             </div>
 
             <div className="component-quality-visual">
-              <img src={IMG.project2} alt="Solar panels installed on a rooftop" loading="lazy" />
+              <img src={projectImages.rooftopView} alt="Expansive rooftop solar panel installation" loading="lazy" />
               <span>Reliable components. Thoughtful installation.</span>
             </div>
-
           </div>
-        </section>
-
-        <section className="brand-showcase" data-reveal-section>
-          <div className="container">
-            <div className="eyebrow">Trusted technology</div>
-            <h2>World Best Brands</h2>
-            <p className="muted brand-showcase-copy">
-              Powered by trusted brands for quality, performance, and reliability.
-            </p>
-            <div className="brand-showcase-grid">
-              {brandLogos.map((brand) => {
-                const logo = (
-                  <>
-                    <div className="brand-logo-display">
-                      <img
-                        src={brand.image}
-                        alt={`${brand.name} logo`}
-                        loading="lazy"
-                        decoding="async"
-                        onError={(event) => {
-                          event.currentTarget.hidden = true;
-                          event.currentTarget.nextElementSibling.hidden = false;
-                        }}
-                      />
-                      <span className="brand-logo-fallback" hidden>
-                        {brand.name}
-                      </span>
-                    </div>
-                    <span className="brand-showcase-name">{brand.name}</span>
-                  </>
-                );
-
-                return (
-                  <article className="brand-showcase-card" key={brand.name}>
-                    {brand.website ? (
-                      <a href={brand.website} target="_blank" rel="noopener noreferrer">
-                        {logo}
+          <div className="container brand-marquee-section">
+            <div className="brand-marquee-heading">
+              <div>
+                <div className="eyebrow">Trusted technology</div>
+                <h3>Quality components. Trusted solar brands.</h3>
+              </div>
+              <p className="muted">
+                Reliable products selected to suit your roof and energy needs.
+              </p>
+            </div>
+            <div className="brand-marquee" aria-label="Solar technology brands">
+              <div className="brand-marquee-track">
+                {[0, 1].map((copy) => (
+                  <div className="brand-marquee-group" aria-hidden={copy === 1} key={copy}>
+                    {brandLogos.map((brand) => (
+                      <a
+                        className="brand-marquee-card"
+                        href={brand.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={brand.name}
+                        tabIndex={copy === 1 ? -1 : undefined}
+                      >
+                        <img
+                          src={brand.image}
+                          alt={copy === 1 ? "" : `${brand.name} logo`}
+                          loading="lazy"
+                          decoding="async"
+                          onError={(event) => {
+                            event.currentTarget.hidden = true;
+                            event.currentTarget.nextElementSibling.hidden = false;
+                          }}
+                        />
+                        <span className="brand-logo-fallback" hidden>{brand.name}</span>
+                        <span className="brand-showcase-name">{brand.name}</span>
                       </a>
-                    ) : (
-                      logo
-                    )}
-                  </article>
-                );
-              })}
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -967,7 +1063,7 @@ function HomePage() {
               <span>Professional installation</span>
             </div>
             <div className="contact-cta-visual">
-              <img src={HOME_IMG.roof} alt="A family home ready for rooftop solar" loading="lazy" />
+              <img src={HOME_IMG.roof} alt="Flat-roof solar installation in India" loading="lazy" />
               <div><strong>Ready to make your rooftop work harder?</strong><span>Start with a clear, no-obligation conversation.</span></div>
             </div>
           </div>

@@ -5,7 +5,7 @@ const categories = [
   {
     id: "commercial-rooftop",
     title: "Solar Rooftop — Commercial",
-    description: "Commercial rooftop solar projects across Chennai and beyond.",
+    description: "Commercial rooftop solar projects across India.",
     projects: [
       {
         name: "Mall",
@@ -16,8 +16,8 @@ const categories = [
         detail: "A commercial rooftop solar installation planned for the property's energy needs.",
       },
       {
-        name: "Chennai Airport",
-        location: "Chennai",
+        name: "Airport rooftop",
+        location: "Tamil Nadu",
         capacity: "35 kW",
         image: IMG.hero,
         alt: "Illustrative rooftop solar array for a large facility",
@@ -27,7 +27,7 @@ const categories = [
         name: "Embassy",
         location: "Pallavaram",
         capacity: "558 kW",
-        image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project3,
         alt: "Illustrative large-scale solar panels",
         detail: "A large-capacity rooftop project designed around site requirements.",
       },
@@ -44,7 +44,7 @@ const categories = [
   {
     id: "domestic-rooftop",
     title: "Solar Rooftop — Domestic",
-    description: "Residential rooftop systems for homes across Chennai.",
+    description: "Residential rooftop systems for homes across India.",
     projects: [
       {
         name: "Ponnaparaj",
@@ -66,7 +66,7 @@ const categories = [
         name: "Sam",
         location: "Location not specified",
         capacity: "5 kW",
-        image: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project3,
         alt: "Illustrative rooftop solar panels for a home",
         detail: "A residential rooftop project with a 5 kW system.",
       },
@@ -89,7 +89,7 @@ const categories = [
         name: "IIT Tirupathi",
         location: "Tirupati",
         capacity: "34,000 L",
-        image: "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.roof,
         alt: "Illustrative rooftop solar water heater on a modern building",
         detail: "A large-capacity solar water-heating system for an institutional campus.",
       },
@@ -97,7 +97,7 @@ const categories = [
         name: "Veltech College",
         location: "Avadi",
         capacity: "50,000 L",
-        image: "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project2,
         alt: "Illustrative solar hot-water equipment on a rooftop",
         detail: "A high-volume hot-water system for a college campus.",
       },
@@ -113,7 +113,7 @@ const categories = [
         name: "Puravankara",
         location: "Guindy",
         capacity: "3,200 L",
-        image: "https://images.unsplash.com/photo-1787672358142-95e697dacd81?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project3,
         alt: "Illustrative solar water heater serving a commercial building",
         detail: "A solar hot-water system for a commercial property.",
       },
@@ -136,7 +136,7 @@ const categories = [
         name: "CM Thiru Vijay Joseph",
         location: "Neelankarai",
         capacity: "300 L",
-        image: "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project1,
         alt: "Illustrative outdoor heat pump unit beside a building",
         detail: "A 300-litre heat pump water-heating installation.",
       },
@@ -144,7 +144,7 @@ const categories = [
         name: "Nest Builder",
         location: "Nungambakkam",
         capacity: "200 L",
-        image: "https://images.unsplash.com/photo-1776860155275-eee24bfb1dee?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project2,
         alt: "Illustrative modern home exterior with a heat pump",
         detail: "A 200-litre heat pump system for a residential development.",
       },
@@ -152,7 +152,7 @@ const categories = [
         name: "Resort",
         location: "Tirupati",
         capacity: "300 L",
-        image: "https://images.unsplash.com/photo-1780445392462-b7761551820c?auto=format&fit=crop&w=1200&q=85",
+        image: IMG.project3,
         alt: "Illustrative residential water heater and outdoor heat pump equipment",
         detail: "A 300-litre hot-water heat pump solution for a hospitality property.",
       },
@@ -161,16 +161,16 @@ const categories = [
 ];
 
 const onsiteImages = [
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.47%20PM.jpeg", "Onsite solar installation photo 1"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.49%20PM.jpeg", "Onsite solar installation photo 2"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.50%20PM.jpeg", "Onsite solar installation photo 3"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.52%20PM.jpeg", "Onsite solar installation photo 4"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.56%20PM.jpeg", "Onsite solar installation photo 5"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.23.10%20PM.jpeg", "Onsite solar installation photo 6"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.25.14%20PM.jpeg", "Onsite solar installation photo 7"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.01%20PM%20(1).jpeg", "Onsite solar installation photo 8"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.01%20PM.jpeg", "Onsite solar installation photo 9"],
-  ["/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.29.05%20PM.jpeg", "Onsite solar installation photo 10"],
+  [IMG.project1, "Representative Indian household rooftop solar panels 1"],
+  [IMG.roof, "Representative Indian household rooftop solar panels 2"],
+  [IMG.residential, "Representative Indian household rooftop solar panels 3"],
+  [IMG.commercial, "Representative Indian flat-roof solar installation 4"],
+  [IMG.industrial, "Representative Indian rooftop solar panels 5"],
+  [IMG.hero, "Representative Indian home solar installation 6"],
+  [IMG.project2, "Representative Indian household rooftop solar panels 7"],
+  [IMG.project3, "Representative Indian home solar installation 8"],
+  [IMG.cta, "Representative Indian rooftop solar panels 9"],
+  [IMG.project1, "Representative Indian household rooftop solar panels 10"],
 ];
 
 export default function Gallery() {
@@ -269,19 +269,34 @@ export default function Gallery() {
       <section className="onsite-section" data-page-reveal>
         <div className="container">
           <div className="onsite-heading">
-            <div className="eyebrow">On the ground</div>
-            <h2>Our Installation Process</h2>
+            <div className="eyebrow">Solar inspiration</div>
+            <h2>Household Rooftop Solar Across India</h2>
+            <p className="muted">Representative public solar photography for inspiration. Project photos are shown above where available.</p>
           </div>
-          <div className="onsite-image-grid">
-            {onsiteImages.map(([image, alt], index) => (
-              <button
-                className={`onsite-image onsite-image-${index + 1}`}
-                key={alt}
-                onClick={() => setSelectedImage([image, alt])}
-                aria-label={`View image: ${alt}`}
-              >
-                <img src={image} alt={alt} loading="lazy" />
-              </button>
+          <div className="inspiration-carousel" aria-label="Solar inspiration photo carousel">
+            {[0, 1, 2].map((row) => (
+              <div className={`inspiration-row inspiration-row-${row + 1}`} key={row}>
+                <div className="inspiration-track">
+                  {[0, 1].map((copy) => (
+                    <div className="inspiration-group" aria-hidden={copy === 1} key={copy}>
+                      {onsiteImages.map((_, index) => {
+                        const [image, alt] = onsiteImages[(index + row * 3) % onsiteImages.length];
+                        return (
+                          <button
+                            className="inspiration-image"
+                            key={`${copy}-${index}`}
+                            onClick={() => setSelectedImage([image, alt])}
+                            aria-label={`View image: ${alt}`}
+                            tabIndex={copy === 1 ? -1 : undefined}
+                          >
+                            <img src={image} alt={copy === 1 ? "" : alt} loading="lazy" />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

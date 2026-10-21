@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
               <div className="contact-detail contact-card">
                 <b><FaLocationDot aria-hidden="true" style={contactIconStyle} />Service area</b>
-                <span>Chennai, Tamil Nadu</span>
+                <span>Tamil Nadu, India</span>
               </div>
             </div>
           </div>
@@ -79,8 +79,8 @@ export default function Contact() {
       <section className="map-section" data-page-reveal>
         <div className="container map-wrap">
           <div className="eyebrow">Find us</div>
-          <h3>Visit our Chennai locations.</h3>
-          <p className="muted">Find our office or warehouse in Chennai, Tamil Nadu.</p>
+          <h3>Visit our Tamil Nadu locations.</h3>
+          <p className="muted">Find our office or warehouse in Tamil Nadu, India.</p>
           <div className="contact-map-grid">
             <article className="contact-map">
               <h5>OFFICE : 3/9, Kilpauk Garden Road, Kalaignar Street, Kilpauk, Chennai, Tamil Nadu 600010</h5>
