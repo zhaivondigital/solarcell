@@ -502,25 +502,37 @@
 .brand-marquee-card .brand-logo-fallback{font-size:14px}
 .hero:before{background-image:linear-gradient(90deg,rgba(9,34,24,.84) 0%,rgba(9,34,24,.55) 50%,rgba(9,34,24,.18) 100%),url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=85");background-position:center 45%;background-size:cover}
 
-.why-egs{background:var(--ivory)}
-.why-egs-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);align-items:center;gap:48px}
-.why-egs-content h2{max-width:720px;margin-top:14px}
-.why-egs-intro{max-width:600px;margin:17px 0 28px}
-.why-egs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.why-egs-card{min-height:208px;padding:22px;border:1px solid rgba(18,59,42,.1);border-radius:18px;background:#fff;box-shadow:0 12px 28px rgba(18,59,42,.06);transition:transform .25s ease,box-shadow .25s ease}
-.why-egs-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.why-egs-icon{display:flex;align-items:center;gap:7px;width:48px;height:48px;justify-content:center;margin-bottom:17px;border-radius:14px;background:var(--sage);color:var(--forest);font-size:21px}
-.why-egs-card h3{font-size:19px;line-height:1.2}
-.why-egs-card p{margin:9px 0 0;color:#5f6963;font-size:13px;line-height:1.6}
-.why-egs-card.structure .why-egs-icon{width:68px}
-.why-egs-team{min-width:0}
-.why-egs-team-images{position:relative;min-height:480px}
-.why-egs-employee{position:absolute;overflow:hidden;margin:0;border:6px solid #fff;border-radius:24px;background:var(--sage);box-shadow:var(--shadow)}
-.why-egs-employee img{width:100%;height:100%;object-fit:cover}
-.why-egs-employee.employee-1{inset:0 35px 65px 0}
-.why-egs-employee.employee-2{right:0;bottom:0;width:53%;height:46%;border-width:5px}
-.why-egs-brand{position:absolute;top:22px;right:12px;width:118px;height:68px;padding:8px;border-radius:12px;background:#fff;object-fit:contain;box-shadow:var(--shadow)}
-.why-egs-team>p{margin:15px 0 0;color:var(--forest);font-size:13px;font-weight:800}
+.why-egs{background:#fff}
+.why-egs-layout{display:grid;justify-items:center;gap:36px}
+.why-egs-heading{text-align:center}
+.why-egs-heading h2{color:var(--ever);font-size:clamp(28px,3.2vw,40px);line-height:1.2;letter-spacing:-.035em}
+.why-egs-heading p{margin:10px 0 18px;color:var(--forest);font-size:18px}
+.why-egs-quote{padding:10px 22px!important;border-radius:7px!important;background:var(--gold)!important;color:var(--ever)!important;font-size:12px;box-shadow:0 5px 12px rgba(18,59,42,.16)}
+.why-egs-grid{width:min(100%,940px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(164px,auto));grid-template-areas:"expert finance" "expert maintenance" "structure maintenance";gap:18px}
+.why-egs-card{position:relative;min-width:0;overflow:hidden;padding:22px;border:0;border-radius:15px;background:#f2f5f0;box-shadow:none;transition:transform .25s ease,box-shadow .25s ease}
+.why-egs-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(18,59,42,.12)}
+.why-egs-card.expert{grid-area:expert;background:var(--sage)}
+.why-egs-card.finance{grid-area:finance;display:flex;align-items:center;gap:14px;padding:14px 22px;background:#edf3ed}
+.why-egs-card.maintenance{grid-area:maintenance;background:var(--ivory)}
+.why-egs-card.structure{grid-area:structure;display:flex;align-items:center;gap:18px}
+.why-egs-card-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.why-egs-card.expert .why-egs-card-image{object-position:center 54%}
+.why-egs-card.maintenance .why-egs-card-image{object-position:center}
+.why-egs-card.expert::after,.why-egs-card.maintenance::after{position:absolute;inset:0;content:"";pointer-events:none}
+.why-egs-card.expert::after{background:linear-gradient(180deg,rgba(247,245,239,.98) 0%,rgba(247,245,239,.88) 31%,rgba(247,245,239,.08) 72%)}
+.why-egs-card.maintenance::after{background:linear-gradient(180deg,rgba(247,245,239,.98) 0%,rgba(247,245,239,.9) 34%,rgba(247,245,239,.08) 69%)}
+.why-egs-card-copy{position:relative;z-index:1}
+.why-egs-card h3{color:var(--ever);font-size:20px;line-height:1.2;letter-spacing:-.025em}
+.why-egs-card p{margin:9px 0 0;color:#4f5d54;font-size:13px;line-height:1.5}
+.why-egs-card.expert .why-egs-card-copy{max-width:330px}
+.why-egs-card.maintenance .why-egs-card-copy{margin-left:29%;text-align:right}
+.why-egs-card.maintenance h3{font-size:21px}
+.why-egs-finance-mark{flex:none;color:var(--forest);font-size:88px;font-weight:900;line-height:.9;letter-spacing:-.1em;text-shadow:0 5px 10px rgba(18,59,42,.16)}
+.why-egs-finance-mark small{font-size:.48em;letter-spacing:-.08em}
+.why-egs-card.finance .why-egs-card-copy{text-align:right}
+.why-egs-icon{display:flex;flex:none;align-items:center;gap:4px;width:50px;height:50px;justify-content:center;border-radius:50%;background:var(--sage);color:var(--forest);font-size:19px}
+.why-egs-card.structure h3{font-size:20px}
+.why-egs-card.structure p{margin-top:8px}
 
 @keyframes solarMarquee{to{transform:translateX(-50%)}}
 @media(max-width:900px){
@@ -530,8 +542,7 @@
   .nav-inner{position:relative}
   .subsidy-grid{gap:30px}
   .subsidy-grid{grid-template-columns:1fr}
-  .why-egs-layout{grid-template-columns:1fr;gap:32px}
-  .why-egs-team-images{min-height:min(70vw,500px)}
+  .why-egs-grid{width:min(100%,780px);grid-template-rows:repeat(3,minmax(164px,auto))}
 }
 @media(max-width:700px){
   .brand-marquee-heading{align-items:flex-start;flex-direction:column;gap:10px}
@@ -563,12 +574,15 @@
   .component-quality-visual{min-height:240px}
   .brand-marquee-section{margin-top:38px}
   .brand-marquee-card{width:145px;height:88px}
-  .why-egs-grid{grid-template-columns:1fr}
-  .why-egs-card{min-height:0;padding:19px}
-  .why-egs-team-images{min-height:390px}
-  .why-egs-employee.employee-1{inset:0 22px 52px 0}
-  .why-egs-employee.employee-2{width:58%;height:45%}
-  .why-egs-brand{width:96px;height:58px}
+  .why-egs-layout{gap:28px}
+  .why-egs-heading h2{font-size:30px}
+  .why-egs-heading p{font-size:15px}
+  .why-egs-grid{grid-template-columns:1fr;grid-template-rows:none;grid-template-areas:"expert" "finance" "maintenance" "structure";gap:14px}
+  .why-egs-card.expert,.why-egs-card.maintenance{min-height:310px}
+  .why-egs-card.finance{min-height:142px}
+  .why-egs-card.structure{min-height:190px}
+  .why-egs-card.maintenance .why-egs-card-copy{margin-left:24%}
+  .why-egs-finance-mark{font-size:76px}
 }
 @media(prefers-reduced-motion:reduce){
   .trust-marquee-track,.brand-marquee-track{animation:none}

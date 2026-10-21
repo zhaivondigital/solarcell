@@ -13,16 +13,13 @@ import { FaWhatsapp, FaPhone, FaArrowUp, FaBars, FaXmark } from "react-icons/fa6
 import {
   FaBuilding,
   FaCircleCheck,
-  FaHelmetSafety,
   FaHouse,
-  FaIndianRupeeSign,
   FaIndustry,
   FaLandmark,
   FaMagnifyingGlass,
   FaPlug,
   FaRulerCombined,
   FaShieldHalved,
-  FaSoap,
   FaScrewdriverWrench,
   FaWind,
 } from "react-icons/fa6";
@@ -751,58 +748,63 @@ function HomePage() {
 
         <section className="why-egs" data-reveal-section>
           <div className="container why-egs-layout">
-            <div className="why-egs-content">
-              <div className="eyebrow">Why choose Ever Green Solar</div>
-              <h2>Solar made simple, from install to upkeep.</h2>
-              <p className="muted why-egs-intro">
-                Expert installation, flexible finance and dependable care for
-                your home solar system.
-              </p>
-              <div className="why-egs-grid">
-                {[
-                  {
-                    title: "Installation by Experts",
-                    text: "Get your solar system installed in just 24 hours with a smooth, seamless installation process.",
-                    icon: <FaHelmetSafety />,
-                    accent: "expert",
-                  },
-                  {
-                    title: "0% EMI Financing Plan",
-                    text: "Your solar journey made easy and affordable with our EMI plans.",
-                    icon: <FaIndianRupeeSign />,
-                    accent: "finance",
-                  },
-                  {
-                    title: "5-Year Professional Maintenance",
-                    text: "Monthly deep cleaning, health checks and repairs included.",
-                    icon: <FaSoap />,
-                    accent: "maintenance",
-                  },
-                  {
-                    title: "Windproof & Corrosion-Free Structure",
-                    text: "Engineered to withstand winds up to 175 km/h and resist corrosion for long-term safety and performance.",
-                    icon: <><FaWind /><FaShieldHalved /></>,
-                    accent: "structure",
-                  },
-                ].map(({ title, text, icon, accent }) => (
-                  <article className={`why-egs-card ${accent}`} data-card key={title}>
-                    <span className="why-egs-icon" aria-hidden="true">{icon}</span>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-            <div className="why-egs-team">
-              <div className="why-egs-team-images">
-                {employeeImages.map(({ src, alt }, index) => (
-                  <figure className={`why-egs-employee employee-${index + 1}`} key={src}>
-                    <img src={src} alt={alt} loading="lazy" />
-                  </figure>
-                ))}
-                <img className="why-egs-brand" src="/egs-house-of-solar-logo.png" alt="Ever Green Solar" loading="lazy" />
-              </div>
-              <p>Installed with care by the Ever Green Solar team.</p>
+            <header className="why-egs-heading">
+              <h2>Why choose Ever Green Solar for your home</h2>
+              <p>Book a FREE solar consultation at home!</p>
+              <Button href="/contact" variant="dark" className="why-egs-quote">
+                Get Quote
+              </Button>
+            </header>
+            <div className="why-egs-grid">
+              <article className="why-egs-card expert" data-card>
+                <img
+                  className="why-egs-card-image"
+                  src="/gallery%20section/WhatsApp%20Image%202026-09-30%20at%207.16.50%20PM.jpeg"
+                  alt="Technicians installing rooftop solar panels"
+                  loading="lazy"
+                />
+                <div className="why-egs-card-copy">
+                  <h3>Installation by Experts</h3>
+                  <p>
+                    Get your solar system installed in just 24 hours with a
+                    smooth, seamless installation process.
+                  </p>
+                </div>
+              </article>
+              <article className="why-egs-card finance" data-card>
+                <span className="why-egs-finance-mark" aria-hidden="true">
+                  0<small>%</small>
+                </span>
+                <div className="why-egs-card-copy">
+                  <h3>0% EMI Financing Plan</h3>
+                  <p>Your solar journey made easy and affordable with our EMI plans.</p>
+                </div>
+              </article>
+              <article className="why-egs-card maintenance" data-card>
+                <img
+                  className="why-egs-card-image"
+                  src={employeeImages[1].src}
+                  alt={employeeImages[1].alt}
+                  loading="lazy"
+                />
+                <div className="why-egs-card-copy">
+                  <h3>5-Year Professional Maintenance</h3>
+                  <p>Monthly deep cleaning, health checks and repairs included.</p>
+                </div>
+              </article>
+              <article className="why-egs-card structure" data-card>
+                <span className="why-egs-icon" aria-hidden="true">
+                  <FaWind />
+                  <FaShieldHalved />
+                </span>
+                <div className="why-egs-card-copy">
+                  <h3>Windproof &amp; Corrosion-Free Structure</h3>
+                  <p>
+                    Engineered to withstand winds up to 175 km/h and resist
+                    corrosion for long-term safety and performance.
+                  </p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
