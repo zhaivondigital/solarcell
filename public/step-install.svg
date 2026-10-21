@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="installSky" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9EAE6"/>
+      <stop offset="1" stop-color="#A3C5B8"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#installSky)" d="M0 0h1200v750H0z"/>
+  <circle cx="1030" cy="133" r="59" fill="#F5B942"/>
+  <path d="M0 480 575 292l625 197v261H0V480Z" fill="#859382"/>
+  <path d="m0 480 575-188 625 197" stroke="#F3F0E6" stroke-width="22"/>
+  <path d="m70 510 213-70v45L70 554v-44Zm244-80 213-70v45l-213 70v-45Zm244-80 213 68v45l-213-68v-45Zm244 80 213 68v45l-213-68v-45Z" fill="#497E89" stroke="#E6F1ED" stroke-width="8"/>
+  <path d="m70 510 213-25m-213 69 213-70m31-54 213-25m-213 69 213-70m31-54 213 68m-213-24 213 68m31-24 213 68m-213-24 213 68" stroke="#C6E0DD" stroke-width="5"/>
+  <path d="M310 231c0-35 26-61 58-61s58 26 58 61v53H310v-53Z" fill="#E6F0E8"/>
+  <circle cx="368" cy="164" r="38" fill="#B87958"/>
+  <path d="M330 164c0-37 15-58 41-58 27 0 42 21 42 57-19-2-34-11-47-28-9 15-21 25-36 29Z" fill="#37312C"/>
+  <path d="m321 247-40 98 27 24 80-57 45 51 34-23-42-76c-17-31-61-40-104-17Z" fill="#E8ECE5"/>
+  <path d="m321 273-84 67-46 64 34 22 67-50 54-41m110-61 85 39 45 53-31 27-64-41-68-21" stroke="#B87958" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m184 391 38 24-29 44-41-20z" fill="#F5B942" stroke="#285D43" stroke-width="7"/>
+  <path d="M730 226c0-34 24-60 55-60s55 26 55 60v52H730v-52Z" fill="#E6F0E8"/>
+  <circle cx="785" cy="160" r="37" fill="#9A684F"/>
+  <path d="M748 160c1-36 13-56 39-56 25 0 38 19 39 53-18-2-32-10-44-25-9 15-20 24-34 28Z" fill="#30302E"/>
+  <path d="m743 242-39 91 28 25 76-55 43 52 34-23-40-78c-17-32-61-40-102-12Z" fill="#D8AA58"/>
+  <path d="m743 267-66 53-30 58 33 19 49-49 52-32m93-49 65 38 48 48-29 28-60-38-63-22" stroke="#9A684F" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m627 367 33 19-22 39-38-17z" fill="#F5B942" stroke="#285D43" stroke-width="7"/>
+  <path d="M518 205h130v80H518z" fill="#F8F6EF" stroke="#315E49" stroke-width="8"/>
+  <path d="M540 227h78m-78 19h49m-49 19h62" stroke="#799B8B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M126 612h950" stroke="#E7E4D8" stroke-width="7" opacity=".8"/>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="desk" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF1E9"/>
+      <stop offset="1" stop-color="#C3D8CD"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#desk)" d="M0 0h1200v750H0z"/>
+  <path d="M0 578h1200v172H0z" fill="#B59A79"/>
+  <path d="M182 179c0-44 32-77 73-77s73 33 73 77v88H182v-88Z" fill="#D99B71"/>
+  <circle cx="255" cy="158" r="49" fill="#B87858"/>
+  <path d="M206 158c1-46 20-75 53-75 34 0 53 27 53 70-24-4-44-16-57-36-12 23-28 35-49 41Z" fill="#35302C"/>
+  <path d="M165 266c19-32 51-49 92-49s75 18 94 49l70 166-117 48-129-39-10-175Z" fill="#F3F1E8"/>
+  <path d="m268 270 76 70 68 73" stroke="#B87858" stroke-width="25" stroke-linecap="round"/>
+  <path d="M260 413h670v32H260z" fill="#805F44"/>
+  <path d="M316 445h32v135h-32zM850 445h32v135h-32z" fill="#6C503A"/>
+  <path d="M400 149h598v338H400z" rx="22" fill="#344D45"/>
+  <path d="M426 175h546v282H426z" fill="#F5F5EC"/>
+  <path d="M464 210h470v228H464z" fill="#E5EFE9"/>
+  <path d="m500 347 139-95 123 59 102-72" stroke="#478568" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="500" cy="347" r="10" fill="#F5B942"/>
+  <circle cx="639" cy="252" r="10" fill="#F5B942"/>
+  <circle cx="762" cy="311" r="10" fill="#F5B942"/>
+  <circle cx="864" cy="239" r="10" fill="#F5B942"/>
+  <path d="M490 227h92m22 0h58m-172 186h96m24 0h63" stroke="#A6B8AD" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#5D94A1" stroke="#F4F6ED" stroke-width="5">
+    <path d="m660 344 44-14 42 14v27l-42 14-44-14v-27Z"/>
+    <path d="m751 374 44-14 42 14v27l-42 14-44-14v-27Z"/>
+    <path d="m842 344 44-14 42 14v27l-42 14-44-14v-27Z"/>
+    <path d="m660 404 44-14 42 14v27l-42 14-44-14v-27Z"/>
+  </g>
+  <path d="m380 487 643 0-75 65H445l-65-65Z" fill="#D6DBD4"/>
+  <path d="M590 552h230v15H590z" fill="#8D988F"/>
+  <path d="M98 612h1004" stroke="#9F8467" stroke-width="8"/>
+</svg>

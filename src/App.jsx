@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AOS from "aos";
@@ -27,7 +27,7 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const projectImages = {
-  rooftop: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=85",
+  rooftop: "https://clusterenergy.in/img/about.jpg",
   crew: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=900&q=85",
   roofWide: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1400&q=85",
   cityRoof: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1300&q=85",
@@ -50,11 +50,137 @@ const employeeImages = [
 
 const HOME_IMG = {
   roof: projectImages.rooftop,
-  residential: projectImages.roofWide,
-  commercial: projectImages.cityRoof,
-  industrial: projectImages.panels,
+  residential: "https://cdn.mos.cms.futurecdn.net/R7nuCF8AAgqBmMMdbyUkj7.jpg",
+  commercial: "https://www.jakson.com/wp-content/uploads/2025/03/Choosing-the-Right-Solar-Solutions-for-Your-Commercial-Needs.jpg",
+  industrial: "https://chandradaya-investasi.com/_next/image?url=https%3A%2F%2Fchandradaya-investasi.com%2Ffile-storage%2FQ3YzYzFZb3k0WmJpbWZEd21abkFpUUlkbnZxRDhkR2pndEI0MjUrMG11Z1Z4ZXM5VXA0U0plcHhlU1JKKzUrRS9MdUU4cEUrTy8rR1cxL0JnK1dqSEE9PQ&w=3840&q=75",
   cta: projectImages.rooftopView,
 };
+
+function GovernmentSubsidyCard() {
+  const [amount, setAmount] = useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 100000 : 0
+  );
+  const [sealStamped, setSealStamped] = useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+  const cardRef = useRef(null);
+  const sealRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const seal = sealRef.current;
+    if (!card || !seal) return undefined;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setAmount(100000);
+      setSealStamped(true);
+      return undefined;
+    }
+
+    let animationFrame = 0;
+    const countObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        countObserver.disconnect();
+
+        const startedAt = performance.now();
+        const animateCount = (now) => {
+          const progress = Math.min((now - startedAt) / 1700, 1);
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          setAmount(Math.round(100000 * easedProgress));
+          if (progress < 1) {
+            animationFrame = requestAnimationFrame(animateCount);
+          }
+        };
+
+        animationFrame = requestAnimationFrame(animateCount);
+      },
+      { threshold: 0.25 }
+    );
+    const sealObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setSealStamped(true);
+        sealObserver.disconnect();
+      },
+      { threshold: 0.4 }
+    );
+
+    countObserver.observe(card);
+    sealObserver.observe(seal);
+
+    return () => {
+      countObserver.disconnect();
+      sealObserver.disconnect();
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  return (
+    <div
+      className="subsidy-amount-card gov-subsidy-card"
+      ref={cardRef}
+      style={{ backgroundImage: `url("${HOME_IMG.roof}")` }}
+    >
+      <div className="subsidy-card-content gov-subsidy-card-content">
+        <div className="gov-subsidy-authorities">
+          <div className="gov-subsidy-authority">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+              alt="State Emblem of India"
+              loading="lazy"
+            />
+            <strong>Government of India</strong>
+          </div>
+          <div className="gov-subsidy-authority">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/83/Emblem_of_Tamil_Nadu.svg"
+              alt="Emblem of Tamil Nadu"
+              loading="lazy"
+            />
+            <strong>Government of Tamil Nadu</strong>
+          </div>
+        </div>
+        <div className="gov-subsidy-amount-row">
+          <div>
+            <small>Central Subsidy</small>
+            <strong>₹78,000</strong>
+          </div>
+          <span aria-hidden="true">+</span>
+          <div>
+            <small>State Subsidy</small>
+            <strong>₹22,000</strong>
+          </div>
+        </div>
+        <div
+          className={`gov-subsidy-total${amount === 100000 ? " gov-subsidy-counted" : ""}`}
+        >
+          <span>Potential Combined Subsidy</span>
+          <strong aria-label="₹1,00,000">
+            <span aria-hidden="true">
+              ₹{new Intl.NumberFormat("en-IN").format(amount)}
+            </span>
+          </strong>
+        </div>
+        <div
+          className={`gov-subsidy-seal-wrap${sealStamped ? " gov-subsidy-stamped" : ""}`}
+          ref={sealRef}
+        >
+          <img
+            className="gov-subsidy-seal"
+            src="/mnre-approved-seal.png"
+            alt="MNRE Approved"
+            loading="lazy"
+          />
+        </div>
+        <p className="subsidy-disclaimer gov-subsidy-disclaimer">
+          Indicative amounts for eligible residential systems. Final support
+          depends on current scheme rules, system capacity and official approval.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const brandLogos = [
   { name: "Tata Power Solar", image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tata_Power_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", website: "https://www.tatapowersolar.com/" },
@@ -571,7 +697,7 @@ function HomePage() {
           </div>
         </div>
 
-        <section className="subsidy" data-reveal-section>
+        <section className="subsidy gov-subsidy" data-reveal-section>
           <div className="container subsidy-grid">
             <div>
               <div className="eyebrow">Government subsidy</div>
@@ -594,41 +720,7 @@ function HomePage() {
               </Button>
             </div>
 
-            <div
-              className="subsidy-amount-card"
-              style={{ backgroundImage: `url("${HOME_IMG.roof}")` }}
-            >
-              <div className="subsidy-card-content">
-                <div className="subsidy-authorities">
-                  <div className="subsidy-authority">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="State Emblem of India" loading="lazy" />
-                    <span><b>Government of India</b><small>MNRE · Central subsidy</small></span>
-                  </div>
-                  <div className="subsidy-authority">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Emblem_of_Tamil_Nadu.svg" alt="Emblem of Tamil Nadu" loading="lazy" />
-                    <span><b>Government of Tamil Nadu</b><small>State subsidy</small></span>
-                  </div>
-                </div>
-                <div className="subsidy-amount-row">
-                  <div><small>Central support</small><strong>₹78,000</strong></div>
-                  <span aria-hidden="true">+</span>
-                  <div><small>State support</small><strong>₹22,000</strong></div>
-                </div>
-                <div className="subsidy-total">
-                  <span>Potential combined subsidy</span>
-                  <strong>₹1,00,000</strong>
-                </div>
-                <div className="subsidy-approved">
-                  <FaCircleCheck aria-hidden="true" />
-                  <span>MNRE-approved components for eligible systems</span>
-                </div>
-                <p className="subsidy-disclaimer">
-                  Indicative amounts for eligible residential systems. Final
-                  support depends on current scheme rules, system capacity and
-                  official approval.
-                </p>
-              </div>
-            </div>
+            <GovernmentSubsidyCard />
           </div>
         </section>
 
@@ -670,7 +762,7 @@ function HomePage() {
                   "03 — INDUSTRIAL",
                   "Industrial Solar",
                   "High-capacity systems engineered around your facility's energy demand.",
-                  HOME_IMG.industrial,
+                  "https://bhumipolymers.com/wp-content/uploads/2026/01/07-Bhumi-Irrigation-Solar-Industrial-Blog.jpg",
                   "Talk to Us →",
                   <FaIndustry />,
                 ],
@@ -700,44 +792,48 @@ function HomePage() {
 
             <div className="journey">
               {[
-                ["01", "Understand", "We study your electricity consumption.", projectImages.cityRoof, <FaMagnifyingGlass />],
+                ["01", "Understand", "We study your electricity consumption.", "https://img.magnific.com/free-vector/man-shows-gesture-great-idea_10045-637.jpg?semt=ais_hybrid&w=740&q=80", <FaMagnifyingGlass />, "Man showing a gesture for a great idea"],
                 [
                   "02",
                   "Assess",
                   "We inspect your rooftop, orientation, shade and available space.",
-                  projectImages.rooftop,
+                  "https://img.magnific.com/free-vector/business-people-stand-clipboard-with-checklist_74855-4772.jpg?semt=ais_hybrid&w=740&q=80",
                   <FaHouse />,
+                  "Solar engineer surveying a rooftop with a tablet and measuring roof space",
                 ],
-                ["03", "Design", "We create the right system for your property.", projectImages.roofWide, <FaRulerCombined />],
+                ["03", "Design", "We create the right system for your property.", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTCQmE56t1D4D1UFu0sw-nSgSWhI1ieoO4M761sJcV2d0FUV_QU6Q98sN8&s=10", <FaRulerCombined />, "Solar system design illustration"],
                 [
                   "04",
                   "Install",
                   "Professional installation with attention to safety and workmanship.",
-                  employeeImages[0].src,
+                  "/step-install.png",
                   <FaScrewdriverWrench />,
+                  "Solar technicians in safety gear installing rooftop solar panels",
                 ],
                 [
                   "05",
                   "Connect",
                   "Support through grid connection and applicable documentation.",
-                  projectImages.roofWide,
+                  "https://cdn.prod.website-files.com/65b3e159d25a6097b6ca5815/66ffb74b88d48eb178a4ba2a_65b3e15ad25a6097b6ca6664_grid%2520connected%2520pv%2520system%2520with%2520ems.png",
                   <FaPlug />,
+                  "Grid-connected photovoltaic system with energy management",
                 ],
                 [
                   "06",
                   "Support",
                   "Post-installation assistance and system monitoring.",
-                  projectImages.maintenance,
+                  "https://st2.depositphotos.com/3591429/6010/i/450/depositphotos_60107153-People-Discussing-About-Support.jpg",
                   <FaCircleCheck />,
+                  "Support team discussing customer assistance",
                 ],
-              ].map(([num, title, text, image, icon]) => (
-                <article className="step" data-step data-card key={num}>
+              ].map(([num, title, text, image, icon, imageAlt]) => (
+                <article className={`step difference-step${num === "01" ? " difference-step-understand" : ""}`} data-step data-card key={num}>
                   <div className="step-copy">
                     <h3><span>{num}</span>{title}</h3>
                     <p>{text}</p>
                   </div>
-                  <div className="step-image">
-                    <img src={image} alt={`${title} stage of a rooftop solar project in India`} loading="lazy" />
+                  <div className="step-image difference-step-image">
+                    <img className="difference-step-photo" src={image} alt={imageAlt} width="1200" height="750" loading={num === "01" ? "eager" : "lazy"} />
                     <span className="step-icon" aria-hidden="true">{icon}</span>
                   </div>
                 </article>
@@ -818,7 +914,7 @@ function HomePage() {
             </p>
             <div
               className="roof-visual"
-              style={{ backgroundImage: `url("${HOME_IMG.roof}")` }}
+              style={{ backgroundImage: 'url("/rooftop-assessment.png")' }}
             >
               <div className="roof-label label1" data-float>
                 ROOF AREA
@@ -851,7 +947,7 @@ function HomePage() {
             </div>
 
             <div className="component-quality-visual">
-              <img src={projectImages.rooftopView} alt="Expansive rooftop solar panel installation" loading="lazy" />
+              <img src="https://gosmartroof.com/wp-content/uploads/2026/02/blog-image-Different-Components-of-a-Solar-PV-System-Importance-and-Operation.webp" alt="Components of a solar PV system" loading="lazy" />
               <span>Reliable components. Thoughtful installation.</span>
             </div>
           </div>
