@@ -432,3 +432,8 @@
 .trust2 .trust-card:hover .trust-card-image img{transform:scale(1.04)}
 .trust2 .trust-card-image-fallback{color:var(--forest);font-weight:800;text-align:center}
 .trust2 .trust-card>b{margin-bottom:8px}
+
+.subsidy-list>div{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:10px}
+.subsidy-list>div>span:first-child{color:var(--forest);font-size:16px;font-weight:900}
+.subsidy-list>div>span:nth-child(2){font-size:14px;font-weight:800}
+.subsidy-list .emoji{width:1.75rem;text-align:center;font-size:1.5em;line-height:1;flex-shrink:0}

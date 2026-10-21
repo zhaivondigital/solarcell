@@ -583,12 +583,12 @@ function HomePage() {
               </p>
 
               <div className="subsidy-list">
-                <div>✓ Eligibility</div>
-                <div>✓ Documentation</div>
-                <div>✓ Application</div>
-                <div>✓ Installation requirements</div>
-                <div>✓ Grid coordination</div>
-                <div>✓ Subsidy process</div>
+                <div><span>✓</span><span>Eligibility</span><span className="emoji" aria-hidden="true">🧑‍💼</span></div>
+                <div><span>✓</span><span>Documentation</span><span className="emoji" aria-hidden="true">📄</span></div>
+                <div><span>✓</span><span>Application</span><span className="emoji" aria-hidden="true">📝</span></div>
+                <div><span>✓</span><span>Installation requirements</span><span className="emoji" aria-hidden="true">🔧</span></div>
+                <div><span>✓</span><span>Grid coordination</span><span className="emoji" aria-hidden="true">⚡</span></div>
+                <div><span>✓</span><span>Subsidy process</span><span className="emoji" aria-hidden="true">💰</span></div>
               </div>
 
               <Button href="/contact" variant="dark">
