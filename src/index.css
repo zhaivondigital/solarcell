@@ -162,6 +162,10 @@
 .contact-form input,.contact-form select,.contact-form textarea{width:100%;min-width:0}
 .contact-form textarea{min-height:112px}
 .contact-form .btn{min-height:52px}
+.hero-contact-form .contact-form-heading .eyebrow{color:var(--forest);font-weight:800;letter-spacing:.14em}
+.hero-contact-form .contact-form-heading h3{color:var(--charcoal)}
+.hero-contact-form .contact-form-heading p{color:#5f6963}
+.hero-contact-form .contact-form-fields label{color:var(--charcoal)}
 .bottom a{position:relative;display:inline;color:#fff;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;transition:color .2s ease}
 .bottom a:hover,.bottom a:focus-visible{color:var(--gold)}
 .cta#contact{padding:clamp(72px,8vw,110px) 0}
