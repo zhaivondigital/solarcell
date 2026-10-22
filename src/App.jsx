@@ -50,7 +50,7 @@ const employeeImages = [
 
 const HOME_IMG = {
   roof: projectImages.rooftop,
-  residential: "https://cdn.mos.cms.futurecdn.net/R7nuCF8AAgqBmMMdbyUkj7.jpg",
+  residential: "/residential-solar-rooftop.png",
   commercial: "https://www.jakson.com/wp-content/uploads/2025/03/Choosing-the-Right-Solar-Solutions-for-Your-Commercial-Needs.jpg",
   industrial: "https://chandradaya-investasi.com/_next/image?url=https%3A%2F%2Fchandradaya-investasi.com%2Ffile-storage%2FQ3YzYzFZb3k0WmJpbWZEd21abkFpUUlkbnZxRDhkR2pndEI0MjUrMG11Z1Z4ZXM5VXA0U0plcHhlU1JKKzUrRS9MdUU4cEUrTy8rR1cxL0JnK1dqSEE9PQ&w=3840&q=75",
   cta: "/consultation-cta.png",
@@ -620,6 +620,7 @@ function HomePage() {
           </a>
 
           <nav className={`links ${menuOpen ? "is-open" : ""}`}>
+            <a href="/#home" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
             <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
@@ -628,12 +629,6 @@ function HomePage() {
           </nav>
 
           <div className="nav-actions">
-            <a className="mini" href="tel:+919884044588" aria-label="Call us">
-              ☎ Call
-            </a>
-            <Button href="/contact" variant="dark">
-              Get Free Quote
-            </Button>
             <button className="menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
               {menuOpen ? <FaXmark /> : <FaBars />}
             </button>
@@ -642,12 +637,12 @@ function HomePage() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero" id="home">
           <div className="container hero-inner hero-layout">
             <div className="hero-content">
               <div className="eyebrow">Ever Green Solar · India</div>
               <h1>
-                Evergreen Solar System .
+                Ever Green Solar System .
                 <br />
                 <span>Built Around Your Home.</span>
               </h1>
@@ -700,11 +695,21 @@ function HomePage() {
           <div className="container subsidy-grid">
             <div>
               <div className="eyebrow">Government subsidy</div>
-              <h2>Solar Subsidy Support for Eligible Indian Homes.</h2>
+              <h2>Government Subsidy for Every Home </h2>
               <p className="muted section-copy">
-                Get help understanding central and state rooftop solar subsidy
-                portions, documents and application steps for your home.
+                EVER GREEN SOLAR SYTEM ,We are the Authorized Channel Partner with MNRE & TANGDEO , We provide END TO END Service
               </p>
+
+              <div className="subsidy-support-grid">
+                <div className="subsidy-support-card">
+                  <FaLandmark aria-hidden="true" />
+                  <span>We support upto Subsidy claim</span>
+                </div>
+                <div className="subsidy-support-card">
+                  <FaPlug aria-hidden="true" />
+                  <span>Net meter Application process</span>
+                </div>
+              </div>
 
               <div className="subsidy-list">
                 <div><FaCircleCheck aria-hidden="true" /><span>Home eligibility check</span><FaLandmark aria-hidden="true" /></div>

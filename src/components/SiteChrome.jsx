@@ -225,6 +225,7 @@ export function SiteChrome({ children }) {
         <div className="container nav-inner">
           <a className="brand-link" href="/"><Brand /></a>
           <nav className={`links ${menuOpen ? "is-open" : ""}`}>
+            <a href="/#home" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
             <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
             <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
@@ -232,8 +233,6 @@ export function SiteChrome({ children }) {
             <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </nav>
           <div className="nav-actions">
-            <a className="mini" href="tel:+919884044588 ">☎ Call</a>
-            <Button href="/contact" variant="dark">Get Free Quote</Button>
             <button className="menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
               {menuOpen ? <FaXmark /> : <FaBars />}
             </button>

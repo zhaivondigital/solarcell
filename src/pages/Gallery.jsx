@@ -208,7 +208,7 @@ const inspirationImages = [
 ];
 
 const customerVideos = [
-  { title: "Government Project", videoId: "wr8bLk7iwOQ" },
+  { title: "Review", videoId: "q5rnUgtCt7o" },
   { title: "Aero Hub Mall", videoId: "40UUsH1uWZ8" },
   { title: "Airport Project", videoId: "K4jGVf9xjuU" },
   { title: "VGP Project", videoId: "HplzNO9I1iU" },
@@ -351,7 +351,7 @@ export default function Gallery() {
           <div className="gallery-logo-heading">
             <div className="eyebrow">Our partners</div>
             <h2 id="gallery-logo-heading">Brands We Work With</h2>
-            <p className="muted">Add partner image links to the 26 slots in Gallery.jsx.</p>
+            <p className="muted"></p>
           </div>
         </div>
         <div className="gallery-logo-marquee" aria-label="Partner logo marquee">
