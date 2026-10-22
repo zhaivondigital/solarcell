@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Button, IMG, PageHero, SiteChrome } from "../components/SiteChrome.jsx";
 
 const categories = [
@@ -11,7 +11,7 @@ const categories = [
         name: "Mall",
         location: "Purasalwalkam",
         capacity: "35 kW",
-        image: IMG.project2,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/WoIaiPha.jpeg",
         alt: "Illustrative solar panels installed across a commercial rooftop",
         detail: "A commercial rooftop solar installation planned for the property's energy needs.",
       },
@@ -19,7 +19,7 @@ const categories = [
         name: "Airport rooftop",
         location: "Tamil Nadu",
         capacity: "35 kW",
-        image: IMG.hero,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/Cckp3t2g.jpeg",
         alt: "Illustrative rooftop solar array for a large facility",
         detail: "A rooftop solar system for a high-use commercial environment.",
       },
@@ -27,7 +27,7 @@ const categories = [
         name: "Embassy",
         location: "Pallavaram",
         capacity: "558 kW",
-        image: IMG.project3,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/VwMgoOCo.webp",
         alt: "Illustrative large-scale solar panels",
         detail: "A large-capacity rooftop project designed around site requirements.",
       },
@@ -35,7 +35,7 @@ const categories = [
         name: "Ramana Vidyalaya School",
         location: "Sholinganallur",
         capacity: "24 kW",
-        image: IMG.roof,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/F7pFWnYz.webp",
         alt: "Illustrative solar panels at an educational facility",
         detail: "A school rooftop solar installation supporting on-site energy use.",
       },
@@ -50,7 +50,7 @@ const categories = [
         name: "Ponnaparaj",
         location: "Vyasarpadi",
         capacity: "5 kW",
-        image: IMG.roof,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/sumeUswf.webp",
         alt: "Illustrative residential rooftop solar panels",
         detail: "A residential rooftop system sized for the household's solar requirements.",
       },
@@ -58,7 +58,7 @@ const categories = [
         name: "Saravanan",
         location: "Madhavaram",
         capacity: "5 kW",
-        image: IMG.residential,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/hALVqglo.jpeg",
         alt: "Illustrative home solar installation",
         detail: "A home solar installation planned around available roof area.",
       },
@@ -66,7 +66,7 @@ const categories = [
         name: "Sam",
         location: "Location not specified",
         capacity: "5 kW",
-        image: IMG.project3,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/VRjHcDnd.jpeg",
         alt: "Illustrative rooftop solar panels for a home",
         detail: "A residential rooftop project with a 5 kW system.",
       },
@@ -74,7 +74,7 @@ const categories = [
         name: "Julian Gilbert",
         location: "Tambaram",
         capacity: "5 kW",
-        image: IMG.hero,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/XXbcyMsj.webp",
         alt: "Illustrative residential solar panels",
         detail: "A residential solar system planned for the property.",
       },
@@ -89,7 +89,7 @@ const categories = [
         name: "IIT Tirupathi",
         location: "Tirupati",
         capacity: "34,000 L",
-        image: IMG.roof,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/ag9560fv.png",
         alt: "Illustrative rooftop solar water heater on a modern building",
         detail: "A large-capacity solar water-heating system for an institutional campus.",
       },
@@ -97,7 +97,7 @@ const categories = [
         name: "Veltech College",
         location: "Avadi",
         capacity: "50,000 L",
-        image: IMG.project2,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/PLXMp99L.jpeg",
         alt: "Illustrative solar hot-water equipment on a rooftop",
         detail: "A high-volume hot-water system for a college campus.",
       },
@@ -105,7 +105,7 @@ const categories = [
         name: "Sriram Properties",
         location: "Guduvancherry",
         capacity: "50,000 L",
-        image: IMG.roof,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/K98aSdbq.jpeg",
         alt: "Illustrative rooftop solar hot-water system",
         detail: "A commercial solar water-heating project designed for substantial demand.",
       },
@@ -113,7 +113,7 @@ const categories = [
         name: "Puravankara",
         location: "Guindy",
         capacity: "3,200 L",
-        image: IMG.project3,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/QP95pyLF.webp",
         alt: "Illustrative solar water heater serving a commercial building",
         detail: "A solar hot-water system for a commercial property.",
       },
@@ -121,7 +121,7 @@ const categories = [
         name: "Kalpataru",
         location: "Bangalore",
         capacity: "11,200 L",
-        image: IMG.hero,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/jWwgJ1Zs.jpeg",
         alt: "Illustrative rooftop solar hot-water installation",
         detail: "A commercial solar water-heating installation for daily hot-water use.",
       },
@@ -136,7 +136,7 @@ const categories = [
         name: "CM Thiru Vijay Joseph",
         location: "Neelankarai",
         capacity: "300 L",
-        image: IMG.project1,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/Wf4bVyoG.webp",
         alt: "Illustrative outdoor heat pump unit beside a building",
         detail: "A 300-litre heat pump water-heating installation.",
       },
@@ -144,7 +144,7 @@ const categories = [
         name: "Nest Builder",
         location: "Nungambakkam",
         capacity: "200 L",
-        image: IMG.project2,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/TjTuKNPs.jpeg",
         alt: "Illustrative modern home exterior with a heat pump",
         detail: "A 200-litre heat pump system for a residential development.",
       },
@@ -152,7 +152,7 @@ const categories = [
         name: "Resort",
         location: "Tirupati",
         capacity: "300 L",
-        image: IMG.project3,
+        image: "https://cdn.dotpe.in/longtail/additional_pages/7887284/Lw0HG1Ad.jpeg",
         alt: "Illustrative residential water heater and outdoor heat pump equipment",
         detail: "A 300-litre hot-water heat pump solution for a hospitality property.",
       },
@@ -160,22 +160,72 @@ const categories = [
   },
 ];
 
-const onsiteImages = [
-  [IMG.project1, "Representative Indian household rooftop solar panels 1"],
-  [IMG.roof, "Representative Indian household rooftop solar panels 2"],
-  [IMG.residential, "Representative Indian household rooftop solar panels 3"],
-  [IMG.commercial, "Representative Indian flat-roof solar installation 4"],
-  [IMG.industrial, "Representative Indian rooftop solar panels 5"],
-  [IMG.hero, "Representative Indian home solar installation 6"],
-  [IMG.project2, "Representative Indian household rooftop solar panels 7"],
-  [IMG.project3, "Representative Indian home solar installation 8"],
-  [IMG.cta, "Representative Indian rooftop solar panels 9"],
-  [IMG.project1, "Representative Indian household rooftop solar panels 10"],
+const inspirationImages = [
+  "WhatsApp Image 2026-09-30 at 7.16.47 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.16.49 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.16.50 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.16.52 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.25.14 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.29.01 PM (1).jpeg",
+  "WhatsApp Image 2026-09-30 at 7.29.01 PM.jpeg",
+  "WhatsApp Image 2026-09-30 at 7.29.05 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.39.55 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.39.57 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.39.58 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.39.59 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.00 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.00 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.00 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.01 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.01 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.01 PM (3).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.01 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.02 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.02 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.02 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.03 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.03 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.03 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.04 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.04 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.04 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.05 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.05 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.05 PM (3).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.05 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.06 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.06 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.06 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.07 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.07 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.07 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.08 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.08 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.08 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.09 PM (1).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.09 PM (2).jpeg",
+  "WhatsApp Image 2026-10-22 at 12.40.09 PM.jpeg",
+];
+
+const customerVideos = [
+  { title: "Government Project", videoId: "wr8bLk7iwOQ" },
+  { title: "Aero Hub Mall", videoId: "40UUsH1uWZ8" },
+  { title: "Airport Project", videoId: "K4jGVf9xjuU" },
+  { title: "VGP Project", videoId: "HplzNO9I1iU" },
 ];
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null);
+  const shuffledInspirationImages = useMemo(() => {
+    const images = [...inspirationImages];
+    for (let index = images.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [images[index], images[randomIndex]] = [images[randomIndex], images[index]];
+    }
+    return images;
+  }, []);
   const active = categories.find((category) => category.id === activeCategory);
 
   return (
@@ -184,7 +234,7 @@ export default function Gallery() {
         eyebrow="Projects & installations"
         title="Turnkey Solutions."
         copy="Explore selected rooftop solar, solar water-heating and heat-pump projects delivered for homes, institutions and businesses."
-        image={IMG.project1}
+        image="https://cdn.dotpe.in/longtail/additional_pages/7887284/UVwGyP7G.webp"
       />
 
       <section className="turnkey-section" data-page-reveal>
@@ -259,10 +309,47 @@ export default function Gallery() {
             </div>
           )}
 
-          <p className="media-note">
-            Customer testimonials and project videos will be added when
-            approved media is available.
-          </p>
+        </div>
+      </section>
+
+      <section className="customer-videos" data-page-reveal>
+        <div className="container">
+          <div className="customer-videos-heading">
+            <div className="eyebrow">Customer reviews</div>
+            <h2>Hear from Our Customers</h2>
+            <p className="muted">Watch customers share their experience with our solar projects.</p>
+          </div>
+          <div className="customer-video-list">
+            {customerVideos.map((video) => (
+              <article className="customer-video-card" key={video.videoId}>
+                <div className="customer-video-frame">
+                  {activeVideo === video.videoId ? (
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1`}
+                      title={`${video.title} customer video`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <button
+                      className="customer-video-thumbnail"
+                      onClick={() => setActiveVideo(video.videoId)}
+                      aria-label={`Play ${video.title} customer video`}
+                    >
+                      <img
+                        src={`https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`}
+                        alt={`${video.title} video thumbnail`}
+                        loading="lazy"
+                      />
+                      <span className="customer-video-play" aria-hidden="true">▶</span>
+                    </button>
+                  )}
+                </div>
+                <h3>{video.title}</h3>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -271,7 +358,7 @@ export default function Gallery() {
           <div className="onsite-heading">
             <div className="eyebrow">Solar inspiration</div>
             <h2>Household Rooftop Solar Across India</h2>
-            <p className="muted">Representative public solar photography for inspiration. Project photos are shown above where available.</p>
+            <p className="muted">A photo gallery of our solar installations and projects.</p>
           </div>
           <div className="inspiration-carousel" aria-label="Solar inspiration photo carousel">
             {[0, 1, 2].map((row) => (
@@ -279,20 +366,23 @@ export default function Gallery() {
                 <div className="inspiration-track">
                   {[0, 1].map((copy) => (
                     <div className="inspiration-group" aria-hidden={copy === 1} key={copy}>
-                      {onsiteImages.map((_, index) => {
-                        const [image, alt] = onsiteImages[(index + row * 3) % onsiteImages.length];
-                        return (
-                          <button
-                            className="inspiration-image"
-                            key={`${copy}-${index}`}
-                            onClick={() => setSelectedImage([image, alt])}
-                            aria-label={`View image: ${alt}`}
-                            tabIndex={copy === 1 ? -1 : undefined}
-                          >
-                            <img src={image} alt={copy === 1 ? "" : alt} loading="lazy" />
-                          </button>
-                        );
-                      })}
+                      {shuffledInspirationImages
+                        .filter((_, index) => index % 3 === row)
+                        .map((filename, index) => {
+                          const image = `/gallery%20section/${encodeURIComponent(filename)}`;
+                          const alt = `Solar project photo ${row * 15 + index + 1}`;
+                          return (
+                            <button
+                              className="inspiration-image"
+                              key={`${copy}-${filename}`}
+                              onClick={() => setSelectedImage([image, alt])}
+                              aria-label={`View image: ${alt}`}
+                              tabIndex={copy === 1 ? -1 : undefined}
+                            >
+                              <img src={image} alt={copy === 1 ? "" : alt} loading="lazy" />
+                            </button>
+                          );
+                        })}
                     </div>
                   ))}
                 </div>
