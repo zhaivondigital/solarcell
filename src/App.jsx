@@ -56,6 +56,54 @@ const HOME_IMG = {
   cta: "/consultation-cta.png",
 };
 
+function TrustMetric({ target, suffix, label }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(target);
+      return undefined;
+    }
+
+    let animationFrame = 0;
+    let delayTimeout = 0;
+    let startedAt = 0;
+
+    const animateCount = (now) => {
+      if (!startedAt) startedAt = now;
+      const progress = Math.min((now - startedAt) / 1400, 1);
+      setCount(Math.floor(target * progress));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animateCount);
+      } else {
+        setCount(target);
+        delayTimeout = window.setTimeout(() => {
+          startedAt = 0;
+          setCount(0);
+          animationFrame = requestAnimationFrame(animateCount);
+        }, 2000);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animateCount);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.clearTimeout(delayTimeout);
+    };
+  }, [target]);
+
+  return (
+    <div className="trust-marquee-item">
+      <strong aria-label={`${target}${suffix}`}>
+        <span aria-hidden="true">{count}{suffix}</span>
+      </strong>
+      <span>{label}</span>
+    </div>
+  );
+}
+
 function GovernmentSubsidyCard() {
   const [amount, setAmount] = useState(() =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 100000 : 0
@@ -672,21 +720,12 @@ function HomePage() {
         <div className="trust" data-reveal-section>
           <div className="trust-marquee" role="region" aria-label="Solar service highlights">
             <div className="trust-marquee-track">
-              {[0, 1].map((copy) => (
-                <div className="trust-marquee-group" aria-hidden={copy === 1} key={copy}>
-                  {[
-                    ["500+", "Solar installations"],
-                    ["5+ MW", "Clean energy installed"],
-                    ["25+ years", "Panel performance"],
-                    ["100%", "End-to-end assistance"],
-                  ].map(([value, label]) => (
-                    <div className="trust-marquee-item" key={label}>
-                      <strong>{value}</strong>
-                      <span>{label}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <div className="trust-marquee-group">
+                <TrustMetric target={500} suffix="+" label="Solar installations" />
+                <TrustMetric target={5} suffix="+ MW" label="Clean energy installed" />
+                <TrustMetric target={25} suffix="+ years" label="Panel performance" />
+                <TrustMetric target={100} suffix="%" label="End-to-end assistance" />
+              </div>
             </div>
           </div>
         </div>
@@ -705,10 +744,6 @@ function HomePage() {
                   <FaLandmark aria-hidden="true" />
                   <span>We support upto Subsidy claim</span>
                 </div>
-                <div className="subsidy-support-card">
-                  <FaPlug aria-hidden="true" />
-                  <span>Net meter Application process</span>
-                </div>
               </div>
 
               <div className="subsidy-list">
@@ -717,6 +752,7 @@ function HomePage() {
                 <div><FaCircleCheck aria-hidden="true" /><span>Application guidance</span><FaCircleCheck aria-hidden="true" /></div>
                 <div><FaCircleCheck aria-hidden="true" /><span>MNRE-approved components</span><FaPlug aria-hidden="true" /></div>
                 <div><FaCircleCheck aria-hidden="true" /><span>Installation &amp; grid coordination</span><FaScrewdriverWrench aria-hidden="true" /></div>
+                <div><FaCircleCheck aria-hidden="true" /><span>Net meter Application process</span><FaPlug aria-hidden="true" /></div>
               </div>
 
               <Button href="/contact" variant="dark">

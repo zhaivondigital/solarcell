@@ -460,14 +460,16 @@
 .links{font-size:16px;font-weight:800}
 .menu{color:#fff;transition:color .25s ease}
 .nav.scrolled .menu{color:#000}
-.trust{overflow:hidden;padding:25px 0 20px}
+.trust{overflow:hidden;padding:34px 0}
 .trust-marquee{overflow:hidden}
 .trust-marquee-track,.brand-marquee-track{display:flex;width:max-content;animation:solarMarquee 32s linear infinite}
+.trust-marquee-track{width:100%;animation:none}
 .trust-marquee:hover .trust-marquee-track,.brand-marquee:hover .brand-marquee-track{animation-play-state:paused}
-.trust-marquee-group{display:flex;align-items:center;gap:36px;padding-right:36px}
-.trust-marquee-item{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
-.trust-marquee-item strong{color:var(--gold);font-size:clamp(34px,4vw,48px);line-height:1;letter-spacing:-.055em}
-.trust-marquee-item span{color:#e0eae3;font-size:14px;font-weight:700}
+.trust-marquee-group{display:grid;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:24px;padding:0}
+.trust-marquee-item{display:flex;min-width:0;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center}
+.trust-marquee-item strong{color:var(--gold);font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1;letter-spacing:-.055em}
+.trust-marquee-item strong span{color:inherit;font-size:inherit;font-weight:inherit}
+.trust-marquee-item>span{color:#fff;font-size:clamp(15px,1.5vw,18px);font-weight:800;line-height:1.35}
 .subsidy-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:stretch;gap:36px}
 .subsidy-amount-card{position:relative;isolation:isolate;display:flex;min-height:620px;overflow:hidden;padding:34px;border:1px solid rgba(18,59,42,.1);border-radius:24px;background-position:center;background-size:cover;box-shadow:var(--shadow)}
 .subsidy-amount-card::before{position:absolute;z-index:-1;inset:0;background:linear-gradient(135deg,rgba(7,30,20,.48),rgba(7,30,20,.8));content:""}
@@ -568,9 +570,11 @@
   .brand-marquee-heading p{max-width:520px}
 }
 @media(max-width:600px){
-  .trust-marquee-item{gap:7px}
-  .trust-marquee-item strong{font-size:34px}
-  .trust-marquee-item span{font-size:12px}
+  .trust-marquee-group{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
+  .trust{padding:28px 0}
+  .trust-marquee-item{gap:8px}
+  .trust-marquee-item strong{font-size:clamp(32px,9vw,42px)}
+  .trust-marquee-item>span{font-size:14px}
   .subsidy-amount-card{min-height:520px;padding:18px}
   .subsidy-authorities{gap:8px}
   .subsidy-authority{align-items:center;gap:8px;padding:10px}
@@ -672,10 +676,10 @@
 .gov-subsidy .gov-subsidy-seal-wrap.gov-subsidy-stamped::after{animation:gov-subsidy-impact .65s .08s ease-out both}
 .gov-subsidy .gov-subsidy-disclaimer{margin:14px 0 0;color:#fff;font-size:11px;line-height:1.55;text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .links{gap:clamp(16px,2vw,26px)}
-.subsidy-support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
-.subsidy-support-card{display:flex;min-height:104px;align-items:center;gap:16px;padding:18px;border:1px solid rgba(23,32,27,.12);border-radius:16px;background:var(--ivory);color:var(--ever);font-size:14px;font-weight:800;line-height:1.4}
+.subsidy-support-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:28px 0}
+.subsidy-support-card{display:flex;min-height:104px;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:18px;border:1px solid rgba(23,32,27,.12);border-radius:16px;background:var(--ivory);color:var(--ever);font-size:18px;font-weight:800;line-height:1.4;text-align:center}
 .subsidy-support-card svg{width:24px;height:24px;flex:none;color:var(--forest)}
-@media(max-width:600px){.subsidy-support-grid{gap:9px}.subsidy-support-card{min-height:96px;gap:10px;padding:13px;font-size:12px}.subsidy-support-card svg{width:21px;height:21px}}
+@media(max-width:600px){.subsidy-support-grid{gap:9px}.subsidy-support-card{min-height:96px;gap:10px;padding:13px;font-size:16px}.subsidy-support-card svg{width:21px;height:21px}}
 @keyframes gov-subsidy-glow{0%,100%{text-shadow:0 0 7px rgba(245,185,66,.58),0 0 18px rgba(245,185,66,.28)}50%{text-shadow:0 0 13px rgba(245,185,66,.9),0 0 30px rgba(245,185,66,.52)}}
 @keyframes gov-subsidy-impact{0%{opacity:.75;transform:scale(.7);box-shadow:0 0 0 0 rgba(245,185,66,.35)}100%{opacity:0;transform:scale(1.6);box-shadow:0 0 18px 10px rgba(245,185,66,0)}}
 @media(max-width:380px){

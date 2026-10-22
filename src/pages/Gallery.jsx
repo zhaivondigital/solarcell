@@ -205,6 +205,8 @@ const inspirationImages = [
   "WhatsApp Image 2026-10-22 at 12.40.09 PM (1).jpeg",
   "WhatsApp Image 2026-10-22 at 12.40.09 PM (2).jpeg",
   "WhatsApp Image 2026-10-22 at 12.40.09 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 9.42.55 PM.jpeg",
+  "WhatsApp Image 2026-10-22 at 9.43.13 PM.jpeg"
 ];
 
 const customerVideos = [
