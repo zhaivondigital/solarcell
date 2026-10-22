@@ -647,7 +647,7 @@ function HomePage() {
             <div className="hero-content">
               <div className="eyebrow">Ever Green Solar · India</div>
               <h1>
-                Evergreen Solar Solutions .
+                Evergreen Solar System .
                 <br />
                 <span>Built Around Your Home.</span>
               </h1>
