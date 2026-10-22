@@ -414,7 +414,7 @@ export default function Gallery() {
       <section
         className="cta compact-cta"
         style={{
-          backgroundImage: `linear-gradient(90deg,rgba(10,35,24,.9),rgba(10,35,24,.25)),url("${IMG.cta}")`,
+          backgroundImage: `linear-gradient(90deg,rgba(10,35,24,.9),rgba(10,35,24,.25)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD9Fi7nC-VQK7DKhplDIu5eQtMl6ItD0CdfRan4OrWwy8jR0PNB8Xmck-b&s=10")`,
         }}
       >
         <div className="container">
