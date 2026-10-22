@@ -214,6 +214,40 @@ const customerVideos = [
   { title: "VGP Project", videoId: "HplzNO9I1iU" },
 ];
 
+const partnerLogoLinks = [
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/LYFlQIhn.webp", // Logo 01 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/FI7V1HDY.webp", // Logo 02 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/jhiHs3zz.webp", // Logo 03 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/0QHOOgg8.webp", // Logo 04 image URL
+  //"https://cdn.dotpe.in/longtail/additional_pages/7887284/0QHOOgg8.webp", // Logo 05 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/AfBK0CUq.webp", // Logo 06 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/OBquWDMR.webp", // Logo 07 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/ofORdQWZ.webp", // Logo 08 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/hOt4U5R0.webp", // Logo 09 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/HPn506CP.webp", // Logo 10 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/WUvTQ3nW.webp", // Logo 11 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/hpd3TVH9.webp", // Logo 12 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/mS4KKgMp.webp", // Logo 13 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/GXert3wf.webp", // Logo 14 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/xjLuIJyO.webp", // Logo 15 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/KXDKVrqd.webp", // Logo 16 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/XjszJbHq.webp", // Logo 17 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/jsiHQmxy.webp", // Logo 18 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/Ic9UP046.webp", // Logo 19 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/UMf8Z0Z2.webp", // Logo 20 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/aXaOKj7z.webp", // Logo 21 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/YaOgw3X7.webp", // Logo 22 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/2ArwiPvE.webp", // Logo 23 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/O47hstGJ.webp", // Logo 24 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/MrKY09W4.webp", // Logo 25 image URL
+  "https://cdn.dotpe.in/longtail/additional_pages/7887284/O0ip7kBw.webp", // Logo 26 image URL
+];
+
+const partnerLogos = partnerLogoLinks.map((image, index) => ({
+  name: `Logo ${String(index + 1).padStart(2, "0")}`,
+  image,
+}));
+
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -309,6 +343,44 @@ export default function Gallery() {
             </div>
           )}
 
+        </div>
+      </section>
+
+      <section className="gallery-logo-section" aria-labelledby="gallery-logo-heading">
+        <div className="container">
+          <div className="gallery-logo-heading">
+            <div className="eyebrow">Our partners</div>
+            <h2 id="gallery-logo-heading">Brands We Work With</h2>
+            <p className="muted">Add partner image links to the 26 slots in Gallery.jsx.</p>
+          </div>
+        </div>
+        <div className="gallery-logo-marquee" aria-label="Partner logo marquee">
+          {[0, 1].map((row) => {
+            const logos = partnerLogos.slice(row * 13, (row + 1) * 13);
+            return (
+              <div className={`gallery-logo-row gallery-logo-row-${row + 1}`} key={row}>
+                <div className="gallery-logo-track">
+                  {[0, 1].map((copy) => (
+                    <div className="gallery-logo-group" aria-hidden={copy === 1} key={copy}>
+                      {logos.map((logo) => (
+                        <div className="gallery-logo-placeholder" key={logo.name}>
+                          {logo.image ? (
+                            <img
+                              src={logo.image}
+                              alt={copy === 1 ? "" : `${logo.name} partner`}
+                              loading="lazy"
+                            />
+                          ) : (
+                            <span aria-hidden={copy === 1}>{logo.name}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
