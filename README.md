@@ -1,49 +1,27 @@
-# Ever Green Solar — React + Vite
+# Ever Green Solar
 
-A modern, responsive rooftop solar website converted from the original `Solarcell.html` into a complete React + Vite application.
+A responsive solar energy website built with React and Vite.
 
-## Tech Stack
+## Requirements
 
-- React
-- Vite
-- GSAP
-- GSAP ScrollTrigger
-- AOS (Animate On Scroll)
-- CSS
+- Node.js (LTS recommended)
+- npm
 
-## Features
+## Setup and run
 
-- Responsive desktop, tablet and mobile design
-- Modern rooftop solar landing page
-- Solar savings calculator
-- Animated statistics and counters
-- GSAP scroll animations
-- Interactive hover effects
-- Rooftop assessment section
-- Residential, Commercial and Industrial solutions
-- Project showcase
-- Government subsidy section
-- Customer trust section
-- Customer testimonial section
-- FAQ accordion
-- Contact / quotation CTA
-- Mobile bottom navigation bar
-- WhatsApp and call buttons
+```bash
+# Install dependencies
+npm install
 
-## Project Structure
+# Start the development server
+npm run dev
+```
 
-```text
-ever-green-solar-react/
-│
-├── public/
-│
-├── src/
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-│
-├── .gitignore
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+Open the local URL printed in the terminal (usually `http://localhost:5173`).
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
