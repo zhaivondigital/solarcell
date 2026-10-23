@@ -1118,8 +1118,6 @@ function HomePage() {
               ))}
             </div>
             <p className="testimonial-note">
-              Sample copy shown for layout purposes. Replace with verified
-              customer feedback before publishing.
             </p>
           </div>
         </section>
